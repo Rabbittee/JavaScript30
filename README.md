@@ -7,7 +7,7 @@
     </tr>
     <tr>
         <td>01</td>
-        <td>[JavaScript Drum Kit](https://rabbittee.github.io/JavaScript30/day01/sample)</td>
+        <td>`[`JavaScript Drum Kit`]``(`https://rabbittee.github.io/JavaScript30/day01/sample`)`</td>
     </tr>
     <tr>
         <td>02</td>
