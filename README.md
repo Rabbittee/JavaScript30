@@ -2,8 +2,8 @@
 
 <table>
     <tr>
-        <td>Day</td>
-        <td>Topic</td>
+        <td align = "center">Day</td>
+        <td align = "center">Topic</td>
     </tr>
     <tr>
         <td>01</td>
