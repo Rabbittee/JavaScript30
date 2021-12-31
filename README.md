@@ -11,118 +11,118 @@
     </tr>
     <tr>
         <td>02</td>
-        <td>[JS and CSS Clock](https://rabbittee.github.io/JavaScript30/day02/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day02/sample">JS and CSS Clock</a></td>
     </tr>
     <tr>
         <td>03</td>
-        <td>[CSS Variables](https://rabbittee.github.io/JavaScript30/day03/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day03/sample">CSS Variables</a></td>
     </tr>
     <tr>
         <td>04</td>
-        <td>[Array Cardio Day 1](https://rabbittee.github.io/JavaScript30/day04/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day04/sample">Array Cardio Day 1</a></td>
     </tr>
     <tr>
         <td>05</td>
-        <td>[Flex Panel Gallery](https://rabbittee.github.io/JavaScript30/day05/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day05/sample">Flex Panel Gallery</a></td>
     </tr>
     <tr>
         <td>06</td>
-        <td>[Type Ahead](https://rabbittee.github.io/JavaScript30/day06/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day06/sample">Type Ahead</a></td>
     </tr>
     <tr>
         <td>07</td>
-        <td>[Array Cardio Day 2](https://rabbittee.github.io/JavaScript30/day07/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day07/sample">Array Cardio Day 2</a></td>
     </tr>
     <tr>
         <td>08</td>
-        <td>[Fun with HTML5 Canvas](https://rabbittee.github.io/JavaScript30/day08/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day08/sample">Fun with HTML5 Canvas</a></td>
     </tr>
     <tr>
         <td>09</td>
-        <td>[Dev Tools Domination](https://rabbittee.github.io/JavaScript30/day09/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day09/sample">Dev Tools Domination</a></td>
     </tr>
     <tr>
         <td>10</td>
-        <td>[Hold Shift and Check Checkboxes](https://rabbittee.github.io/JavaScript30/day10/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day10/sample">Hold Shift and Check Checkboxes</a></td>
     </tr>
     <tr>
         <td>11</td>
-        <td>[Custom Video Player](https://rabbittee.github.io/JavaScript30/day11/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day11/sample">Custom Video Player</a></td>
     </tr>
     <tr>
         <td>12</td>
-        <td>[Key Sequence Detection](https://rabbittee.github.io/JavaScript30/day12/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day12/sample">Key Sequence Detection</a></td>
     </tr>
     <tr>
         <td>13</td>
-        <td>[Slide in on Scroll](https://rabbittee.github.io/JavaScript30/day13/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day13/sample">Slide in on Scroll</a></td>
     </tr>
     <tr>
         <td>14</td>
-        <td>[JavaScript References VS Copying](https://rabbittee.github.io/JavaScript30/day14/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day14/sample">JavaScript References VS Copying</a></td>
     </tr>
     <tr>
         <td>15</td>
-        <td>[LocalStorage](https://rabbittee.github.io/JavaScript30/day15/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day15/sample">LocalStorage</a></td>
     </tr>
     <tr>
         <td>16</td>
-        <td>[Mouse Move Shadow](https://rabbittee.github.io/JavaScript30/day16/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day16/sample">Mouse Move Shadow</a></td>
     </tr>
     <tr>
         <td>17</td>
-        <td>[Sort Without Articles](https://rabbittee.github.io/JavaScript30/day17/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day17/sample">Sort Without Articles</a></td>
     </tr>
     <tr>
         <td>18</td>
-        <td>[Adding Up Times with Reduce](https://rabbittee.github.io/JavaScript30/day18/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day18/sample">Adding Up Times with Reduce</a></td>
     </tr>
     <tr>
         <td>19</td>
-        <td>[Webcam Fun](https://rabbittee.github.io/JavaScript30/day19/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day19/sample">Webcam Fun</a></td>
     </tr>
     <tr>
         <td>20</td>
-        <td>[Speech Detection](https://rabbittee.github.io/JavaScript30/day20/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day20/sample">Speech Detection</a></td>
     </tr>
     <tr>
         <td>21</td>
-        <td>[Geolocation](https://rabbittee.github.io/JavaScript30/day21/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day21/sample">Geolocation</a></td>
     </tr>
     <tr>
         <td>22</td>
-        <td>[Follow Along Link Highlighter](https://rabbittee.github.io/JavaScript30/day22/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day22/sample">Follow Along Link Highlighter</a></td>
     </tr>
     <tr>
         <td>23</td>
-        <td>[Speech Synthesis](https://rabbittee.github.io/JavaScript30/day23/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day23/sample">Speech Synthesis</a></td>
     </tr>
     <tr>
         <td>24</td>
-        <td>[Sticky Nav](https://rabbittee.github.io/JavaScript30/day24/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day24/sample">Sticky Nav</a></td>
     </tr>
     <tr>
         <td>25</td>
-        <td>[Event Capture, Propagation, Bubbling and Once](https://rabbittee.github.io/JavaScript30/day25/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day25/sample">Event Capture, Propagation, Bubbling and Once</a></td>
     </tr>
     <tr>
         <td>26</td>
-        <td>[Stripe Follow Along Nav](https://rabbittee.github.io/JavaScript30/day26/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day26/sample">Stripe Follow Along Nav</a></td>
     </tr>
     <tr>
         <td>27</td>
-        <td>[Click and Drag](https://rabbittee.github.io/JavaScript30/day27/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day27/sample">Click and Drag</a></td>
     </tr>
     <tr>
         <td>28</td>
-        <td>[Video Speed Controller](https://rabbittee.github.io/JavaScript30/day28/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day28/sample">Video Speed Controller</a></td>
     </tr>
     <tr>
         <td>29</td>
-        <td>[Countdown Timer](https://rabbittee.github.io/JavaScript30/day29/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day29/sample">Countdown Timer</a></td>
     </tr>
     <tr>
         <td>30</td>
-        <td>[Whack A Mole](https://rabbittee.github.io/JavaScript30/day30/sample)</td>
+        <td><a href = "https://rabbittee.github.io/JavaScript30/day30/sample">Whack A Mole</a></td>
     </tr>
 </table>
