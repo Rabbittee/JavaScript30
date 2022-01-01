@@ -58,57 +58,18 @@
   <audio data-key="KeyL" src="../sample/sounds/tink.wav"></audio>
 
 <script>
-const $ = (target) => document.querySelector(target);
-const onPress = (key) => $(`audio[data-key=${key}]`);
-const keys = {
-  KeyA: "KeyA",
-  KeyS: "KeyS",
-  KeyD: "KeyD",
-  KeyF: "KeyF",
-  KeyG: "KeyG",
-  KeyH: "KeyH",
-  KeyJ: "KeyJ",
-  KeyK: "KeyK",
-  KeyL: "KeyL",
-}
+const $ = (target) => document.querySelectorAll(target);
 window.addEventListener("keydown",function(event){
   /**
    * KeyboardEvent/keyCode(Deprecated)
    * https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode
   **/
- const {KeyA,KeyS,KeyD,KeyF,KeyG,KeyH,KeyJ,KeyK,KeyL} = keys;
-  switch(event.code){
-    case KeyA:
-      onPress(KeyA).play();
-      break;
-    case KeyS:
-      onPress(KeyS).play();
-      break;
-      case KeyD:
-      onPress(KeyD).play();
-      break;
-    case KeyF:
-      onPress(KeyF).play();
-      break;
-    case KeyG:
-      onPress(KeyG).play();
-      break;
-    case KeyH:
-      onPress(KeyH).play();
-      break;
-    case KeyJ:
-      onPress(KeyJ).play();
-      break;
-    case KeyK:
-      onPress(KeyK).play();
-      break;
-    case KeyL:
-      onPress(KeyL).play();
-      break;
-  }
+  $("audio").forEach(function(element){
+    if(element.dataset.key === event.code){
+      element.play();
+    }
+  })
 })
 </script>
-
-
 </body>
 </html>
