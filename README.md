@@ -1,5 +1,7 @@
 #### **JavaScript30 Sample 連結**
 
+[使用說明書](https://rabbit-church.notion.site/JS30-README-ee1cc150ece5490ab6b6edc3cf47bdaa)
+
 <table>
     <tr>
         <td align = "center">Day</td>
