@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;500;700&family=Ubuntu:wght@300;400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply bg-[url('./assets/background.jpg')];
+}
+
+html,
+body {
+  @apply font-roboto;
+}
+
+.key {
+  @apply border-[6.4px] border-black rounded-lg m-4 text-2xl text-white;
+}
+
+.play {
+  @apply scale-150;
+}
