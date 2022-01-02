@@ -62,11 +62,7 @@
        **/
       const $ = (target) => document.querySelectorAll(target);
 
-
-
-      
       window.addEventListener("keydown", function (event) {
-
         $("div[data-key]").forEach(function (element) {
           if (element.dataset.key === event.code) {
             element.classList.add("playing");
@@ -77,20 +73,14 @@
             audio.play();
           }
         });
-
       });
 
-
-
-
       window.addEventListener("keyup", function (event) {
-
         $("div[data-key]").forEach(function (element) {
           if (element.dataset.key === event.code) {
             element.classList.remove("playing");
           }
         });
-
       });
     </script>
   </body>
