@@ -1,0 +1,6 @@
+const s=function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))l(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const n of t.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&l(n)}).observe(document,{childList:!0,subtree:!0});function o(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerpolicy&&(t.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?t.credentials="include":e.crossorigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function l(e){if(e.ep)return;e.ep=!0;const t=o(e);fetch(e.href,t)}};s();const c=document.querySelector("header");c.innerHTML=`<nav class="bg-white bg-opacity-75 fixed top-0 w-full">
+<ul class="flex justify-between p-4">
+  <li><h1 class="text-2xl">alpha's js 30 days</h1></li>
+  <li><a class="hover:text-blue-500 text-xl" href="https://github.com/Rabbittee/JavaScript30/tree/main/day01/alpha">Github</a></li>
+</ul>
+</nav>`;document.addEventListener("keydown",function(i){const r=document.querySelector(`audio[data-key="${i.keyCode}"]`);if(!r)return;r.currentTime=0,r.play();const o=document.querySelector(`div[data-key="${i.keyCode}"]`);!o||(o.classList.add("play"),setTimeout(()=>{o.classList.remove("play")},100))});
