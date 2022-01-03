@@ -13,9 +13,19 @@ body {
 }
 
 .key {
-  @apply border-[6.4px] border-black rounded-lg m-4 text-2xl text-white;
+  @apply border-4 border-black rounded-lg m-[10px] bg-black bg-opacity-40 px-2 py-4 w-28;
+  @apply text-center text-2xl text-white;
+}
+
+kbd {
+  @apply block;
+}
+
+.sound {
+  @apply text-[#ffc600] font-light text-sm;
 }
 
 .play {
-  @apply scale-150;
+  @apply scale-110;
+  @apply border-[#ffc600] shadow-blur;
 }

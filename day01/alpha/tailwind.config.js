@@ -5,6 +5,9 @@ module.exports = {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
       },
+      boxShadow: {
+        blur: '0 0 1rem #ffc600',
+      },
     },
   },
   plugins: [],

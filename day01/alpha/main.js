@@ -9,6 +9,8 @@ document.addEventListener('keydown', function (e) {
   const currentAudio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
   //if keydown is not in keys then return
   if (!currentAudio) return;
+  //initial audio time;
+  currentAudio.currentTime = 0;
   //play() is audio tag's function;
   currentAudio.play();
 
@@ -16,6 +18,7 @@ document.addEventListener('keydown', function (e) {
   const currentKey = document.querySelector(`div[data-key="${e.keyCode}"]`);
   if (!currentKey) return;
   currentKey.classList.add('play');
+  //time out let the active effects off
   setTimeout(() => {
     currentKey.classList.remove('play');
   }, 100);
