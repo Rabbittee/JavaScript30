@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 html {
-  @apply bg-[url('./assets/background.jpg')];
+  @apply bg-[url('../sample/background.jpg')];
 }
 
 html,
