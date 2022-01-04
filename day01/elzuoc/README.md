@@ -1,4 +1,4 @@
-##Programming Flow
+## Programming Flow
 
 1.取得鍵盤對應字母
 
@@ -23,7 +23,7 @@
   <li>使用 addListeningEvent 監聽 transitionend 轉場特效結束事件</li>
 </ol>
 
-##補充
+## 補充
 
 <ol>
   <li>區塊框線效果：若不使用 addListeningEvent 監聽 transitionend 轉場特效結束事件，而是直接使用 .classList.remove() ，就無法正常呈現轉場效果。</li>
