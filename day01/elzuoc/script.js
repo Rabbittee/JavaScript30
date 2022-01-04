@@ -1,14 +1,13 @@
-const rabbitHost = window.location.host;
 const audioPath = {
-  65: `${rabbitHost}/JavaScript30/day01/sample/sounds/clap.wav`,
-  83: `${rabbitHost}/JavaScript30/day01/sample/sounds/hihat.wav`,
-  68: `${rabbitHost}/JavaScript30/day01/sample/sounds/kick.wav`,
-  70: `${rabbitHost}/JavaScript30/day01/sample/sounds/openhat.wav`,
-  71: `${rabbitHost}/JavaScript30/day01/sample/sounds/boom.wav`,
-  72: `${rabbitHost}/JavaScript30/day01/sample/sounds/ride.wav`,
-  74: `${rabbitHost}/JavaScript30/day01/sample/sounds/snare.wav`,
-  75: `${rabbitHost}/JavaScript30/day01/sample/sounds/tom.wav`,
-  76: `${rabbitHost}/JavaScript30/day01/sample/sounds/tink.wav`,
+  65: "../sample/sounds/clap.wav",
+  83: "../sample/sounds/hihat.wav",
+  68: "../sample/sounds/kick.wav",
+  70: "../sample/sounds/openhat.wav",
+  71: "../sample/sounds/boom.wav",
+  72: "../sample/sounds/ride.wav",
+  74: "../sample/sounds/snare.wav",
+  75: "../sample/sounds/tom.wav",
+  76: "../sample/sounds/tink.wav",
 };
 
 // 移除 .playing 轉場效果
