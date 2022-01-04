@@ -16,7 +16,7 @@
   document.querySelector();
   ```
 - [html data-\*](https://developer.mozilla.org/zh-TW/docs/Web/HTML/Global_attributes/data-*)<br>
-  早期常用來連結多個 DOM 操作，**但因為可顯示在使用者端容易被修改已經不建議使用**。
+  早期常用來當作與 DOM 交換資料的屬性，會將資料存進去**但因為可顯示在使用者端容易被修改已經不建議使用**。
 
   ```js
   //這裡可以抓題目裡的data-key
@@ -24,11 +24,11 @@
   ```
 
 - [EventListener](https://developer.mozilla.org/zh-TW/docs/Web/API/EventListener)<br>
-  監聽 DOM
+  監聽 DOM 的指定事件
 
   ```js
   //這裡使用
-  document.addEventListener('keydown', function () {});
+  document.addEventListener("keydown", function () {});
   ```
 
   - [Keyboard Event](https://developer.mozilla.org/zh-TW/docs/Web/API/KeyboardEvent)<br>
@@ -58,8 +58,8 @@
 
     ```js
     //這裡使用
-    currentKey.classList.add('play');
-    currentKey.classList.remove('play');
+    currentKey.classList.add("play");
+    currentKey.classList.remove("play");
     ```
 
 - [setTimeout()](https://developer.mozilla.org/zh-CN/docs/Web/API/setTimeout)<br>
@@ -68,6 +68,6 @@
   ```js
   //這裡使用
   setTimeout(() => {
-    currentKey.classList.remove('play');
+    currentKey.classList.remove("play");
   }, 100);
   ```
