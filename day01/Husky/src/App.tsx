@@ -1,58 +1,40 @@
-interface KeyModel {
-  name?: string;
-  keyNumber: string;
-  letter?: string;
-}
-
-function Key(props: KeyModel) {
-  return (
-    <div
-      data-key={props.keyNumber}
-      className="border-4 border-solid border-black rounded-lg m-4 text-2xl py-4 px-2 w-40 text-center text-white bg-black bg-opacity-40"
-    >
-      <kbd className="block text-6xl">{props.letter}</kbd>
-      <span className="text-xl uppercase tracking-widest text-yellow-500">
-        {props.name}
-      </span>
-    </div>
-  );
-}
-
-function Audio(props: KeyModel) {
-  return (
-    <audio
-      data-key={props.keyNumber}
-      src="../../sample/sounds/boom.wav"
-    ></audio>
-  );
-}
+import KeyButton from "./components/KeyButton";
+import { play } from "./utils/music";
 
 function App() {
-  const keys = [
-    { name: "clap", keyNumber: "65", letter: "A" },
-    { name: "hihat", keyNumber: "83", letter: "S" },
-    { name: "kick", keyNumber: "68", letter: "D" },
-    { name: "openhat", keyNumber: "70", letter: "F" },
-    { name: "boom", keyNumber: "71", letter: "G" },
-    { name: "ride", keyNumber: "72", letter: "H" },
-    { name: "snare", keyNumber: "74", letter: "J" },
-    { name: "tom", keyNumber: "75", letter: "K" },
-    { name: "tink", keyNumber: "76", letter: "L" },
+  const keysInfo = [
+    { name: "clap", letter: "A", playing: false },
+    { name: "hihat", letter: "S", playing: false },
+    { name: "kick", letter: "D", playing: true },
+    { name: "openhat", letter: "F", playing: false },
+    { name: "boom", letter: "G", playing: false },
+    { name: "ride", letter: "H", playing: false },
+    { name: "snare", letter: "J", playing: false },
+    { name: "tom", letter: "K", playing: false },
+    { name: "tink", letter: "L", playing: false },
   ];
 
-  const keysEle = keys.map((key) => (
-    <Key
-      key={key.keyNumber}
+  const keys = keysInfo.map((key) => (
+    <KeyButton
+      key={key.letter}
       name={key.name}
-      keyNumber={key.keyNumber}
       letter={key.letter}
+      playing={key.playing}
     />
   ));
 
+  window.addEventListener("keydown", (event) => {
+    console.log(event);
+    const k = event.code.replace("Key", "").toUpperCase();
+    const target = keysInfo.find((key) => key.letter === k);
+    console.log(target);
+    if (target === undefined) return;
+    play(target.name);
+  });
+
   return (
     <div className="flex flex-1 min-h-screen items-center justify-center">
-      {keysEle}
-      <Audio keyNumber="65" />
+      {keys}
     </div>
   );
 }

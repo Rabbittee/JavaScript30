@@ -12,3 +12,7 @@ body,
 html {
   font-family: sans-serif;
 }
+
+.playing {
+  @apply scale-110 border-yellow-400 shadow shadow-yellow-200;
+}
