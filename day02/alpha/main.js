@@ -5,52 +5,38 @@ import "./src/header";
  * 利用js來讓指針動的跟真的時鐘一樣
  */
 
+//select DOM
 const select = (item) => document.querySelector(item);
 
-const hourHand = select(".hour-hand");
-
-const minHand = select(".min-hand");
-
-const secondHand = select(".second-hand");
-
-const timeView = select(".time-value");
-const caculateMinutesDeg = (time) => {
-  return (time / 60) * 360;
+//caculate degree
+const caculateDeg = (time, denominator) => {
+  return (time / denominator) * 360;
 };
 
-const caculateSecondsDeg = (time) => {
-  return (time / 60) * 360;
+//add rotate style of clock's hand
+const rotate = (element, getDeg) => {
+  element.style.transform = `rotate(${getDeg + 90}deg)`;
 };
 
-const caculateHoursDeg = (time) => {
-  return (time / 24) * 360;
-};
-
-const getTime = () => {
+//get whole clock action
+const getClock = () => {
   const nowTime = new Date();
-  timeView.innerHTML = `<span>${getHours(nowTime).hours}:${
-    getMinutes(nowTime).minutes
-  }:${getSeconds(nowTime).seconds}</span>`;
-  secondHand.style.transform = `rotate(${getSeconds(nowTime).deg + 90}deg)`;
-  minHand.style.transform = `rotate(${getMinutes(nowTime).deg + 90}deg)`;
-  hourHand.style.transform = `rotate(${getHours(nowTime).deg + 90}deg)`;
+  const hourHand = { element: select(".hour-hand"), value: nowTime.getHours() };
+
+  const minHand = { element: select(".min-hand"), value: nowTime.getMinutes() };
+
+  const secondHand = {
+    element: select(".second-hand"),
+    value: nowTime.getSeconds(),
+  };
+
+  const timeView = select(".time-value");
+  timeView.innerHTML = `<span>${hourHand.value}:${minHand.value}:${secondHand.value}</span>`;
+
+  rotate(hourHand.element, caculateDeg(hourHand.value * 2, 24));
+  rotate(minHand.element, caculateDeg(minHand.value, 60));
+  rotate(secondHand.element, caculateDeg(secondHand.value, 60));
 };
 
-const getHours = (time) => {
-  const hours = time.getHours();
-  const deg = caculateHoursDeg(hours);
-  return { hours, deg };
-};
-
-const getMinutes = (time) => {
-  const minutes = time.getMinutes();
-  const deg = caculateMinutesDeg(minutes);
-  return { minutes, deg };
-};
-
-const getSeconds = (time) => {
-  const seconds = time.getSeconds();
-  const deg = caculateSecondsDeg(seconds);
-  return { seconds, deg };
-};
-setInterval(getTime, 1000);
+//do again pre second
+setInterval(getClock, 1000);

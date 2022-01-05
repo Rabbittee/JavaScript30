@@ -19,6 +19,10 @@ body {
   align-items: center;
 }
 
+header {
+  @apply font-roboto my-auto;
+}
+
 main {
   @apply flex-col justify-center items-center mx-auto;
 }
@@ -52,4 +56,16 @@ main {
   position: absolute;
   top: 50%;
   transform-origin: 100%;
+}
+
+.hour-hand {
+  @apply bg-red-500;
+}
+
+.min-hand {
+  @apply bg-black;
+}
+
+.second-hand {
+  @apply bg-green-500;
 }
