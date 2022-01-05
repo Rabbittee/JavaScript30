@@ -1,35 +1,45 @@
+import { useState, useEffect, useCallback } from "react";
+
+import soundList from "./assets/sound";
 import KeyButton from "./components/KeyButton";
 import { play } from "./utils/music";
 
 function App() {
-  const keysInfo = [
-    { name: "clap", letter: "A", playing: false },
-    { name: "hihat", letter: "S", playing: false },
-    { name: "kick", letter: "D", playing: true },
-    { name: "openhat", letter: "F", playing: false },
-    { name: "boom", letter: "G", playing: false },
-    { name: "ride", letter: "H", playing: false },
-    { name: "snare", letter: "J", playing: false },
-    { name: "tom", letter: "K", playing: false },
-    { name: "tink", letter: "L", playing: false },
-  ];
+  const [data, setData] = useState(soundList);
 
-  const keys = keysInfo.map((key) => (
+  const keys = soundList.map((key, index) => (
     <KeyButton
       key={key.letter}
       name={key.name}
       letter={key.letter}
       playing={key.playing}
+      sound={key.sound}
+      onClick={() => {
+        soundList[index].playing = true;
+        setData([...soundList]);
+        play(soundList[index]);
+        setTimeout(() => {
+          soundList[index].playing = false;
+          setData([...soundList]);
+        }, 100);
+      }}
     />
   ));
 
-  window.addEventListener("keydown", (event) => {
-    console.log(event);
+  const keyPress = (type: string) => (event: { code: string }) => {
     const k = event.code.replace("Key", "").toUpperCase();
-    const target = keysInfo.find((key) => key.letter === k);
-    console.log(target);
+    const target = data.find((key) => key.letter === k);
     if (target === undefined) return;
-    play(target.name);
+    if (type === "down") play(target);
+    target.playing = type === "down";
+    setData([...data]);
+  };
+
+  const handleKeyPressDown = useCallback(keyPress("down"), data);
+  const handleKeyPressUp = useCallback(keyPress("up"), data);
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyPressDown);
+    window.addEventListener("keyup", handleKeyPressUp);
   });
 
   return (

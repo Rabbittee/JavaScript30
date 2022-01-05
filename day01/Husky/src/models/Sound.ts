@@ -1,3 +1,3 @@
 export default interface SoundMap {
-  [propName: string]: string;
+  [propName: string]: object;
 }

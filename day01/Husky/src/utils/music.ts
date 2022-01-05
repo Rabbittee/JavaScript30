@@ -1,7 +1,7 @@
-import soundMap from "../assets/sound";
+import Key from "../models/Key";
 
-function play(name: string) {
-  const audio = new Audio(soundMap[name]);
+function play(sound: Key) {
+  const audio = new Audio(sound?.sound);
   audio.currentTime = 0;
   audio.play();
 }
