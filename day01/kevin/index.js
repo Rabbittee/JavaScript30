@@ -23,7 +23,7 @@
   }
 
   function getKeycode(event) {
-    return event.keyCode;
+    return event.key.toUpperCase().charCodeAt();
   }
 
   // * Audio relates functions =======
