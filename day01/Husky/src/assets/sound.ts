@@ -8,18 +8,16 @@ import snare from "../../../sample/sounds/snare.wav";
 import tink from "../../../sample/sounds/tink.wav";
 import tom from "../../../sample/sounds/tom.wav";
 
-import SoundMap from "../models/Sound";
+const soundList = [
+  { name: "clap", letter: "A", playing: false, sound: clap },
+  { name: "hihat", letter: "S", playing: false, sound: hihat },
+  { name: "kick", letter: "D", playing: false, sound: kick },
+  { name: "openhat", letter: "F", playing: false, sound: openhat },
+  { name: "boom", letter: "G", playing: false, sound: boom },
+  { name: "ride", letter: "H", playing: false, sound: ride },
+  { name: "snare", letter: "J", playing: false, sound: snare },
+  { name: "tom", letter: "K", playing: false, sound: tom },
+  { name: "tink", letter: "L", playing: false, sound: tink },
+];
 
-const soundMap: SoundMap = {
-  boom,
-  clap,
-  hihat,
-  kick,
-  openhat,
-  ride,
-  snare,
-  tink,
-  tom,
-};
-
-export default soundMap;
+export default soundList;
