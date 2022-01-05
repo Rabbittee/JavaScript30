@@ -57,28 +57,56 @@ const people = [
   "Biondo, Frank",
 ];
 
-// Array.prototype.filter()
-// 1. Filter the list of inventors for those who were born in the 1500's
+const filterYear = inventors.filter((el) => el.year > 1500 && el.year < 1600);
+console.log(
+  "1. Filter the list of inventors for those who were born in the 1500's",
+  filterYear
+);
 
-// Array.prototype.map()
-// 2. Give us an array of the inventors first and last names
+const mapName = inventors.map((el) => `${el.first} ${el.last}`);
+console.log(
+  "2. Give us an array of the inventors first and last names",
+  mapName
+);
 
-// Array.prototype.sort()
-// 3. Sort the inventors by birthdate, oldest to youngest
+const sortBirthdate = inventors.sort((a, b) => a.year - b.year);
+console.log(
+  "3. Sort the inventors by birthdate, oldest to youngest",
+  sortBirthdate
+);
 
-// Array.prototype.reduce()
-// 4. How many years did all the inventors live all together?
+const reduceLive = inventors.reduce(
+  (sum, curr) => sum + (curr.passed - curr.year),
+  0
+);
+console.log(
+  "4. How many years did all the inventors live all together?",
+  reduceLive
+);
 
-// 5. Sort the inventors by years lived
+const sortLived = inventors.sort(
+  (a, b) => b.passed - b.year - (a.passed - a.year)
+);
+console.log("5. Sort the inventors by years lived", sortLived);
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+// skip it
+const list = people.filter((el) => el.includes("de"));
+console.log("6. contain `de` anywhere in the people", list);
 
-// 7. sort Exercise
-// Sort the people alphabetically by last name
+// TODO 題目怪怪的
+const splitName = (name) => name.split(", ")[1];
+const sortLastName = people.sort((next, curr) => {
+  nextName = splitName(next);
+  currName = splitName(curr);
+  return nextName.charCodeAt() - currName.charCodeAt();
+});
+console.log(
+  "7. sort Exercise: Sort the people alphabetically by last name",
+  sortLastName
+);
 
-// 8. Reduce Exercise
-// Sum up the instances of each of these
 const data = [
   "car",
   "car",
@@ -95,3 +123,15 @@ const data = [
   "car",
   "truck",
 ];
+
+const countTimes = data.reduce((obj, curr) => {
+  if (!obj[curr]) {
+    obj[curr] = 0;
+  }
+  obj[curr]++;
+  return obj;
+}, {});
+console.log(
+  "8. Reduce Exercise: Sum up the instances of each of these",
+  countTimes
+);
