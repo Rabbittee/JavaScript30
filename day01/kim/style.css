@@ -1,10 +1,11 @@
 html {
   font-size: 10px;
-  background: url('./background.jpg') bottom center;
+  background: url("./background.jpg") bottom center;
   background-size: cover;
 }
 
-body,html {
+body,
+html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -19,23 +20,24 @@ body,html {
 }
 
 .key {
-  border: .4rem solid black;
-  border-radius: .5rem;
+  border: 0.4rem solid black;
+  border-radius: 0.5rem;
   margin: 1rem;
   font-size: 1.5rem;
-  padding: 1rem .5rem;
-  transition: all .07s ease;
+  padding: 1rem 0.5rem;
+  /* transition: all 5000ms ease; */
   width: 10rem;
   text-align: center;
   color: white;
-  background: rgba(0,0,0,0.4);
-  text-shadow: 0 0 .5rem black;
+  background: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 0.5rem black;
 }
 
 .playing {
-  transform: scale(1.1);
+  transform: scale(1.2);
   border-color: #ffc600;
   box-shadow: 0 0 1rem #ffc600;
+  transition: all 3000ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 kbd {
@@ -46,6 +48,6 @@ kbd {
 .sound {
   font-size: 1.2rem;
   text-transform: uppercase;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   color: #ffc600;
 }
