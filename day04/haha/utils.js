@@ -95,13 +95,10 @@ console.log("5. Sort the inventors by years lived", sortLived);
 const list = people.filter((el) => el.includes("de"));
 console.log("6. contain `de` anywhere in the people", list);
 
-// TODO 題目怪怪的
-const splitName = (name) => name.split(", ")[1];
-const sortLastName = people.sort((next, curr) => {
-  nextName = splitName(next);
-  currName = splitName(curr);
-  return nextName.charCodeAt() - currName.charCodeAt();
-});
+const splitName = (name) => name.split(", ")[0];
+const sortLastName = people.sort((next, curr) =>
+  splitName(next) > splitName(curr) ? 1 : -1
+);
 console.log(
   "7. sort Exercise: Sort the people alphabetically by last name",
   sortLastName
