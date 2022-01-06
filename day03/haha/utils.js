@@ -1,16 +1,15 @@
-const controls = document.querySelectorAll('.controls input')
+const controls = document.querySelectorAll('.controls input');
 
-controls.forEach(el => {
-    cssStyle(el.name, el.value)
-    el.onchange = () => {
-        cssStyle(el.name, el.value)
-    }
-})
+controls.forEach((el) => {
+  // 監聽變化
+  el.addEventListener('change', cssStyle);
+});
 
-function cssStyle(idName, val) {
-    const img = document.querySelector('img')
-    img.style.borderStyle = 'solid'
-    if (idName === 'spacing') return img.style.borderWidth = `${val}px`
-    if (idName === 'blur') return img.style.filter = `blur(${val}px)`
-    img.style.borderColor = `${val}`
+function cssStyle() {
+  const styleVal = this.dataset.sizing ? this.dataset.sizing : '';
+  // 修改 css 變量
+  document.documentElement.style.setProperty(
+    `--${this.name}`,
+    this.value + styleVal
+  );
 }
