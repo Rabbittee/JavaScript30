@@ -20,7 +20,10 @@ const rotate = (element, getDeg) => {
 
 //get whole clock action
 const getClock = () => {
+  //get now time
   const nowTime = new Date();
+
+  //create clock hand's object about element and time value
   const hourHand = { element: select(".hour-hand"), value: nowTime.getHours() };
 
   const minHand = { element: select(".min-hand"), value: nowTime.getMinutes() };
@@ -30,9 +33,17 @@ const getClock = () => {
     value: nowTime.getSeconds(),
   };
 
-  const timeView = select(".time-value");
-  timeView.innerHTML = `<span>${hourHand.value}:${minHand.value}:${secondHand.value}</span>`;
+  //add about string to format time value
+  hourHand.string = hourHand.value < 10 ? "0" + hourHand.value : hourHand.value;
+  minHand.string = minHand.value < 10 ? "0" + minHand.value : minHand.value;
+  secondHand.string =
+    secondHand.value < 10 ? "0" + secondHand.value : secondHand.value;
 
+  //view time string
+  const timeView = select(".time-value");
+  timeView.innerHTML = `<span>${hourHand.string}:${minHand.string}:${secondHand.string}</span>`;
+
+  //do rotate about clock hands
   rotate(
     hourHand.element,
     caculateDeg(
