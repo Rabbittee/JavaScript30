@@ -33,8 +33,17 @@ const getClock = () => {
   const timeView = select(".time-value");
   timeView.innerHTML = `<span>${hourHand.value}:${minHand.value}:${secondHand.value}</span>`;
 
-  rotate(hourHand.element, caculateDeg(hourHand.value, 12));
-  rotate(minHand.element, caculateDeg(minHand.value, 60));
+  rotate(
+    hourHand.element,
+    caculateDeg(
+      hourHand.value + minHand.value / 60 + secondHand.value / 3600,
+      12
+    )
+  );
+  rotate(
+    minHand.element,
+    caculateDeg(minHand.value + secondHand.value / 60, 60)
+  );
   rotate(secondHand.element, caculateDeg(secondHand.value, 60));
 };
 
