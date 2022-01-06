@@ -25,25 +25,25 @@ const removeTransition = () => {
 };
 
 // 加入 .playing 轉場效果
-const setDivStyle = (e, getDom) => {
-  getDom.classList.add("playing");
+const setDivClass = (el) => {
+  el.classList.add("playing");
 };
 
 // 撥放音效 & 效果
 const playAudio = (e) => {
   // 取得對應鍵盤輸入的audio與div
-  let getAudio = document.querySelector(`audio[data-key='${e.keyCode}']`);
-  let getKeyDiv = document.querySelector(`div[data-key='${e.keyCode}']`);
+  let audioDom = document.querySelector(`audio[data-key='${e.keyCode}']`);
+  let keyDom = document.querySelector(`div[data-key='${e.keyCode}']`);
 
-  if (!getAudio || !getKeyDiv) return;
+  if (!audioDom || !keyDom) return;
 
   // 設定音效路徑到兔兔教
-  getAudio.src = audioPath[e.keyCode];
+  audioDom.src = audioPath[e.keyCode];
 
-  setDivStyle(e, getKeyDiv);
-  removeTransition(getKeyDiv);
-  getAudio.currentTime = 0; // 音效撥放起始位置，強制跳至指定秒數(歸0)
-  getAudio.play();
+  setDivClass(keyDom);
+  removeTransition(keyDom);
+  audioDom.currentTime = 0; // 音效撥放起始位置，強制跳至指定秒數(歸0)
+  audioDom.play();
 };
 
 window.addEventListener("keydown", playAudio);
