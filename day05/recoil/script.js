@@ -1,7 +1,5 @@
 const $ = (target) => document.querySelectorAll(target);
 
-const panels = $(".panel");
-
 function Elements(list) {
   return function (className) {
     list.forEach(function (node) {
@@ -10,6 +8,7 @@ function Elements(list) {
   };
 }
 
+const panels = $(".panel");
 const removeAllPanelClass = Elements(panels);
 
 panels.forEach(function (element) {
@@ -21,4 +20,8 @@ panels.forEach(function (element) {
       e.target.classList.add("open");
     }
   });
+  element.addEventListener("transitionend",function(e){
+    if (e.target.classList.contains("open"))e.target.classList.add("open-active");
+    else e.target.classList.remove("open-active");
+  })
 });
