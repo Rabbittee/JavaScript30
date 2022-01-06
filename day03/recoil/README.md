@@ -34,7 +34,9 @@
 
 ```js
   5   function handleValue(target) {//將Element的dataset處理成待會要給style的數值
+
   6     const sizing = target.dataset?.sizing ?? "";//抓到的標籤若有 sizing 這個屬性就引用，否則是 ""
+
   7     return target.value + sizing;
         /*  將 Element的value 與 data-sizing 合併成style需要的值
          *  exp:<input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
