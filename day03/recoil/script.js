@@ -31,4 +31,5 @@ const inputs = $(".controls > input");
 function run() {
   Promise.resolve(inputs).then(init).then(watch);
 }
+
 run();
