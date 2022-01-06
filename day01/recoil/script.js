@@ -1,7 +1,3 @@
-/**
- * KeyboardEvent/keyCode(Deprecated)
- * https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode
- **/
 const $ = (target) => document.querySelectorAll(target);
 
 window.addEventListener("keydown", function (event) {
