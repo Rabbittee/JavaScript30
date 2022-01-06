@@ -5,6 +5,10 @@
 
 #### **JavaScript30 Sample 連結**
 
+Day | Topic
+----|-----------------------------------------------------------
+01  | [JavaScript Drum Kit](https://rabbittee.github.io/JavaScript30/day01/sample)
+
 <table>
     <tr>
         <td align = "center">Day</td>
