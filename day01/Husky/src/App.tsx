@@ -14,15 +14,6 @@ function App() {
       letter={key.letter}
       playing={key.playing}
       sound={key.sound}
-      onClick={() => {
-        soundList[index].playing = true;
-        setData([...soundList]);
-        play(soundList[index]);
-        setTimeout(() => {
-          soundList[index].playing = false;
-          setData([...soundList]);
-        }, 100);
-      }}
     />
   ));
 
