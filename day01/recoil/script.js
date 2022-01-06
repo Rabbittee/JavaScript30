@@ -1,7 +1,7 @@
 const $ = (target) => document.querySelectorAll(target);
-
+const keyboards = $("div[data-key]")
 window.addEventListener("keydown", function (event) {
-  $("div[data-key]").forEach(function (element) {
+  keyboards.forEach(function (element) {
     if (element.dataset.key === event.code) {
       element.classList.add("playing");
       const audio = document.querySelector(
@@ -14,7 +14,7 @@ window.addEventListener("keydown", function (event) {
 });
 
 window.addEventListener("keyup", function (event) {
-  $("div[data-key]").forEach(function (element) {
+  keyboards.forEach(function (element) {
     if (element.dataset.key === event.code) {
       element.classList.remove("playing");
     }
