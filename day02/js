@@ -1,0 +1,66 @@
+/**
+ * Target: 每秒鐘改變時鐘樣式
+ */
+
+/**
+ * 每秒鐘執行
+ */
+function everySecondChange() {
+  changeStyle();
+  setTimeout(everySecondChange, 1000);
+}
+setTimeout(everySecondChange, 1000);
+
+function changeStyle() {
+  /**
+   * 呼叫樣式
+   */
+  const second = document.querySelector(".second-hand");
+  const min = document.querySelector(".min-hand");
+  const hour = document.querySelector(".hour-hand");
+
+  /**
+   * 呼叫時鐘
+   */
+  const time = new Date();
+  const timeSecond = ((time.getSeconds()/60))*360 + 90;
+  const timeMin = (timeSecond+time.getMinutes())/60
+  // const timeHour = (timeMin+time.getHours())/12
+  console.log(time)
+  
+
+  /**
+   * 對應起來修改
+   * 角度
+   */
+     function setRotation(element,rotationRatio) {
+      element.style.transform = `rotate(${rotationRatio}deg)`;
+      console.log(element)
+    }
+    setRotation(second, timeSecond)
+    // setRotation(min, timeMin)
+    // setRotation(hour, timeHour)
+
+    // min.style.transform = `rotate(${timeMin}deg)`;
+    // second.style.transform = `rotate(${timeHour}deg)`;
+  // console.log(second)
+}
+
+// const hourHand=document.querySelector('.data-hour-hand');
+// const minuteHand=document.querySelector('.data-minute-hand');
+// const secondHand=document.querySelector('.data-second-hand');
+// setInterval(setClock,1000);
+
+// function setClock(params) {
+//     const currentDate=new Date();
+//     const secondsRatio= currentDate.getSeconds()/60
+//     const minutesRatio= (secondsRatio+currentDate.getMinutes())/60
+//     const hourRatio= (minutesRatio+currentDate.getHours())/12
+//     setRotation(secondHand,secondsRatio)
+//     setRotation(minuteHand,minutesRatio)
+//     setRotation(hourHand,hourRatio)
+// }
+// // 角度
+// function setRotation(element,rotationRatio) {
+//     element.style.setProperty('--rotation',rotationRatio*360)
+// }
