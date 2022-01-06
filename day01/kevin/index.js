@@ -41,12 +41,11 @@
 
   // * View relates functions ======
   function toggleActiveBoxClass(keycode, isActive = false) {
-    const classListMethod = isActive ? "add" : "remove";
     const activeClassName = "playing";
     const targetBox = document.querySelector(`.key[data-key="${keycode}"]`);
 
     if (targetBox === null) return;
-    targetBox.classList[classListMethod](activeClassName);
+    targetBox.classList.toggle(activeClassName, isActive);
   }
 })();
 
