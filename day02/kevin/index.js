@@ -43,5 +43,5 @@
   }
 
   initHandStyle();
-  setInterval(setAllHandsDegree, 100);
+  setInterval(setAllHandsDegree, 1000);
 })();
