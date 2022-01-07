@@ -1,52 +1,36 @@
 /**
- * 每秒鐘改變時鐘樣式
+ * Target: 每秒鐘改變時鐘樣式
  */
 
-/**
- * 每秒鐘執行
- */
+//  每秒鐘執行
 function everySecondChange() {
   changeStyle();
-  // nowTime();
   setTimeout(everySecondChange, 1000);
 }
 setTimeout(everySecondChange, 1000);
 
 function changeStyle() {
-  /**
-   * 呼叫時鐘
-   */
-  // hour
-  // min
-  // second
-  const date = new Date();
-  const dateSecond = date.getSeconds();
-
-  /**
-   * 呼叫樣式
-   * 變更樣式
-   */
-  const hour = document.querySelector(".hour-hand");
-  // console.log((hour.style.transform = `rotate(${dateSecond}deg)`));
-  // hour.style.transform = "rotate(20deg)";
-  hour.style.transform = `rotate(${dateSecond}deg)`;
-
-  const min = document.querySelector(".min-hand");
+  // 呼叫樣式
   const second = document.querySelector(".second-hand");
+  const min = document.querySelector(".min-hand");
+  const hour = document.querySelector(".hour-hand");
+
+  // 呼叫時鐘
+  const time = new Date();
+  const timeSecond = time.getSeconds() / 60;
+  const timeMin = (timeSecond + time.getMinutes()) / 60;
+  const timeHour = (timeMin + time.getHours()) / 12;
+
+  /**
+   * 對應起來修改
+   * 角度
+   */
+  function setRotation(element, rotationRatio) {
+    const angle = rotationRatio * 360 + 90;
+    element.style.transform = `rotate(${angle}deg)`;
+    console.log(element);
+  }
+  setRotation(second, timeSecond);
+  setRotation(min, timeMin);
+  setRotation(hour, timeHour);
 }
-
-// function nowTime() {
-//   /**
-//    * 呼叫時鐘
-//    */
-//   // hour
-//   // min
-//   // second
-//   const date = new Date();
-//   const dateSecond = date.getSeconds();
-//   console.log(dateSecond);
-// }
-
-/**
- * 對應起來修改
- */
