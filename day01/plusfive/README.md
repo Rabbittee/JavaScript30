@@ -10,7 +10,8 @@
 * 怎麼讓 div 和 audio 標籤連動？ A: 後來改直接抓 audio tag
 * 怎麼監聽對的按鍵？ A: 監聽 event target，然後抓 keyCode
 * 怎麼發出聲音？ A: simply audio.play()
-* 怎麼做出跟 sample 一樣的效果（按下去的時候會有 transition 0.7 秒），偷偷在 sample 的網頁按 F12 看到應該也是加上 playing 的效果而已，但是不知道為何 key 的 transition 沒有吃到 QQ
+* 怎麼做出跟 sample 一樣的效果（按下去的時候會有 transition 0.7 秒）？偷偷在 sample 的網頁按 F12 看到應該也是加上 playing 的效果而已，但是不知道為何 key 的 transition 沒有吃到 QQ
+* 看到鳥胃的 issue 說已經不推薦使用 keyCode，感謝凱文超強讓我學到 .toUpperCase().charCodeAt() 的用法
 
 大約流程
 ```
