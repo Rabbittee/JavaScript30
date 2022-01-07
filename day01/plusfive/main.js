@@ -9,7 +9,7 @@ document.addEventListener('keydown', function(e) {
     // 定義會用到兩次的 audio key
     let audioKey = Number(audio.dataset.key)
     // 如果 event target 等於 迴圈跑到的 audio key 的話
-    if (Number(e.keyCode) === audioKey) {
+    if (e.key.toUpperCase().charCodeAt() === audioKey) {
       // 就 play 它ㄅ
       audio.play()
       // 來加上 css 效果，用抓到的每個 div 跑迴圈
