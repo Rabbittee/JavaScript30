@@ -5,31 +5,22 @@
 #### Logic
 
 ```js
-const $ = (target) => document.querySelectorAll(target);
-const keyboards = $("div[data-key]"); //把帶data-key的div選起來
+const $ = (target) => document.querySelector(target);
 window.addEventListener("keydown", function (event) {
-  // 監聽 keydown Event
-  keyboards.forEach(function (element) {
-    if (element.dataset.key === event.code) {
-      // 比對按下的按鍵
-      element.classList.add("playing"); //移除 playing className
-      const audio = document.querySelector(
-        `audio[data-key=${element.dataset.key}]`
-      ); //捕捉keyboard對應的audio
-      audio.currentTime = 0; //重置播放時間，避免播放時按下沒反應
-      audio.play(); //播放聲音
-    }
-  });
+  //監聽鍵盤按下事件
+  const keyboard = $(`div[data-key='${event.code}']`);
+  const audio = $(`audio[data-key='${event.code}']`);
+  if (!keyboard && !audio) return; // early return 感謝哈奇大大指導
+  keyboard.classList.add("playing"); //給按鍵添加 playing className
+  audio.currentTime = 0; //重置音檔播放時間
+  audio.play(); //播放音檔
 });
 
 window.addEventListener("keyup", function (event) {
-  // 監聽 keyup Event
-  keyboards.forEach(function (element) {
-    if (element.dataset.key === event.code) {
-      // 比對放開的按鍵
-      element.classList.remove("playing"); //移除 playing className
-    }
-  });
+  //監聽鍵盤按下事件
+  const keyboard = $(`div[data-key='${event.code}']`);
+  if (!keyboard) return; // early return
+  keyboard.classList.remove("playing"); //移除按鍵的 playing className
 });
 ```
 
