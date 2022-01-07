@@ -29,11 +29,14 @@
   ```js
   //這裡使用
   document.addEventListener("keydown", function () {});
+  document.addEventListener("keyup", function () {});
   ```
 
   - [Keyboard Event](https://developer.mozilla.org/zh-TW/docs/Web/API/KeyboardEvent)<br>
-    運用 keydown 方法<br>
-    keyup/keydown/keypress 三種方法，不使用 keypress 是因為此次希望大小寫字母點擊下去可以抓到的 keycode 是一樣的，所以選擇 keydown。
+    運用 keydown/keyup 方法<br>
+    keyup/keydown/keypress 三種方法，不使用 keypress 是因為此次希望大小寫字母點擊下去可以抓到的 keycode 是一樣的，以及要判斷他是按下還是放開所以選擇 keydown/keyup。
+
+    <font color=#FF6600>2022/1/7 更新：另外修改成取 key 可以避免 keycode 已經不再支援使用的問題。</font>
 
 - [html audio tag](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/audio)<br>
   操作 audio 這個 html 標籤
@@ -54,20 +57,16 @@
 - [Element.classList](https://developer.mozilla.org/zh-TW/docs/Web/API/Element/classList)<br>
   操作目標 DOM 的 class。
 
-  - 使用到<font color=#00ffff>add()</font>以及<font color=#00ffff>remove()</font>方法，來增加或者移除 class。
+  - 使用到<font color=#00ffff>toggle(class, boolean)</font>，可利用 flag 來操作此時需要加入 class 還是移除 class。
 
     ```js
     //這裡使用
-    currentKey.classList.add("play");
-    currentKey.classList.remove("play");
+    currentKey.classList.toggle("play", isActive);
     ```
 
-- [setTimeout()](https://developer.mozilla.org/zh-CN/docs/Web/API/setTimeout)<br>
-  在定時操作指定方法，因為想快速移除點擊時的效果所以搭配使用。
+- [.toUpperCase()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase)
 
-  ```js
-  //這裡使用
-  setTimeout(() => {
-    currentKey.classList.remove("play");
-  }, 100);
-  ```
+  - 用來將 string 皆轉為大寫。
+
+- [.charCodeAt()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)
+  - 將 string 轉為 UTF-16 代碼，如同 keyboard 的 keycode。
