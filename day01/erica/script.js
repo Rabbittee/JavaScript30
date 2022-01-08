@@ -43,7 +43,14 @@ function stopAudio() {
     
     /** 移除樣式、停止音訊 */
     keys.forEach((key) => key.classList.remove('playing'))
+<<<<<<< HEAD
     audios.forEach((audio) => audio.pause())
+=======
+    audios.forEach((audio) => {
+        audio.pause()
+        audio.currentTime = 0
+    })
+>>>>>>> 0747b551dae392a412b58fd317dbfa4556f8bfca
 }
 
 document.addEventListener('keydown', playAudio)
