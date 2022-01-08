@@ -1,5 +1,5 @@
-/**
- * Target: 每秒鐘改變時鐘樣式
+/** 
+ * Target: 每秒鐘改變時鐘樣式  
  */
 
 //  每秒鐘執行
@@ -7,10 +7,8 @@ function everySecondChange() {
   changeStyle();
   setTimeout(everySecondChange, 1000);
 }
-setTimeout(everySecondChange, 1000);
-
 function changeStyle() {
-  // 呼叫樣式
+  // 宣告 DOM 元素  
   const second = document.querySelector(".second-hand");
   const min = document.querySelector(".min-hand");
   const hour = document.querySelector(".hour-hand");
@@ -28,9 +26,9 @@ function changeStyle() {
   function setRotation(element, rotationRatio) {
     const angle = rotationRatio * 360 + 90;
     element.style.transform = `rotate(${angle}deg)`;
-    console.log(element);
   }
   setRotation(second, timeSecond);
   setRotation(min, timeMin);
   setRotation(hour, timeHour);
 }
+setTimeout(everySecondChange, 1000);
