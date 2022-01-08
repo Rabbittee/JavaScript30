@@ -14,15 +14,27 @@ function playAudio(e) {
     audio.currentTime = 0
 
     /** 處理音訊播放 */
-    const audioPromise = audio.play()
-    if (audioPromise !== undefined) {
-        audioPromise.then(() => {
-            audio.play()
-        })
-        .catch(() => {
-            stopAudio()
-        })
+    asyncAudio(audio)
+
+}
+
+async function asyncAudio(audio) {
+    /** try..catch */
+    try {
+        await audio.play()
+    } catch {
+        stopAudio()
     }
+
+    /** Promise */
+    // const promise = audio.play()
+    // if (promise == undefined) return
+    // promise.then(() => {
+    //     audio.play()
+    // })
+    // .catch(() => {
+    //    stopAudio()
+    // })
 }
 
 function stopAudio() {
@@ -31,10 +43,7 @@ function stopAudio() {
     
     /** 移除樣式、停止音訊 */
     keys.forEach((key) => key.classList.remove('playing'))
-    audios.forEach((audio) => {
-        audio.pause()
-        audio.currentTime = 0
-    })
+    audios.forEach((audio) => audio.pause())
 }
 
 document.addEventListener('keydown', playAudio)
