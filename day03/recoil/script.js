@@ -1,28 +1,32 @@
 const root = document.documentElement;
-
+const setRootStyle = style(root);
 const $ = (target) => document.querySelectorAll(target);
 
-function handleValue(target) {
-  const sizing = target.dataset?.sizing ?? "";
-  return target.value + sizing;
+function style(node){
+  return function(propName,val){
+    node.style.setProperty(propName, val);
+  }
 }
 
-
-function watchInputEffect(rootNode, node) {
+function watchInputEffect(node) {
   node.addEventListener("change", ({ target })=>{
-    rootNode.style.setProperty(`--${target.name}`, handleValue(target));
+    const sizing = target.dataset?.sizing ?? "";
+    setRootStyle(`--${target.name}`,target.value + sizing)
   });
+
   node.addEventListener("mousedown", ({ target })=>{
-    rootNode.style.setProperty(`--${target.name}`, handleValue(target));
+    const sizing = target.dataset?.sizing ?? "";
+    setRootStyle(`--${target.name}`, target.value + sizing)
   });
 }
 
-function handleInputEffect(documentEl, nodes) {
+function handleInputEffect(nodes) {
   nodes.forEach(function (node) {
-    documentEl.style.setProperty(`--${node.name}`, handleValue(node));
-    watchInputEffect(documentEl,node);
+    const sizing = node.dataset?.sizing ?? "";
+    setRootStyle(`--${node.name}`, node.value + sizing);//init root style
+    watchInputEffect(node);
   });
 }
 
 const inputs = $(".controls > input");
-handleInputEffect(root, inputs);
+handleInputEffect(inputs);
