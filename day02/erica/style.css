@@ -19,13 +19,17 @@ body {
 .clock {
   width: 20rem;
   height: 20rem;
-  border: 2px solid white;
+  border: 3px solid white;
   border-radius: 50%;
   position: relative;
   padding: 2rem;
-  box-shadow: 0 0 5rem rgba(255, 255, 255, 0.1),
-    0 0 2rem rgba(255, 255, 255, 0.3), inset 0 0 5rem rgba(255, 255, 255, 0.1),
-    inset 0 0 2rem rgba(255, 255, 255, 0.3);
+  box-shadow:
+		0 0 5rem rgba(255, 255, 255, 0.1),
+    0 0 2rem rgba(255, 255, 255, 0.3),
+		0 0 0.5rem rgba(255, 255, 255, 0.5),
+		inset 0 0 5rem rgba(255, 255, 255, 0.1),
+    inset 0 0 2rem rgba(255, 255, 255, 0.3),
+		inset 0 0 0.5rem rgba(255, 255, 255, 0.5);
 }
 
 .clock-face {
@@ -35,7 +39,6 @@ body {
 }
 
 .hand {
-  height: 50%;
   border-radius: 2px;
   background-color: #f9dcb6;
   position: absolute;
@@ -51,11 +54,12 @@ body {
 }
 
 .min-hand {
-    height: 42.5%;
-    width: 2px;
-  }
+	height: 50%;
+	width: 2px;
+}
 
 .second-hand {
   background-color: white;
+	height: 42.5%;
   width: 1px;
 }
