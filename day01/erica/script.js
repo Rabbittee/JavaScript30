@@ -14,7 +14,6 @@ function playAudio(e) {
     audio.currentTime = 0
 
     /** 處理音訊播放 */
-<<<<<<< HEAD
     asyncAudio(audio)
 
 }
@@ -36,17 +35,6 @@ async function asyncAudio(audio) {
     // .catch(() => {
     //    stopAudio()
     // })
-=======
-    const audioPromise = audio.play()
-    if (audioPromise !== undefined) {
-        audioPromise.then(() => {
-            audio.play()
-        })
-        .catch(() => {
-            stopAudio()
-        })
-    }
->>>>>>> update day01 Erica answer & add readme
 }
 
 function stopAudio() {
@@ -55,14 +43,7 @@ function stopAudio() {
     
     /** 移除樣式、停止音訊 */
     keys.forEach((key) => key.classList.remove('playing'))
-<<<<<<< HEAD
     audios.forEach((audio) => audio.pause())
-=======
-    audios.forEach((audio) => {
-        audio.pause()
-        audio.currentTime = 0
-    })
->>>>>>> update day01 Erica answer & add readme
 }
 
 document.addEventListener('keydown', playAudio)
