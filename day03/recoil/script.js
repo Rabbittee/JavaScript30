@@ -14,7 +14,7 @@ function watchInputEffect(node) {
     setRootStyle(`--${target.name}`,target.value + sizing)
   });
 
-  node.addEventListener("mousedown", ({ target })=>{
+  node.addEventListener("mousemove", ({ target })=>{
     const sizing = target.dataset?.sizing ?? "";
     setRootStyle(`--${target.name}`, target.value + sizing)
   });
