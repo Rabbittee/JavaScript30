@@ -49,3 +49,11 @@ function appendChild(el) {
     </li>`
   );
 }
+
+// 移除子節點
+function removeChild() {
+  const ul = document.querySelectorAll(".suggestions li");
+  for (let el of ul) {
+    el.remove();
+  }
+}
