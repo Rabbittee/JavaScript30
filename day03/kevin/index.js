@@ -7,7 +7,7 @@ const dealInputValue = (input) => {
   setRootStyle(`--${input.name}`, `${input.value}${unit}`);
 };
 
-document.querySelectorAll("input").forEach((input) => {
+document.querySelectorAll(".control").forEach((input) => {
   dealInputValue(input);
   input.addEventListener("input", () => dealInputValue(input));
 });
