@@ -3,7 +3,7 @@ const setRootStyle = (property, value) => {
 };
 
 const dealInputValue = (input) => {
-  const unit = input.dataset.sizing || "";
+  const unit = input.dataset.sizing ?? "";
   setRootStyle(`--${input.name}`, `${input.value}${unit}`);
 };
 
