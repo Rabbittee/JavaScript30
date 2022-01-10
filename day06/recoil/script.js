@@ -22,8 +22,7 @@ function findKeyword(keyword) {
 
 //handle side effect of api
 async function apiEffect(source) {
-  const payload = await fetch(source);
-  return await payload.json();
+  return fetch(source).then((res) => res.json());
 }
 
 const filterTourCity = (keyword) => (tours) => {
