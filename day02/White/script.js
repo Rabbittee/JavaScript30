@@ -6,12 +6,12 @@ function pad(i) {
     return i;
 }
 
-function ShowTime() {
+function showTime() {
     // 取得目前時分秒
     let now = new Date();
-    let h = now.getHours();
-    let m = now.getMinutes();
-    let s = now.getSeconds();
+    let h = now.getHours().toString().padStart(2, '0');
+    let m = now.getMinutes().toString().padStart(2, '0');
+    let s = now.getSeconds().toString().padStart(2, '0');
 
     // 電子時鐘顯示的時間
     document.getElementById('digit-clock').innerHTML = pad(h) + ":" + pad(m) + ":" + pad(s);
@@ -33,4 +33,4 @@ function ShowTime() {
 }
 
 // 每秒執行一次 連續執行
-setInterval('ShowTime()', 1000);
+setInterval(function(){ showTime() }, 1000);
