@@ -14,8 +14,6 @@ function getKey(e) {
 function removeClass() {
   const keys = document.querySelectorAll(".key");
   keys.forEach((el) => {
-    if (el.classList.contains("playing")) {
-      el.classList.remove("playing");
-    }
+    el.classList.remove("playing");
   });
 }
