@@ -6,7 +6,7 @@ function showTime() {
     let s = now.getSeconds().toString().padStart(2, '0');
 
     // 電子時鐘顯示的時間
-    document.getElementById('digit-clock').innerHTML = pad(h) + ":" + pad(m) + ":" + pad(s);
+    document.getElementById('digit-clock').innerHTML = h + ":" + m + ":" + s;
 
     // 取得指針元素
     let hHand = document.querySelector('.hour-hand');
