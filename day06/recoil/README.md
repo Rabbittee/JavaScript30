@@ -15,17 +15,16 @@
 #### 學到了什麼？
 
 - [RegExp](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
-  正規表達式
+
 - [String.prototype.match()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/String/match)
-  檢查字串裡是否有符合的表達式規則
 
 - [replace](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
-  用正規表達式 group 的方式，替換字串中的單字
 
 - [join](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
-  合併字串陣列
 
-- [setTimeout()]()
+- [setTimeout()](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
+
+- [clearTimeout()](https://developer.mozilla.org/en-US/docs/Web/API/clearTimeout)
 
 #### 與其他人的不同
 
