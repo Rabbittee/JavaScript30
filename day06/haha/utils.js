@@ -30,3 +30,22 @@ function filterKeyWords() {
     appendChild(el); // 新增子節點
   });
 }
+// 新增子節點
+function appendChild(el) {
+  const ul = document.querySelectorAll(".suggestions");
+  const markCity = el.city.replace(
+    input.value,
+    `<span class="hl">${input.value}</span>`
+  );
+  const markState = el.state.replace(
+    input.value,
+    `<span class="hl">${input.value}</span>`
+  );
+  ul[0].insertAdjacentHTML(
+    "afterbegin",
+    `<li>
+        <span class="name">${markCity}, ${markState}</span>
+        <span class="population">${el.population}</span>
+    </li>`
+  );
+}
