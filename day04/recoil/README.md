@@ -2,81 +2,71 @@
 
 ## day04 - Array Cardio Day 1
 
-#### Logic
+#### 邏輯
 
-```js
-// Array.prototype.filter()
-// 1. Filter the list of inventors for those who were born in the 1500's
-const borns = inventors.filter(
-  (inventor) => inventor.year >= 1500 && inventor.year < 1600
-);
-console.table(borns);
-```
+1. Filter the list of inventors for those who were born in the 1500's
 
-```js
-// Array.prototype.map()
-// 2. Give us an array of the inventors first and last names
-const names = inventors.map((inventor) => `${inventor.first} ${inventor.last}`);
-console.log("inventors first and last names", names);
-```
+   把投資者的出生年份拿出來過濾，大於等於 1500 年代並且小於 1600 年代
 
-```js
-// Array.prototype.sort()
-// 3. Sort the inventors by birthdate, oldest to youngest
-const birthList = inventors.sort((a, b) => a.year - b.year);
-console.table("inventors by birthdate", birthList);
-```
+---
 
-```js
-// Array.prototype.reduce()
-// 4. How many years did all the inventors live all together?
-const allTogetherYears = inventors.reduce(
-  (acc, val) => acc + (val.passed - val.year),
-  0
-);
-console.table("live all together", allTogetherYears);
-```
+2. Give us an array of the inventors first and last names
 
-```js
-// 5. Sort the inventors by years lived
-const livedList = inventors.sort(
-  (a, b) => b.passed - b.year - (a.passed - a.year)
-);
-console.table("years lived", livedList);
-```
+   將投資者列舉出來，取得 **first** 與 **last** 並且用樣板字串組合
 
-```js
-// 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-// https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-```
+---
 
-```js
-// 7. sort Exercise
-// Sort the people alphabetically by last name
-function getLastName(name) {
-  const lastName = name.split(", ")[0];
-  return lastName.toUpperCase();
-}
-const sortAlphabet = people.sort((a, b) => {
-  return getLastName(a) > getLastName(b) ? 1 : -1;
-});
-console.log(sortAlphabet);
-```
+3. Sort the inventors by birthdate, oldest to youngest
 
-```js
-// 8. Reduce Exercise
-// Sum up the instances of each of these
-const counter = data.reduce((acc, val) => {
-  if (acc.hasOwnProperty(val)) {
-    acc[val]++;
-    return acc;
-  }
-  return { [val]: 1, ...acc };
-}, {});
-console.log(counter);
-```
+   將 **a.year** 減去 **b.year** 做升幂排序
 
-##### Stack
+---
+
+4. How many years did all the inventors live all together?
+
+   先把 **reduce** 初始值設為 **0**
+
+   把每個投資者的 **過逝年份 - 出生年份** 取得年齡，再加上每次累加器回來的值，返回的就是總年齡
+
+   > (acc, val) => acc + (val.passed - val.year)
+
+---
+
+5. Sort the inventors by years lived
+
+   先取得 b 的年齡 **b.passed - b.year**,在取得 a 的年齡 **a.passed - a.year**
+
+   最後將 **b 的年齡 - a 的年齡**
+
+---
+
+6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+
+   > skip
+
+---
+
+7. sort Exercise
+
+   用 **split** 分離出 last name 與 first name
+
+   用 **toUpperCase** 統一將姓改成大寫，方便排序字串開頭
+
+   比較 a 開頭字母順序是否大於 b
+
+---
+
+8. Reduce Exercise
+
+   把 **reduce** 初始值設為 {}
+
+   檢查累加氣器是否存在下一個進來的 key 值
+
+   若 key 不存在則返回 **{ [val]: 1, ...acc }** 建立新的 key:value，進入下一次迴圈
+
+   若存在則 **acc[val]++** 進行累加，最後返回累加器的值
+
+##### 學到了什麼？
 
 - [filter](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 - [map](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
