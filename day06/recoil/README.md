@@ -2,74 +2,36 @@
 
 ## day06 - Flex Panel Gallery
 
-#### Logic
+#### 邏輯
 
-```js
-const select = (target) => document.querySelector(target);
+1. `debounce` 每次 `keyup 觸發的方法`直到使用者不再輸入
+2. 取得搜尋的資料
+3. `正規表達式(RegExp)` 過濾資料是否包含搜尋字串或數字
+4. 將搜尋到的物件轉換成符合 css 指定的子物件架構
+5. 利用`正規表達式(RegExp)`與`字串的replace()`將關鍵字替換成具有`.hl`的標籤。
+6. 用`join('')`把陣列物件合併
+7. 將結果插入 `ul`
 
-//抓取input element
-const searchBar = select("input.search");
-
-//抓取ul element
-const list = select("ul.suggestions");
-
-// 避免重複呼叫接下來的搜尋
-const debounce = (delay, func) => {
-  let timer;
-  return (payload) => {
-    if (timer) clearTimeout(timer);
-    timer = setTimeout(() => func(payload), delay);
-  };
-};
-
-//處理搜尋到的字高亮出來
-function highLight(keyword, content) {
-  const regex = new RegExp(`(${keyword})`, "gi");
-  return content.replace(regex, "<span class='hl'>$1</span>");
-}
-```
-
-```js
-async function handleSearch(keyword) {
-  try {
-    const payload = await fetch(url);
-    const tourSeries = await payload.json(); //取得資料
-    if (tourSeries && Array.isArray(tourSeries)) {
-      //檢查進來的資料是是否有效
-      const result = tourSeries
-        .filter((tour) => tour.city.includes(keyword)) //過濾出搜尋到的資料
-        .map((tour) => {
-          //過濾出來的資料列舉出來
-          return `
-                    <li>
-                        <span class="name">${highLight(
-                          //搜尋到的字高亮出來
-                          keyword,
-                          tour.city
-                        )}</span>
-                        <span class="population">${tour.population}</span>
-                    </li>
-                `;
-        })
-        .join(""); //把全部的字串合併起來
-      list.innerHTML = result; //塞進ul元素
-    }
-  } catch (err) {
-    console.warn(err);
-  }
-}
-
-searchBar.addEventListener("change", function ({ target: { value } }) {
-  debounce(600, handleSearch)(value); //這邊用debounce是避免字還沒打完就執行接下來的搜尋
-});
-```
-
-#### Stack
-
-- debounce 這只是個概念
+#### 學到了什麼？
 
 - [RegExp](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+  正規表達式
+- [String.prototype.match()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/String/match)
+  檢查字串裡是否有符合的表達式規則
 
 - [replace](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
+  用正規表達式 group 的方式，替換字串中的單字
 
 - [join](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+  合併字串陣列
+
+- [setTimeout()]()
+
+#### 與其他人的不同
+
+- closure(閉包)
+
+- Promise: 讓整個資料處理流順序更明瞭
+
+- Debounce(去抖動): 使用者每次輸入資料時，會等待到使用者輸入完才觸發函式
+  > 以現實的例子來說，就是排隊搭公車的時候，司機在開門後，會待每一個乘客都上車後，最後才會關上門。
