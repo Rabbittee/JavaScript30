@@ -1,11 +1,3 @@
-// 個位數時間補0
-function pad(i) {
-    if (i < 10) {
-      i = "0" + i;
-    }
-    return i;
-}
-
 function showTime() {
     // 取得目前時分秒
     let now = new Date();
