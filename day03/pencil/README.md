@@ -3,4 +3,7 @@
 
 # Issue
 - [x] css variable 的變數設定
-- [ ] input 的值要怎麼跟 css 的變數連動
+- [X] get input's value
+- [X] connect input's value to css variable
+- [X] get :root's css variable value
+- [X] set :root's css value
