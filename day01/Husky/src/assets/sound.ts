@@ -1,12 +1,12 @@
-import boom from "../../../sample/sounds/boom.wav";
-import clap from "../../../sample/sounds/clap.wav";
-import hihat from "../../../sample/sounds/hihat.wav";
-import kick from "../../../sample/sounds/kick.wav";
-import openhat from "../../../sample/sounds/openhat.wav";
-import ride from "../../../sample/sounds/ride.wav";
-import snare from "../../../sample/sounds/snare.wav";
-import tink from "../../../sample/sounds/tink.wav";
-import tom from "../../../sample/sounds/tom.wav";
+import boom from "@/sounds/boom.wav";
+import clap from "@/sounds/clap.wav";
+import hihat from "@/sounds/hihat.wav";
+import kick from "@/sounds/kick.wav";
+import openhat from "@/sounds/openhat.wav";
+import ride from "@/sounds/ride.wav";
+import snare from "@/sounds/snare.wav";
+import tink from "@/sounds/tink.wav";
+import tom from "@/sounds/tom.wav";
 
 const soundList = [
   { name: "clap", letter: "A", playing: false, sound: clap },
