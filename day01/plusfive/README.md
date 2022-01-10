@@ -13,6 +13,9 @@
 * 怎麼做出跟 sample 一樣的效果（按下去的時候會有 transition 0.7 秒）？偷偷在 sample 的網頁按 F12 看到應該也是加上 playing 的效果而已，但是不知道為何 key 的 transition 沒有吃到 QQ
 * 看到鳥胃的 issue 說已經不推薦使用 keyCode，感謝凱文超強讓我學到 .toUpperCase().charCodeAt() 的用法
 
+### 後來修改時發現沒注意到的地方
+1. 沒監聽放開按鍵的 `keyup` 事件才導致我的 playing 一直黏在框框上面，還一直想說是不是 transition 的問題 ....
+
 大約流程
 ```
 document.addEventListener('keydown', function(e) {
