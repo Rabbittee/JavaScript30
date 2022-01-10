@@ -2,59 +2,38 @@
 
 ## day05 - Flex Panel Gallery
 
-#### Logic
+#### 邏輯
 
-```js
-1   const $ = (target) => document.querySelectorAll(target);
-2
-3   function Elements(list) {   //建立移除className的方法
-4     return function (className) {
-5       list.forEach(function (node) {
-6         node.classList.remove(className);
-7       });
-8     };
-9   }
-10
-11  const panels = $(".panel"); //抓取全部帶有panel的className
-12  const removeAllPanelClass = Elements(panels); //將抓到的tag們塞給待會要移除className的方法
-```
+##### CSS
 
-<p> **注意動畫順序** panel先打開完內容再接著進來</p>
-
-```js
-14  panels.forEach(function (element) {
-15    element.addEventListener("click", function (e) {//監聽每個 tag 的 click
-16      if (e.target.classList.contains("open")) {
-17        e.target.classList.remove("open");
-18      } else {
-19        removeAllPanelClass("open"); //將每個 panel 的 open 移除
-20        e.target.classList.add("open");
-21      }
-22    });
-23    element.addEventListener("transitionend", function (e) {//open的transition結束後執行該函式
-24      if (e.target.classList.contains("open"))
-25        e.target.classList.add("open-active");
-25      else e.target.classList.remove("open-active");
-27    });
-28  });
-```
-
-#### Stack
+1. `.panels` 下 `display: flex` 將底下的 panel 調整成 flex 預設的橫向排列
+2. 預設`.panel`樣式，為 flex 並且都一樣寬
+3. 當`.panel.open`時，該 panel 的 flex 佔比為 5
+4. 設定`.panel`底下子元素的樣式
+5. 帶有`.open-active`時，第一與最後一個元素滑入 panel，否則移出畫面
 
 ##### JS
 
-- [document.querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)
-- [classList.contains](https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/contains)
+1. 用 `querySelectorAll` 選取 `.panel`
+2. `forEach 每個 panel` 分別監聽 `click` 與 `transitionend` 事件
+3. 用 `toggle` 控制 `panel 被點擊時添加或移除 open`
+4. `transitionend` 事件觸發時，用`contins`檢查 panel 是否有`open`這個 className
+5. 有的話`增加open-active`,否則執行`移除open-active`
+
+#### 學到了什麼?
+
+##### JS
+
+- [classList.contains](https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/contains)檢查 className 是否存在於 classList
+- [classList.toggle](https://developer.mozilla.org/zh-CN/docs/Web/API/DOMTokenList/toggle)
 - [classList.add](https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/add)
 - [classList.remove](https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/remove)
 - [transitionend event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/transitionend_event)
 
 ##### CSS
 
-- [display](https://developer.mozilla.org/en-US/docs/Web/CSS/display)
+- [translateY()](<https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateY()>)的值，可用 100%將物件移出畫面外
 
-- [flex](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
+##### 與其他人不同的地方
 
-- [translateY()](<https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateY()>)
-
-- [pointer-events](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events)
+- [pointer-events](https://developer.mozilla.org/zh-CN/docs/Web/CSS/pointer-events)
