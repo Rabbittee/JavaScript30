@@ -10,6 +10,7 @@ const input = document.querySelector("input");
 
 input.addEventListener("focus", clearContent);
 input.addEventListener("blur", testInputVal);
+input.addEventListener("input", filterKeyWords);
 
 function clearContent() {
   this.setAttribute("placeholder", "");
@@ -18,4 +19,14 @@ function clearContent() {
 function testInputVal() {
   const text = this.value === "" ? "City or State" : this.value;
   this.setAttribute("placeholder", text);
+}
+
+function filterKeyWords() {
+  removeChild(); // 搜尋之前先把上一筆子節點清空
+  const result = cities.filter((el) => {
+    return el.city.includes(this.value) || el.state.includes(this.value);
+  });
+  result.forEach((el) => {
+    appendChild(el); // 新增子節點
+  });
 }
