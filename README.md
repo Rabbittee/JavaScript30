@@ -1,4 +1,3 @@
-
 [使用說明書](https://rabbit-church.notion.site/JS30-README-ee1cc150ece5490ab6b6edc3cf47bdaa)
 
 ---
@@ -36,5 +35,4 @@
 | 27  | [Click and Drag](https://rabbittee.github.io/JavaScript30/day27/sample)                                |
 | 28  | [Video Speed Controller](https://rabbittee.github.io/JavaScript30/day28/sample)                        |
 | 29  | [Countdown Timer](https://rabbittee.github.io/JavaScript30/day29/sample)                               |
-| 30  | [Whack A Mole](https://rabbittee.github.io/JavaScript30/day30/sample)   
-
+| 30  | [Whack A Mole](https://rabbittee.github.io/JavaScript30/day30/sample)                                  |
