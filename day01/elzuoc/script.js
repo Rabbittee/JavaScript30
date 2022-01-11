@@ -1,13 +1,6 @@
-const audioPath = {
-  65: "../sample/sounds/clap.wav",
-  83: "../sample/sounds/hihat.wav",
-  68: "../sample/sounds/kick.wav",
-  70: "../sample/sounds/openhat.wav",
-  71: "../sample/sounds/boom.wav",
-  72: "../sample/sounds/ride.wav",
-  74: "../sample/sounds/snare.wav",
-  75: "../sample/sounds/tom.wav",
-  76: "../sample/sounds/tink.wav",
+// 取得鍵盤輸入並轉換
+const getKeyCode = (e) => {
+  return e.key.toUpperCase().charCodeAt();
 };
 
 // 移除 .playing 轉場效果
@@ -25,25 +18,24 @@ const removeTransition = () => {
 };
 
 // 加入 .playing 轉場效果
-const setDivStyle = (e, getDom) => {
-  getDom.classList.add("playing");
+const setDivClass = (el) => {
+  el.classList.add("playing");
 };
 
 // 撥放音效 & 效果
 const playAudio = (e) => {
+  const key_code = getKeyCode(e);
+
   // 取得對應鍵盤輸入的audio與div
-  let getAudio = document.querySelector(`audio[data-key='${e.keyCode}']`);
-  let getKeyDiv = document.querySelector(`div[data-key='${e.keyCode}']`);
+  let audioDom = document.querySelector(`audio[data-key='${key_code}']`);
+  let keyDom = document.querySelector(`div[data-key='${key_code}']`);
 
-  if (!getAudio || !getKeyDiv) return;
+  if (!audioDom || !keyDom) return;
 
-  // 設定音效路徑到兔兔教
-  getAudio.src = audioPath[e.keyCode];
-
-  setDivStyle(e, getKeyDiv);
-  removeTransition(getKeyDiv);
-  getAudio.currentTime = 0; // 音效撥放起始位置，強制跳至指定秒數(歸0)
-  getAudio.play();
+  setDivClass(keyDom);
+  removeTransition(keyDom);
+  audioDom.currentTime = 0; // 音效撥放起始位置，強制跳至指定秒數(歸0)
+  audioDom.play();
 };
 
 window.addEventListener("keydown", playAudio);
