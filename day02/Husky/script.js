@@ -9,9 +9,9 @@ function getTimeAngle([hourCurrentCircle, minCurrentCircle, secCurrentCircle]) {
     const hour = SHIFT + hourCurrentCircle * CIRCLE + (now.getHours() % 12) * 30 + now.getMinutes() / 2
 
     return {
-        sec: sec,
-        min: min,
-        hour: hour,
+        sec,
+        min,
+        hour,
         carry: {
             sec: now.getSeconds() === 59,
             min: now.getMinutes() === 59 && now.getSeconds() === 59,
