@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 10px;
+  background: url("../../sample/background.jpg") bottom center;
+  background-size: cover;
+}
+
+body,
+html {
+  font-family: sans-serif;
+}
+
+.playing {
+  @apply scale-110 border-yellow-400 shadow shadow-yellow-200;
+}
