@@ -1,26 +1,16 @@
-/**
- * KeyboardEvent/keyCode(Deprecated)
- * https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode
- **/
-const $ = (target) => document.querySelectorAll(target);
+const $ = (target) => document.querySelector(target);
 
 window.addEventListener("keydown", function (event) {
-  $("div[data-key]").forEach(function (element) {
-    if (element.dataset.key === event.code) {
-      element.classList.add("playing");
-      const audio = document.querySelector(
-        `audio[data-key=${element.dataset.key}]`
-      );
-      audio.currentTime = 0;
-      audio.play();
-    }
-  });
+  const keyboard = $(`div[data-key='${event.code}']`)
+  const audio = $(`audio[data-key='${event.code}']`)
+  if(!keyboard && !audio) return 
+  keyboard.classList.add("playing");
+  audio.currentTime = 0;
+  audio.play();
 });
 
 window.addEventListener("keyup", function (event) {
-  $("div[data-key]").forEach(function (element) {
-    if (element.dataset.key === event.code) {
-      element.classList.remove("playing");
-    }
-  });
+  const keyboard = $(`div[data-key='${event.code}']`)
+  if(!keyboard) return
+  keyboard.classList.remove("playing");
 });
