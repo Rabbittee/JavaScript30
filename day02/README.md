@@ -8,6 +8,7 @@
 ## 連結
 
 - [哈奇](https://rabbittee.github.io/JavaScript30/day02/Husky/)
+- [小白](https://rabbittee.github.io/JavaScript30/day02/White/)
 - [Alpha](https://rabbittee.github.io/JavaScript30/day02/alpha/dist/)
 - [可樂](https://rabbittee.github.io/JavaScript30/day02/cola/)
 - [\鳥胃/](https://rabbittee.github.io/JavaScript30/day02/erica/)
@@ -15,6 +16,7 @@
 - [Kevin](https://rabbittee.github.io/JavaScript30/day02/kevin/)
 - [小金](https://rabbittee.github.io/JavaScript30/day02/kim/)
 - [Hello](https://rabbittee.github.io/JavaScript30/day02/kirby/)
+- [+5](https://rabbittee.github.io/JavaScript30/day02/plusfive/)
 - [奶捲](https://rabbittee.github.io/JavaScript30/day02/recoil/)
 
 - [sample](https://rabbittee.github.io/JavaScript30/day02/sample/)
