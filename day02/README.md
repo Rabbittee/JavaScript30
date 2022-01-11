@@ -7,7 +7,9 @@
 
 ## 連結
 
+- [哈奇](https://rabbittee.github.io/JavaScript30/day02/Husky/)
 - [Alpha](https://rabbittee.github.io/JavaScript30/day02/alpha/dist/)
+- [可樂](https://rabbittee.github.io/JavaScript30/day02/cola/)
 - [\鳥胃/](https://rabbittee.github.io/JavaScript30/day02/erica/)
 - [吠吠](https://rabbittee.github.io/JavaScript30/day02/haha/)
 - [Kevin](https://rabbittee.github.io/JavaScript30/day02/kevin/)
