@@ -70,19 +70,16 @@ body {
 .hour-hand {
   width: 23%;
   left: 27%;
-  transform: rotate(90deg);
 }
 
 .min-hand {
   width: 40%;
   left: 10%;
   background: #e86076;
-  transform: rotate(180deg);
 }
 
 .second-hand {
   width: 40%;
   left: 10%;
   height: 2px;
-  transform: rotate(270deg);
 }
