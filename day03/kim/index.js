@@ -1,17 +1,17 @@
 // 呼叫 Dom
-const input = document.querySelectorAll(".controls input");
-const control = document.querySelectorAll(".controls");
-console.log(control);
+const target = document.querySelectorAll(".controls");
 
 // 監聽事件：改變(聽三組)
-input.forEach((element) =>
-  element.addEventListener("input", function () {
-    const currentName = element.name;
-    const currentValue = element.value;
-    const unit = element.dataset.sizing || "";
+// Change method by bubbling event.
+target.forEach((element) => {
+  element.addEventListener("input", function (e) {
+    console.log(e.target);
+    const currentName = e.target.name;
+    const currentValue = e.target.value;
+    const unit = e.target.dataset.sizing || "";
     document.documentElement.style.setProperty(
       `--${currentName}`,
       `${currentValue}` + `${unit}`
     );
-  })
-);
+  });
+});
