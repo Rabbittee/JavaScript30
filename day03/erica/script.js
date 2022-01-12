@@ -7,7 +7,4 @@ function handleUpdate() {
     document.documentElement.style.setProperty(name, value + unit)
 }
 
-inputs.forEach((input) => {
-    input.addEventListener('change', handleUpdate)
-    input.addEventListener('mousemove', handleUpdate)
-})
+inputs.forEach((input) => input.addEventListener('input', handleUpdate))
