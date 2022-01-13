@@ -9,20 +9,15 @@ function style(node) {
   };
 }
 
-function initStyleEffect(node){
-  const unit = node.dataset?.sizing ?? "";
-  setRootStyle(`--${node.name}`, node.value + unit);
+function initStyleEffect({dataset, name, value}){
+  const unit = dataset?.sizing ?? "";
+  setRootStyle(`--${name}`, value + unit);
 }
 
 function watchInputEffect(node) {
-  node.addEventListener("change", ({ target }) => {
-    const unit = target.dataset?.sizing ?? "";
-    setRootStyle(`--${target.name}`, target.value + unit);
-  });
-
-  node.addEventListener("mousemove", ({ target }) => {
-    const unit = target.dataset?.sizing ?? "";
-    setRootStyle(`--${target.name}`, target.value + unit);
+  node.addEventListener("input", ({ target:{dataset, name, value} }) => {
+    const unit = dataset?.sizing ?? "";
+    setRootStyle(`--${name}`, value + unit);
   });
 }
 
