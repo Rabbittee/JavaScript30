@@ -13,6 +13,7 @@
 - [＋５](https://rabbittee.github.io/JavaScript30/day03/plusfive/)
 - [哈囉](https://rabbittee.github.io/JavaScript30/day03/kirby/)
 - [鉛筆](https://rabbittee.github.io/JavaScript30/day03/pencil/)
-
-### 尚未 merge
+- [阿法](https://rabbittee.github.io/JavaScript30/day03/alpha/dist/index.html)
 - [小金](https://rabbittee.github.io/JavaScript30/day03/kim/)
+
+
