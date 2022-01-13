@@ -2,7 +2,7 @@ const controls = document.querySelectorAll('.controls input');
 
 controls.forEach((el) => {
   // 監聽變化
-  el.addEventListener('change', cssStyle);
+  el.addEventListener('input', cssStyle);
 });
 
 function cssStyle() {
