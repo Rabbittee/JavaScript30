@@ -1,4 +1,4 @@
-document.addEventListener("click", (e) => {
+document.querySelector(".panels").addEventListener("click", (e) => {
   const clickedPanel = e.target.closest(".panel");
   const hasOpened = clickedPanel.classList.contains("open");
 
