@@ -10,9 +10,9 @@
 - [奶捲](https://rabbittee.github.io/JavaScript30/day03/recoil/)
 - [吠吠](https://rabbittee.github.io/JavaScript30/day03/haha/)
 - [凱文](https://rabbittee.github.io/JavaScript30/day03/kevin/)
-  
-### 尚未 merge
 - [＋５](https://rabbittee.github.io/JavaScript30/day03/plusfive/)
 - [哈囉](https://rabbittee.github.io/JavaScript30/day03/kirby/)
+- [鉛筆](https://rabbittee.github.io/JavaScript30/day03/pencil/)
+
+### 尚未 merge
 - [小金](https://rabbittee.github.io/JavaScript30/day03/kim/)
-- [鉛筆](https://rabbittee.github.io/JavaScript30/day03/zoeGuava/)
