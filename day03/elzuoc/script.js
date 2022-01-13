@@ -24,7 +24,6 @@ function effect(spacing, blur, color) {
   useSpacing(spacing);
   useBlur(blur);
   useBgcolor(color);
-  console.log(spacing, blur, color);
 }
 
 function init() {
