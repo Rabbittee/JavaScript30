@@ -4,13 +4,13 @@
 
 #### **JavaScript30 Sample 連結**
 
-| Day | Topic                                                                                                  |
-| :-: | ------------------------------------------------------------------------------------------------------ |
-| 01  | [JavaScript Drum Kit](https://rabbittee.github.io/JavaScript30/day01/sample)                           |
-| 02  | [JS and CSS Clock](https://rabbittee.github.io/JavaScript30/day02/sample)                              |
-| 03  | [CSS Variables](https://rabbittee.github.io/JavaScript30/day03/sample)                                 |
-| 04  | [Array Cardio Day 1](https://rabbittee.github.io/JavaScript30/day04/sample)                            |
-| 05  | [Flex Panel Gallery](https://rabbittee.github.io/JavaScript30/day05/sample)                            |
+| Day | Topic                                                                                                  | Speaker             |
+| :-: | ------------------------------------------------------------------------------------------------------ | ------------------- |
+| 01  | [JavaScript Drum Kit](https://rabbittee.github.io/JavaScript30/day01/sample)                           | 圈圈 (elzuoc)       |
+| 02  | [JS and CSS Clock](https://rabbittee.github.io/JavaScript30/day02/sample)                              | 凱文 (kevinshu1995) |
+| 03  | [CSS Variables](https://rabbittee.github.io/JavaScript30/day03/sample)                                 | 鉛筆 (zoeGuava)     |
+| 04  | [Array Cardio Day 1](https://rabbittee.github.io/JavaScript30/day04/sample)                            | 小金 (KimberlyYen)  |
+| 05  | [Flex Panel Gallery](https://rabbittee.github.io/JavaScript30/day05/sample)                            | 奶捲 (lee926427)    |
 | 06  | [Type Ahead](https://rabbittee.github.io/JavaScript30/day06/sample)                                    |
 | 07  | [Array Cardio Day 2](https://rabbittee.github.io/JavaScript30/day07/sample)                            |
 | 08  | [Fun with HTML5 Canvas](https://rabbittee.github.io/JavaScript30/day08/sample)                         |
