@@ -1,29 +1,27 @@
-function getCurrentTime() {
-  const currentTime = new Date();
-  const hour = currentTime.getHours();
-  const min = currentTime.getMinutes();
-  const sec = currentTime.getSeconds();
-  console.log(hour, min, sec);
+/** 取得現在時間 */
+function getCurrentTime(time = new Date()) {
+  clockMove(time.getHours(), time.getMinutes(), time.getSeconds());
 }
 
-const hourHand = document.querySelector('.hour-hand');
-const minHand = document.querySelector('.min-hand');
-const secHand = document.querySelector('.sec-hand');
+/** 每分鐘、秒鐘各指針移動角度 */
+const secPerSecDeg = 360 / 12 / 5;
+const minPerSecDeg = 360 / 12 / 5 / 60;
+const hourPerMinDeg = 360 / 12 / 5 / 12;
 
-// function setClock(timeRegulation = 'hour', count) {
-//   const deg = 360 / 12 / 5;
-//   const secondMoving = Infinity;
-//   switch (timeRegulation) {
-//     case 'hour':
-//       secondMoving = 360 / 12;
-//       break;
-//     case 'minute':
-//       deg = 360
-//   }
-// }
+/** 轉動指針 */
+const moveDOM = function (element, unitDeg) {
+  document.querySelector(element).style.transform = `rotate(${unitDeg}deg)`;
+};
 
-hourHand.style.transform = 'rotate(90deg)';
+/** 變更指針角度 */
+function clockMove(hour, min, sec) {
+  const hourDeg = 90 + hour * (360 / 12) + min * hourPerMinDeg;
+  const minDeg = 90 + min * (360 / 12 / 5) + sec * minPerSecDeg;
+  const secDeg = 90 + sec * secPerSecDeg;
+  moveDOM(".hour-hand", hourDeg);
+  moveDOM(".min-hand", minDeg);
+  moveDOM(".second-hand", secDeg);
+}
 
-window.setInterval((
-  () => getCurrentTime(new Date())
-), 1000)
+/** 每秒執行一次 */
+window.setInterval(getCurrentTime, 1000);
