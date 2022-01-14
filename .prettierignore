@@ -1,6 +1,10 @@
 .pnp.cjs
 .pnp.loader.mjs
-*.js
+**/sample/**/*.js
+**/kirby/**/*.js
+**/alpha/**/*.js
+**/dist/**/*.js
+day01/Husky/*
 *.ts
 *.css
 *.scss
@@ -8,3 +12,4 @@
 *.md
 *.json
 !**/recoil/**/*.js
+!**/recoil/**/main.js
