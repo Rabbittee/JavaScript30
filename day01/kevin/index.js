@@ -1,5 +1,5 @@
-document.addEventListener("keydown", keydownHandler);
-document.addEventListener("keyup", keyupHandler);
+document.addEventListener('keydown', keydownHandler);
+document.addEventListener('keyup', keyupHandler);
 
 // * 紀錄那些正在被觸發的 keycode
 const activeKeys = new Set();
@@ -40,7 +40,7 @@ function playAudio(keycode) {
 
 // * View relates functions ======
 function toggleActiveBoxClass(keycode, isActive = false) {
-  const activeClassName = "playing";
+  const activeClassName = 'playing';
   const targetBox = document.querySelector(`.key[data-key="${keycode}"]`);
 
   if (targetBox === null) return;

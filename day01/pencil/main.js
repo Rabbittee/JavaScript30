@@ -1,5 +1,5 @@
-window.addEventListener("keydown", getKeyCode);
-const keysContainer = document.querySelector(".keys");
+window.addEventListener('keydown', getKeyCode);
+const keysContainer = document.querySelector('.keys');
 
 function getKeyCode(event) {
   const keyCode = event.keyCode;
@@ -15,6 +15,6 @@ function matchDataKey(key) {
 }
 
 function addStyle(targetDOM) {
-  targetDOM.classList.add("playing");
-  setTimeout(() => targetDOM.classList.remove("playing"), 150);
+  targetDOM.classList.add('playing');
+  setTimeout(() => targetDOM.classList.remove('playing'), 150);
 }

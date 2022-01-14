@@ -1,7 +1,7 @@
 const root = document.documentElement;
 const setRootStyle = style(root);
 const $ = (target) => document.querySelectorAll(target);
-const inputs = $(".controls > input");
+const inputs = $('.controls > input');
 
 function style(node) {
   return function (propName, val) {
@@ -10,13 +10,13 @@ function style(node) {
 }
 
 function initStyleEffect({ dataset, name, value }) {
-  const unit = dataset?.sizing ?? "";
+  const unit = dataset?.sizing ?? '';
   setRootStyle(`--${name}`, value + unit);
 }
 
 function watchInputEffect(node) {
-  node.addEventListener("input", ({ target: { dataset, name, value } }) => {
-    const unit = dataset?.sizing ?? "";
+  node.addEventListener('input', ({ target: { dataset, name, value } }) => {
+    const unit = dataset?.sizing ?? '';
     setRootStyle(`--${name}`, value + unit);
   });
 }
