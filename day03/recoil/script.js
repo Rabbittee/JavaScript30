@@ -9,13 +9,13 @@ function style(node) {
   };
 }
 
-function initStyleEffect({dataset, name, value}){
+function initStyleEffect({ dataset, name, value }) {
   const unit = dataset?.sizing ?? "";
   setRootStyle(`--${name}`, value + unit);
 }
 
 function watchInputEffect(node) {
-  node.addEventListener("input", ({ target:{dataset, name, value} }) => {
+  node.addEventListener("input", ({ target: { dataset, name, value } }) => {
     const unit = dataset?.sizing ?? "";
     setRootStyle(`--${name}`, value + unit);
   });

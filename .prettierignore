@@ -1,0 +1,10 @@
+.pnp.cjs
+.pnp.loader.mjs
+*.js
+*.ts
+*.css
+*.scss
+*.html
+*.md
+*.json
+!**/recoil/**/*.js
