@@ -56,12 +56,14 @@ const typeSearch = select("input.search");
 
 const list = select("ul.suggestions");
 
+const searchTourismCity = debounce(1000, function (queryContent) {
+  apiEffect(url)
+    .then(filterTourCity(queryContent))
+    .then(highlightKeyword(queryContent))
+    .then(combineItem)
+    .then(insertTo(list));
+});
+
 typeSearch.addEventListener("keyup", function ({ target: { value } }) {
-  debounce(1000, function (queryContent) {
-    apiEffect(url)
-      .then(filterTourCity(queryContent))
-      .then(highlightKeyword(queryContent))
-      .then(combineItem)
-      .then(insertTo(list));
-  })(value);
+  searchTourismCity(value);
 });
