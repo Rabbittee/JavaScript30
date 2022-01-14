@@ -1,5 +1,5 @@
 // 視窗監聽，鍵盤點下事件
-window.addEventListener("keydown", function (event) {
+window.addEventListener('keydown', function (event) {
   // 鍵盤點到哪一顆按鍵？ 按鍵號碼？
   const keyCurrent = event.keyCode;
 
@@ -21,10 +21,10 @@ window.addEventListener("keydown", function (event) {
     const audioDivClass = document.querySelector(`div[data-key='${keyCurrent}']`);
 
     // 增加樣式
-    audioDivClass.classList.add("playing");
+    audioDivClass.classList.add('playing');
     // 動畫的最後，移除樣式
-    audioDivClass.addEventListener("transitionend", function () {
-      audioDivClass.classList.remove("playing");
+    audioDivClass.addEventListener('transitionend', function () {
+      audioDivClass.classList.remove('playing');
     });
   }
   playAudio();

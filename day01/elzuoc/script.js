@@ -5,12 +5,12 @@ const getKeyCode = (e) => {
 
 // 移除 .playing 轉場效果
 const removeTransition = () => {
-  const getDomArr = document.querySelectorAll(".playing");
+  const getDomArr = document.querySelectorAll('.playing');
 
   getDomArr.forEach((current, idx) => {
     // 監聽 轉場結束事件
-    current.addEventListener("transitionend", () => {
-      current.classList.remove("playing");
+    current.addEventListener('transitionend', () => {
+      current.classList.remove('playing');
 
       // tips:若改為長音效，可藉由調整css中.playing轉場時間改變轉場事件長度
     });
@@ -19,7 +19,7 @@ const removeTransition = () => {
 
 // 加入 .playing 轉場效果
 const setDivClass = (el) => {
-  el.classList.add("playing");
+  el.classList.add('playing');
 };
 
 // 撥放音效 & 效果
@@ -38,4 +38,4 @@ const playAudio = (e) => {
   audioDom.play();
 };
 
-window.addEventListener("keydown", playAudio);
+window.addEventListener('keydown', playAudio);

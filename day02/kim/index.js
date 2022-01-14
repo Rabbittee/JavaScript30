@@ -1,5 +1,5 @@
-/** 
- * Target: 每秒鐘改變時鐘樣式  
+/**
+ * Target: 每秒鐘改變時鐘樣式
  */
 
 //  每秒鐘執行
@@ -8,10 +8,10 @@ function everySecondChange() {
   setTimeout(everySecondChange, 1000);
 }
 function changeStyle() {
-  // 宣告 DOM 元素  
-  const second = document.querySelector(".second-hand");
-  const min = document.querySelector(".min-hand");
-  const hour = document.querySelector(".hour-hand");
+  // 宣告 DOM 元素
+  const second = document.querySelector('.second-hand');
+  const min = document.querySelector('.min-hand');
+  const hour = document.querySelector('.hour-hand');
 
   // 呼叫時鐘
   const time = new Date();
