@@ -15,6 +15,10 @@ input {
   width: 100px;
 }
 
+.hl {
+  background: var(--base);
+}
+
 img {
   padding: var(--spacing);
   filter: blur(var(--blur));
