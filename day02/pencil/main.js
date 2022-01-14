@@ -18,9 +18,9 @@ function clockMove(hour, min, sec) {
   const hourDeg = 90 + hour * (360 / 12) + min * hourPerMinDeg;
   const minDeg = 90 + min * (360 / 12 / 5) + sec * minPerSecDeg;
   const secDeg = 90 + sec * secPerSecDeg;
-  moveDOM(".hour-hand", hourDeg);
-  moveDOM(".min-hand", minDeg);
-  moveDOM(".second-hand", secDeg);
+  moveDOM('.hour-hand', hourDeg);
+  moveDOM('.min-hand', minDeg);
+  moveDOM('.second-hand', secDeg);
 }
 
 /** 每秒執行一次 */
