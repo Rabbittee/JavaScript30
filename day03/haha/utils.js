@@ -8,8 +8,5 @@ controls.forEach((el) => {
 function cssStyle() {
   const styleVal = this.dataset.sizing ? this.dataset.sizing : '';
   // 修改 css 變量
-  document.documentElement.style.setProperty(
-    `--${this.name}`,
-    this.value + styleVal
-  );
+  document.documentElement.style.setProperty(`--${this.name}`, this.value + styleVal);
 }
