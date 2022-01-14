@@ -15,7 +15,7 @@ const inventors = [
   { first: "Ada", last: "Lovelace", year: 1815, passed: 1852 },
   { first: "Sarah E.", last: "Goode", year: 1855, passed: 1905 },
   { first: "Lise", last: "Meitner", year: 1878, passed: 1968 },
-  { first: "Hanna", last: "Hammarström", year: 1829, passed: 1909 }
+  { first: "Hanna", last: "Hammarström", year: 1829, passed: 1909 },
 ];
 
 const people = [
@@ -59,12 +59,12 @@ const people = [
   "Birrell, Augustine",
   "Blair, Tony",
   "Beecher, Henry",
-  "Biondo, Frank"
+  "Biondo, Frank",
 ];
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
-const startTime = 1500; 
+const startTime = 1500;
 const s = 100;
 const borns = inventors.filter(
   (inventor) => inventor.year >= startTime && inventor.year < startTime + s
@@ -73,7 +73,7 @@ console.table(borns);
 
 // Array.prototype.map()
 // 2. Give us an array of the inventors first and last names
-const names = inventors.map(({first, last}) => `${first} ${last}`);
+const names = inventors.map(({ first, last }) => `${first} ${last}`);
 console.log("inventors first and last names", names);
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
@@ -120,7 +120,7 @@ const data = [
   "car",
   "van",
   "car",
-  "truck"
+  "truck",
 ];
 const counter = data.reduce((acc, val) => {
   if (acc.hasOwnProperty(val)) {
