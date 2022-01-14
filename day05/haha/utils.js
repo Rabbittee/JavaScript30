@@ -1,4 +1,4 @@
-const panels = document.querySelectorAll(".panels div");
+const panel = document.querySelector(".panels");
 
 panels.forEach((el) => {
   // 監聽按下
