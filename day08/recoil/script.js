@@ -35,10 +35,11 @@ function canvasEffect(node) {
   let direction = false;
 
   function randomWidth() {
-    if (brush.state.width >= 100 || brush.state.width <= 5) direction = !direction;
+    if (brush.state.width >= 100 || brush.state.width <= 5)
+      direction = !direction;
     if (direction) brush.state.width++;
     else brush.state.width--;
-    return brush.state.width
+    return brush.state.width;
   }
 
   function randomColor() {
