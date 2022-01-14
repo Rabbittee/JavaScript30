@@ -4,8 +4,6 @@ function canvasEffect(node) {
   if (!node) return;
   const container = node.closest(".canvas-container");
   const fixHeight = window.innerHeight - container.offsetHeight;
-  node.width = container.offsetWidth;
-  node.height = container.offsetHeight;
 
   const brush = {
     state: {
@@ -33,6 +31,9 @@ function canvasEffect(node) {
 
   let randomHue = 0;
   let direction = false;
+
+  node.width = container.offsetWidth;
+  node.height = container.offsetHeight;
 
   function randomWidth() {
     if (brush.state.width >= 100 || brush.state.width <= 5)
