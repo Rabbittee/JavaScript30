@@ -30,5 +30,5 @@ transitionend 事件執行次數會取決於 transition-property 的設定，為
 透過綁定父節點，再藉由判斷 nodeName 為想監聽的子元素，可以優化原本寫法上對於每個子元素綁定額外的監聽事件
 3. **改善寫法**: <br>
 原先的寫法中因為沒有針對 transitionend 事件執行多次的問題進行處理，導致後續在添加 open-active 這個 class 時，會因為 transitionend property 包含兩個屬性，執行了兩次 transitionend 事件，只能藉由判斷是否存在 open class 來 add 或者 remove open-active 這個 class。經由 fix(1) ，在添加 open-active 這個 class 時，transitionend 事件只會進行一次，即可使用 toggle methods 來處理。
-4. **避免使用 this**: <br>
+4. **避免使用 this**: <br>.
 感謝奶捲提出，讓我思考重構的可能性，針對這題學習到更多知識。
