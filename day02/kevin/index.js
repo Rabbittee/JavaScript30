@@ -1,7 +1,7 @@
 const hand = {
-  hour: document.querySelector(".hour-hand"),
-  min: document.querySelector(".min-hand"),
-  second: document.querySelector(".second-hand"),
+  hour: document.querySelector('.hour-hand'),
+  min: document.querySelector('.min-hand'),
+  second: document.querySelector('.second-hand'),
 };
 
 function getCurrentTime() {
@@ -14,12 +14,12 @@ function getCurrentTime() {
 }
 
 function initHandStyle() {
-  hand.hour.style.transformOrigin = "50% 100%";
-  hand.min.style.transformOrigin = "50% 100%";
-  hand.second.style.transformOrigin = "50% 100%";
+  hand.hour.style.transformOrigin = '50% 100%';
+  hand.min.style.transformOrigin = '50% 100%';
+  hand.second.style.transformOrigin = '50% 100%';
 }
 
-function setHandDegree(target = "", degree = 0) {
+function setHandDegree(target = '', degree = 0) {
   hand[target].style.transform = `rotate(${degree}deg)`;
 }
 
@@ -41,15 +41,11 @@ function getHandsDegree(hour, min, second) {
 
 function setAllHandsDegree() {
   const { hour, min, second } = getCurrentTime();
-  const { hourDegree, minDegree, secondDegree } = getHandsDegree(
-    hour,
-    min,
-    second
-  );
+  const { hourDegree, minDegree, secondDegree } = getHandsDegree(hour, min, second);
 
-  setHandDegree("second", secondDegree);
-  setHandDegree("min", minDegree);
-  setHandDegree("hour", hourDegree);
+  setHandDegree('second', secondDegree);
+  setHandDegree('min', minDegree);
+  setHandDegree('hour', hourDegree);
 }
 
 initHandStyle();

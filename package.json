@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npm run lint-js",
-    "lint-js": "prettier --check ."
+    "lint-js": "prettier --check .",
+    "prettier":"npx prettier --check ."
   },
   "repository": {
     "type": "git",
