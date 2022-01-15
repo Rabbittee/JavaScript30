@@ -57,7 +57,7 @@ console.log(`6. skip`);
 // Sort the people alphabetically by last name
 const handleSplit = (array) =>
   array.map((name) => {
-    return name.split(", ");
+    return name.trim().split(",");
   });
 
 const sortByAlphabet = handleSplit(people).sort((a, b) => {
