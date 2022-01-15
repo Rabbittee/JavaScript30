@@ -6,13 +6,13 @@
 
 1. Filter the list of inventors for those who were born in the 1500's
 
-   把投資者的出生年份拿出來過濾，大於等於 1500 年代並且小於 1600 年代
+   把發明者的出生年份拿出來過濾，大於等於 1500 年代並且小於 1600 年代
 
 ---
 
 2. Give us an array of the inventors first and last names
 
-   將投資者列舉出來，取得 **first** 與 **last** 並且用樣板字串組合
+   將發明者列舉出來，取得 **first** 與 **last** 並且用樣板字串組合
 
 ---
 
@@ -26,7 +26,7 @@
 
    先把 **reduce** 初始值設為 **0**
 
-   把每個投資者的 **過逝年份 - 出生年份** 取得年齡，再加上每次累加器回來的值，返回的就是總年齡
+   把每個發明者的 **過逝年份 - 出生年份** 取得年齡，再加上每次累加器回來的值，返回的就是總年齡
 
    > (acc, val) => acc + (val.passed - val.year)
 
