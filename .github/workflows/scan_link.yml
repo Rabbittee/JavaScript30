@@ -1,4 +1,4 @@
-name: A workflow for pull request merge
+name: update README
 on:
   pull_request:
     types: [closed]
