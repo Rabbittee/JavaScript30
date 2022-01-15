@@ -5,7 +5,6 @@
 ### 解題
 
 #### 熟悉操作 Array 的方法
-
 1. Array.prototype.filter()
 2. Array.prototype.map()
 3. Array.prototype.sort()
