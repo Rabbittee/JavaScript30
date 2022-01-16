@@ -18,8 +18,8 @@ jobs:
           python script/getLink.py
       - name: Git Commit
         run: |
-          git config --global user.email "rabbittee@github.com"
-          git config --global user.name "rabbittee"
+          git config --global user.email "rabbitteetw@gmail.com"
+          git config --global user.name "Rabbittee"
           git add .
           git commit -m "update README link"
       - name: Push to 'main'
