@@ -17,9 +17,9 @@
 8. `Reduce` Exercise
 
 
-## 連結
+## Links
 
-- [sample](https://rabbittee.github.io/JavaScript30/day02/sample/)
+- [哈奇](https://rabbittee.github.io/JavaScript30/day04/Husky/)
 
 ## 課外補充
 1. [ Reduce() Youtube教學影片介紹 ](https://www.youtube.com/watch?v=g1C40tDP0Bk)
