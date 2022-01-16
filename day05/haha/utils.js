@@ -1,8 +1,7 @@
-const panel = document.querySelector('.panels');
-const selectNode = (target) => (target.nodeName === 'DIV' ? target : target.parentNode);
+const panels = document.querySelector('.panels');
 
-panel.addEventListener('click', clickPanel, false);
-panel.addEventListener('transitionend', expandPanel, false);
+panels.addEventListener('click', clickPanel, false);
+panels.addEventListener('transitionend', expandPanel, false);
 
 // 展開收合 card，添加 open class
 function clickPanel({ target }) {
