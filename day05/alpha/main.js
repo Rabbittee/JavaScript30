@@ -1,6 +1,23 @@
-import './style.css'
+import './style.css';
+import './src/header';
 
-document.querySelector('#app').innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`
+const selectAll = (element) => document.querySelectorAll(element);
+
+const toggleOpen = (e) => {
+  const current = e.target;
+  current.classList.toggle('open');
+};
+
+const toggleText = (e) => {
+  const current = e.target;
+  if (current.tagName !== 'DIV') return 
+  if (current.classList.contains('open')) {
+    current.classList.add('open-text')
+  } else {
+    current.classList.remove('open-text')
+  }
+};
+
+selectAll('.panel').forEach((panel) => panel.addEventListener('click', toggleOpen));
+selectAll('.panel').forEach((panel) => panel.addEventListener('transitionend', toggleText));
+
