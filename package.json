@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Rabbittee/JavaScript30/issues"
   },
-  "homepage": "https://github.com/Rabbittee/JavaScript30#readme"
+  "homepage": "https://github.com/Rabbittee/JavaScript30#readme",
+  "devDependencies": {
+    "prettier": "2.5.1"
+  }
 }

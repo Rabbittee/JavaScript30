@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
+:root {
+    --size: auto;
+    --font: auto;
+    --func:  cubic-bezier(0.1, 1, 0.9, 1);
+    --func2: cubic-bezier(0.3, -0.6, 0.2, 2);
+}
+
+html {
+    box-sizing: border-box;
+    background: #181409;
+    font-family: 'helvetica neue';
+    font-size: 16px;
+    font-weight: 200;
+    text-align: left;
+}
+
+body {
+    margin: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+footer {
+    color: white;
+    opacity: 0.5;
+    font-size: 12px;
+    text-align: center;
+    padding: 3vmin;
+    letter-spacing: 2px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.panels {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex: 1 0 auto
+}
+
+.panel {
+    flex: 1;
+    cursor: pointer;
+    transition: all 1s var(--func);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.panel::after,
+.panel::before {
+    content: '';
+    display: block;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    transition: all 0.5s var(--func);
+    z-index: 1;
+}
+
+.panel::after {
+    height: 100%;
+    top: 0;
+    background: linear-gradient(to right, rgba(24,20,9, 0.9), transparent 100%); 
+}
+
+.panel::before {
+    height: 50%;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(24,20,9, 0.9), transparent 100%); 
+    opacity: 0;
+}
+
+
+.cast {
+    width: 35vmax;
+    min-width: 35vmax;
+    min-height: 50vh;
+    color: white;
+    padding: 5vmin 3vmin;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    letter-spacing: 2px;
+}
+
+.cast h3 {
+    margin: 0;
+    font-family: 'Jura', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    font-weight: 400;
+    position: relative;
+}
+
+.cast h3::after {
+    content: '+';
+    display: block;
+    position: absolute;
+    left: 0%;
+    top: 100%; 
+    margin: 0.5rem 0;
+    color: #0079ff;
+    font-weight: 700;
+}
+
+.cast-name,
+.movie-desc {
+    transform: translateY(20%); 
+    opacity: 0;
+    transition: all 0.75s var(--func2);
+}
+
+.cast-name {
+    writing-mode: vertical-rl;
+    transition-delay: 0.55s;
+}
+
+.movie-desc {
+    line-height: 1.3;
+    transition-delay: 0.35s;
+}
+
+.panel:hover {
+    flex: 1.125;
+}
+
+.panel.open,
+.panel.open:hover {
+    flex: 2.5;
+    cursor: default;
+}
+
+.panel:hover::after,
+.panel.open::after,
+.panel.open:hover::after {
+    opacity: 0;
+}
+
+.panel.open::before,
+.panel.open:hover::before {
+    opacity: 1;
+}
+
+.panel.open h3::after {
+    animation: rotate 2s infinite linear;
+}
+
+.panel.open .cast-name {
+    opacity: 1;
+    transform: translateY(0%); 
+    transition-delay: 0.35s;
+}
+.panel.open .movie-desc {
+    opacity: 1;
+    transform: translateY(-0.35rem);
+    transition-delay: 0.55s;
+}
+
+
+.circle-text {
+    width: var(--size);
+    height: var(--size);
+    position: fixed;
+    right: 0;
+    top: 0;
+    color: white;
+    margin: 1.5vmax;
+    transform-origin: center center;
+    animation: rotate 15s infinite linear;
+    cursor: default;
+    z-index: 9;
+}
+
+.circle-text:hover {
+    animation: rotate 1.5s reverse infinite linear;
+}
+
+.circle-text span {
+    width: calc(var(--size) / 10);
+    height: calc(var(--size) / 2);
+    font-size: calc(var(--font));
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    transform-origin: bottom center;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
