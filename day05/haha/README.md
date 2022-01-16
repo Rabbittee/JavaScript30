@@ -8,10 +8,11 @@
 2. querySelectorAll() 選擇器的應用
 3. classList 的操作
 4. transitionend event
+5. closest
 
 ### logic 
 1. 監聽面板按下的事件，用 classList.toggle 切換 open 不同類別
-2. 監聽動畫結束時，再根據 class 裡面是否包含 open 去新增或移除 open-active class
+2. 監聽動畫結束時，再根據 class 裡面是否包含 open 去 toggle 切換 open-active class
 
 ### learn
 1. 動畫出現的先後順序
@@ -22,6 +23,7 @@
 
 ### reference
 1. [事件監聽優化 & e.target](https://kanboo.github.io/2017/12/30/JS-studynotes/)
+2. [closest](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest)
 
 ### fix
 1. **transitionend 事件多次執行** : <br>
