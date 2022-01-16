@@ -7,12 +7,15 @@
 #### 熟悉操作 Array 的方法
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 725521e (Remove HTML include js code.)
 =======
 
 >>>>>>> 5201853 (docs: ✏️ add README)
+=======
+>>>>>>> 13ce40e (Remove HTML include js code.)
 1. Array.prototype.filter()
 2. Array.prototype.map()
 3. Array.prototype.sort()
