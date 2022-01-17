@@ -1,4 +1,42 @@
-.panel1 { background-image:url(./images/Episode_36_Eyecatcher_B.png); }
-.panel2 { background-image:url(./images/Episode_30_Eyecatcher_B.png); }
-.panel3 { background-image:url(./images/Episode_31_Eyecatcher_A.png); }
-.panel4 { background-image:url(./images/Episode_15_Eyecatcher_B.png); }
+.panel1::before {
+  background-image: url(./images/Episode_36_Eyecatcher_B.png);
+}
+
+.panel2::before {
+  background-image: url(./images/Episode_30_Eyecatcher_B.png);
+}
+
+.panel3::before {
+  background-image: url(./images/Episode_31_Eyecatcher_A.png);
+}
+
+.panel4::before {
+  background-image: url(./images/Episode_18_Eyecatcher_A.png);
+}
+
+.panel {
+  position: relative;
+}
+.panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* filter: grayscale(100%);
+  background-size: cover;
+  background-position: left;*/
+}
+
+.panel p {
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
