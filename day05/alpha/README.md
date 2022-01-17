@@ -1,6 +1,6 @@
 # Javascript 30 days
 
-## Day02-JS + CSS Clock
+## Day05-Flex Panels
 
 **<font color=red>這不是 js 是 css! by 阿法</font>**
 
