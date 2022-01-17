@@ -1,4 +1,4 @@
-import { render } from './utils.js'
+import { render } from './utils.js';
 import * as datum from './data.js';
 const { inventors, people, data } = datum;
 
@@ -75,4 +75,3 @@ const { inventors, people, data } = datum;
   }, {});
   render(title, answer);
 })();
-
