@@ -1,3 +1,4 @@
+import { render } from './utils.js'
 import * as datum from './data.js';
 const { inventors, people, data } = datum;
 
@@ -8,21 +9,21 @@ const { inventors, people, data } = datum;
 (function () {
   const title = `1. Filter the list of inventors for those who were born in the 1500's`;
   const answer = inventors.filter((inventor) => String(inventor.year).slice(0, 2).match(15));
-  print(title, answer);
+  render(title, answer);
 })();
 
 // Array.prototype.map()
 (function () {
   const title = `2. Give us an array of the inventors first and last names`;
   const answer = inventors.map((inventor) => `${inventor.first} ${inventor.last}`);
-  print(title, answer);
+  render(title, answer);
 })();
 
 // Array.prototype.sort()
 (function () {
   const title = `3. Sort the inventors by birthdate, oldest to youngest`;
   const answer = inventors.sort((a, b) => a.year - b.year);
-  print(title, answer);
+  render(title, answer);
 })();
 
 // Array.prototype.reduce()
@@ -47,8 +48,8 @@ const { inventors, people, data } = datum;
     }, [])
     .sort((a, b) => b.age - a.age);
 
-  print(title1, `total ${totalYears} years`);
-  print(title2, sortAge);
+  render(title1, `total ${totalYears} years`);
+  render(title2, sortAge);
 })();
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
@@ -61,7 +62,7 @@ const { inventors, people, data } = datum;
     const nameStr = (name) => name.split(', ')[1].toLowerCase();
     return nameStr(a) > nameStr(b) ? 1 : -1;
   });
-  print(title, answer);
+  render(title, answer);
 })();
 
 // 8. Reduce Exercise
@@ -72,13 +73,6 @@ const { inventors, people, data } = datum;
     acc[curr]++;
     return acc;
   }, {});
-  print(title, answer);
+  render(title, answer);
 })();
 
-function print(title, answer) {
-  const container = document.querySelector('.container');
-  container.innerHTML += `<h3>${title}</h3>`;
-  container.innerHTML += `<div><pre>${JSON.stringify(answer, null, 2)}</pre></div>`;
-  console.log(title);
-  console.table(answer);
-}
