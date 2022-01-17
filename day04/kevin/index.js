@@ -108,7 +108,7 @@ const compare = (a, b) => {
   if (a > b) return 1;
   return 0;
 };
-const getLastName = (name = '') => name.split(', ')[0];
+const getLastName = (name = '') => name.split(', ')[1];
 const q7 = people.sort((a, b) => compare(getLastName(a), getLastName(b)));
 console.log('Q7', q7);
 
