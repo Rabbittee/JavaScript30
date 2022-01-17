@@ -1,0 +1,41 @@
+.circle-text {
+    width: var(--size);
+    height: var(--size);
+    position: fixed;
+    right: 0;
+    top: 0;
+    color: white;
+    margin: 1.5vmax;
+    transform-origin: center center;
+    animation: rotate 15s infinite linear;
+    cursor: default;
+    z-index: 9;
+
+    &:hover {
+        animation: rotate 1.5s reverse infinite linear;
+    }
+
+    span {
+        width: calc(var(--size) / 10);
+        height: calc(var(--size) / 2);
+        font-size: calc(var(--font));
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 50%;
+        text-align: center;
+        text-transform: uppercase;
+        transform-origin: bottom center;
+    }
+}
+
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}

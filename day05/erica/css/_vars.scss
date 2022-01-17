@@ -1,0 +1,21 @@
+/** mixins */
+@mixin gradient($dir, $color1, $color2) {
+    background: linear-gradient($dir, $color1 0%, $color2 100%);
+}
+
+@mixin breakpoint ($breakpoint) {
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+
+/** color */
+$primary: #181409;
+$secondary: #0079ff;
+
+/** breakpoint */
+$sm: 640px;
+$md: 1024px;
+
+
