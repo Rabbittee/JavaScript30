@@ -46,7 +46,7 @@ const toggleText = ({target}) => {
 };
 ```
 ```css
-.panel *{ //將panel裡面的任何tag都將不會產生mouse event
+.panel *{ //panel裡面的任何tag都將不會產生mouse event
     pointer-events: none;
 }
 ```
