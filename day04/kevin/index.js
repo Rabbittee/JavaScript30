@@ -113,11 +113,8 @@ const compare = (a, b) => {
   if (a > b) return 1;
   return 0;
 };
-const q7 = people.sort((a, b) => {
-  const aLastName = a.split(" ")[1];
-  const bLastName = b.split(" ")[1];
-  return compare(aLastName, bLastName);
-});
+const getLastName = (name = "") => name.split(", ")[0];
+const q7 = people.sort((a, b) => compare(getLastName(a), getLastName(b)));
 console.log("Q7", q7);
 
 // 8. Reduce Exercise
