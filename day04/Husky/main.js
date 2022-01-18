@@ -77,7 +77,7 @@ console.table(names);
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
-let sortBirthdate = inventors.slice(0).sort((a, b) => b.year - a.year);
+let sortBirthdate = inventors.slice(0).sort((a, b) => a.year - b.year);
 console.table(sortBirthdate);
 
 // Array.prototype.reduce()
