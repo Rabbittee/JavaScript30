@@ -1,10 +1,10 @@
-name: update README
+name: pre merge to gh-pages branch
 on:
   pull_request:
     types: [opened, reopened]
 jobs:
-  create_daily:
-    name: pre merge to gh-pages branch
+  merge to gh-pages:
+    name: pre merge
     if: ${{ github.event.pull_request.merged  }}
     runs-on: ubuntu-latest
     steps:
