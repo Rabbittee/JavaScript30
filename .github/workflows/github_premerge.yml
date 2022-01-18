@@ -13,5 +13,6 @@ jobs:
       - name: Current branch name
         run: |
           echo "${{ steps.branch-name.outputs.current_branch }}"
+          git
+          git rev-parse --abbrev-ref HEAD
           git checkout gh-pages
-          git merge ${{ steps.branch-name.outputs.current_branch }}
