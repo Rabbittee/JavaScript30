@@ -57,7 +57,7 @@ const people = [
   "Biondo, Frank",
 ];
 
-const filterYear = inventors.filter((el) => el.year > 1500 && el.year < 1600);
+const filterYear = inventors.filter((el) => el.year >= 1500 && el.year < 1600);
 console.log(
   "1. Filter the list of inventors for those who were born in the 1500's",
   filterYear
