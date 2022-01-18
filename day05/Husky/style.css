@@ -1,0 +1,41 @@
+.panel1::before {
+  background-image: url(./images/Episode_36_Eyecatcher_B_z.png);
+}
+
+.panel2::before {
+  background-image: url(./images/Episode_30_Eyecatcher_B_z.png);
+}
+
+.panel3::before {
+  background-image: url(./images/Episode_31_Eyecatcher_A_z.png);
+}
+
+.panel4::before {
+  background-image: url(./images/Episode_18_Eyecatcher_A_z.png);
+}
+
+.panel1 .noInvert {
+  filter: drop-shadow(4px 4px 2px #ffe693);
+}
+
+.panel2 .noInvert {
+  filter: drop-shadow(4px 4px 2px #f9caca);
+}
+
+.panel3 .noInvert {
+  filter: drop-shadow(4px 4px 2px #63918c);
+}
+
+.panel4 .noInvert {
+  filter: drop-shadow(4px 4px 2px #dbac98);
+}
+
+.panel {
+  transition: flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11);
+}
+
+.panel::before {
+  background-blend-mode: multiply;
+  box-shadow: inset -5px -5px rgb(255 255 255 / 10%);
+  transition: filter 1.5s cubic-bezier(0.61, -0.19, 0.7, -0.11);
+}
