@@ -6,7 +6,7 @@ import { data } from "./src/data.js";
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
-const fifteen = inventors.filter(({ year }) => year >= 1500 && year < 2000);
+const fifteen = inventors.filter(({ year }) => year >= 1500 && year < 1600);
 
 console.log(
   `1. Filter the list of inventors for those who were born in the 1500's`
