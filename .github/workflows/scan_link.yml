@@ -1,0 +1,29 @@
+name: update README
+on:
+  pull_request:
+    types: [closed]
+jobs:
+  create_daily:
+    name: create daily folder
+    if: ${{ github.event.pull_request.merged  }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.X
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Run Python Script
+        run: |
+          python script/getLink.py
+      - name: Git Commit
+        run: |
+          git config --global user.email "rabbitteetw@gmail.com"
+          git config --global user.name "Rabbittee"
+          git add .
+          git commit -m "update README link"
+      - name: Push to 'main'
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.PUSH_TO_PROTECTED_BRANCH }}
+          branch: main
