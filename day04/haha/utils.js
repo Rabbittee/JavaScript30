@@ -66,7 +66,7 @@ console.log('2. Give us an array of the inventors first and last names', mapName
 const sortBirthdate = inventors.sort((a, b) => a.year - b.year);
 console.log('3. Sort the inventors by birthdate, oldest to youngest', sortBirthdate);
 
-const reduceLive = inventors.reduce((sum, curr) => sum + (curr.passed - curr.year), 0);
+const reduceLive = inventors.reduce((sum, { passed, year }) => sum + (passed - year), 0);
 console.log('4. How many years did all the inventors live all together?', reduceLive);
 
 const sortLived = inventors.sort((a, b) => b.passed - b.year - (a.passed - a.year));
