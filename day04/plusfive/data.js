@@ -1,9 +1,4 @@
-// Get your shorts on - this is an array workout!
-// ## Array Cardio Day 1
-
-// Some data we can work with
-
-const inventors = [
+export const inventors = [
   { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
   { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
   { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
@@ -18,7 +13,7 @@ const inventors = [
   { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 },
 ];
 
-const people = [
+export const people = [
   'Bernhard, Sandra',
   'Bethea, Erin',
   'Becker, Carl',
@@ -62,44 +57,7 @@ const people = [
   'Biondo, Frank',
 ];
 
-// Array.prototype.filter()
-// 1. Filter the list of inventors for those who were born in the 1500's
-const fifteen = inventors.filter((inventor) => inventor.year >= 1500 && inventor.year < 1600);
-
-console.table(fifteen);
-
-// Array.prototype.map()
-// 2. Give us an array of the inventors first and last names
-const names = inventors.map((inventor) => `${inventor.first} ${inventor.last}`);
-console.table(names);
-
-// Array.prototype.sort()
-// 3. Sort the inventors by birthdate, oldest to youngest
-let sortBirthdate = inventors.slice(0).sort((a, b) => a.year - b.year);
-console.table(sortBirthdate);
-
-// Array.prototype.reduce()
-// 4. How many years did all the inventors live all together?
-const liveAllTogether = inventors.reduce((acc, curr) => acc + curr.passed - curr.year, 0);
-console.log(liveAllTogether);
-
-// 5. Sort the inventors by years lived
-let sortLived = inventors.slice(0).sort((a, b) => b.passed - b.year - (a.passed - a.year));
-console.table(sortLived);
-
-// 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-// https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-
-// 7. sort Exercise
-// Sort the people alphabetically by last name
-const sortName = people.slice(0).sort((a, b) => {
-  return a.split(', ')[0] < b.split(', ')[0] ? -1 : 1;
-});
-console.table(sortName);
-
-// 8. Reduce Exercise
-// Sum up the instances of each of these
-const data = [
+export const data = [
   'car',
   'car',
   'truck',
@@ -115,13 +73,3 @@ const data = [
   'car',
   'truck',
 ];
-
-console.log(
-  data.reduce((acc, curr) => {
-    if (acc[curr] === undefined) {
-      acc[curr] = 0;
-    }
-    acc[curr] += 1;
-    return acc;
-  }, {})
-);
