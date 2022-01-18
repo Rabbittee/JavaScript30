@@ -1,27 +1,79 @@
 const titles = ['我妻善逸', '竈門禰豆子', '竈門炭治郎', '嘴平伊之助'];
 
 const app = document.getElementById('app');
-app.classList.add('flex', 'w-full');
-const titlesDom = titles.map((title, index) => {
+
+const createPanel = (index) => {
   const div = document.createElement('div');
-  div.classList.add(
-    ...[
-      'panel',
-      `panel${index + 1}`,
-      'w-full',
-      `before:bg-cover`,
-      `before:bg-left`,
-      `before:grayscale`,
-    ]
-  );
+  const baseStyles = [
+    'panel',
+    `panel${index + 1}`,
+    'relative',
+    'w-full',
+    'before:absolute',
+    'before:top-0',
+    'before:left-0',
+    'before:w-full',
+    'before:h-full',
+    'before:bg-cover',
+    'before:bg-left',
+  ];
+  const unOpenStyles = ['flex-1', 'before:bg-black', 'before:bg-opacity-70', 'before:grayscale'];
+  const openStyles = ['flex-[2_2_0%]'];
+  div.classList.add(...baseStyles, ...unOpenStyles);
 
-  const p = document.createElement('p');
-  // p.innerText = '';
-  p.style.backgroundImage = `url(./images/${title}.png)`;
-  div.appendChild(p);
+  return {
+    div,
+    style: {
+      unOpen: unOpenStyles,
+      open: openStyles,
+    },
+  };
+};
 
-  app.appendChild(div);
-  return div;
+const createImg = (title) => {
+  const img = document.createElement('img');
+  img.src = `./images/${title}.png`;
+  const baseStyles = [
+    'absolute',
+    'contain',
+    'bg-no-repeat',
+    'transition-all',
+    'duration-1000',
+    'delay-500',
+  ];
+  const unOpenStyles = ['invert', 'right-0', 'bottom-0', 'h-3/5'];
+  const openStyles = ['noInvert', 'left-0', 'top-0', 'h-4/5'];
+  img.classList.add(...baseStyles, ...unOpenStyles);
+  return {
+    img,
+    style: {
+      unOpen: unOpenStyles,
+      open: openStyles,
+    },
+  };
+};
+
+const transformEvent = (panel) => (e) => {
+  const target = e.target.nodeName === 'IMG' ? e.target.parentElement : e.target;
+  panel.panelStyle.unOpen.forEach((style) => target.classList.toggle(style));
+  panel.panelStyle.open.forEach((style) => target.classList.toggle(style));
+
+  panel.imgStyle.unOpen.forEach((style) => panel.img.classList.toggle(style));
+  panel.imgStyle.open.forEach((style) => panel.img.classList.toggle(style));
+};
+
+const panels = titles.map((title, index) => {
+  const { div: panel, style: panelStyle } = createPanel(index);
+  const { img, style: imgStyle } = createImg(title);
+  panel.appendChild(img);
+  app.appendChild(panel);
+
+  return {
+    element: panel,
+    img,
+    panelStyle,
+    imgStyle,
+  };
 });
 
-console.log(titlesDom);
+panels.forEach((panel) => panel.element.addEventListener('click', transformEvent(panel)));
