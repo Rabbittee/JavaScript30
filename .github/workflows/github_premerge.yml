@@ -10,7 +10,12 @@ jobs:
       - name: Get branch names
         id: branch-name
         uses: tj-actions/branch-names@v5.1
-
       - name: Current branch name
         run: |
           echo "${{ steps.branch-name.outputs.current_branch }}"
+      - name: Git Commit
+        run: |
+          git config --global user.email "rabbitteetw@gmail.com"
+          git config --global user.name "Rabbittee"
+          git checkout gh-pages
+          git merge ${{ steps.branch-name.outputs.current_branch }}
