@@ -2,6 +2,7 @@
 
 ## Links
 
+- [哈奇](https://rabbittee.github.io/JavaScript30/day04/Husky/)
 - [阿法](https://rabbittee.github.io/JavaScript30/day04/alpha/)
 - [鳥胃](https://rabbittee.github.io/JavaScript30/day04/erica/)
 - [吠吠](https://rabbittee.github.io/JavaScript30/day04/haha/)
