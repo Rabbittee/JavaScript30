@@ -1,0 +1,17 @@
+name: update README
+on:
+  pull_request:
+    types: [opened, reopened]
+jobs:
+  create_daily:
+    name: pre merge to gh-pages branch
+    if: ${{ github.event.pull_request.merged  }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get branch names
+        id: branch-name
+        uses: tj-actions/branch-names@v5.1
+
+      - name: Current branch name
+        run: |
+          echo "${{ steps.branch-name.outputs.current_branch }}"
