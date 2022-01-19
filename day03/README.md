@@ -8,6 +8,7 @@
 ## Links
 
 - [哈奇](https://rabbittee.github.io/JavaScript30/day03/Husky/)
+- [小白](https://rabbittee.github.io/JavaScript30/day03/White/)
 - [阿法](https://rabbittee.github.io/JavaScript30/day03/alpha/dist/)
 - [鳥胃](https://rabbittee.github.io/JavaScript30/day03/erica/)
 - [吠吠](https://rabbittee.github.io/JavaScript30/day03/haha/)
