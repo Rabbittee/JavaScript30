@@ -58,6 +58,7 @@ const toggleText = ({target:{ classList }}) => {
 - [哈奇](https://rabbittee.github.io/JavaScript30/day05/Husky/)
 - [阿法](https://rabbittee.github.io/JavaScript30/day05/alpha/dist/)
 - [鳥胃](https://rabbittee.github.io/JavaScript30/day05/erica/)
+- [吠吠](https://rabbittee.github.io/JavaScript30/day05/haha/)
 - [凱文](https://rabbittee.github.io/JavaScript30/day05/kevin/)
 - [哈囉](https://rabbittee.github.io/JavaScript30/day05/kirby/)
 - [奶捲](https://rabbittee.github.io/JavaScript30/day05/recoil/)
