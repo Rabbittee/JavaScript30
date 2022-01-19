@@ -56,4 +56,5 @@ const toggleText = ({target:{ classList }}) => {
 ## Links
 
 - [哈奇](https://rabbittee.github.io/JavaScript30/day05/Husky/)
+- [凱文](https://rabbittee.github.io/JavaScript30/day05/kevin/)
 - [奶捲](https://rabbittee.github.io/JavaScript30/day05/recoil/)
