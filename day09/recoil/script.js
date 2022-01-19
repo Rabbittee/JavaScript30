@@ -13,7 +13,7 @@ function makeGreen() {
 console.log(`halo, I am Snickers`);
 
 // Interpolated
-console.log(`it name ${dogs[0].name}`);
+console.log('I am a %s','🐰');
 
 // Styled
 console.log('🐤🐤🐤🐤');
