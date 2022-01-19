@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DAY{{day}} dashboard</title>
+    <style>
+      html,
+      body,
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      .list {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+      }
+      .item {
+        min-width: 50%;
+        height: 50vh;
+        position: relative;
+      }
+      .label {
+        display: flex;
+        position: absolute;
+        bottom: 0.5rem;
+        left: 0.5rem;
+        color: white;
+      }
+      .label .info {
+        padding-left: 0.5rem;
+      }
+      .icon img {
+        border-radius: 50%;
+      }
+      a:link,
+      a:visited,
+      a:hover,
+      a:active {
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="list">
+{{items}}
+    </div>
+  </body>
+</html>
