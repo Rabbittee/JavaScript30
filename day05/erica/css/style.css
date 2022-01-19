@@ -1,0 +1,252 @@
+/** mixins */
+/** color */
+/** breakpoint */
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap");
+:root {
+  --size: auto;
+  --font: auto;
+  --func: cubic-bezier(0.1, 1, 0.9, 1);
+  --func2: cubic-bezier(0.3, -0.6, 0.2, 2);
+}
+
+html {
+  box-sizing: border-box;
+  background: #181409;
+  font-family: "helvetica neue";
+  font-size: 16px;
+  font-weight: 200;
+  text-align: left;
+}
+
+body {
+  margin: 0;
+}
+
+footer {
+  color: white;
+  opacity: 0.5;
+  font-size: 12px;
+  text-align: center;
+  padding: 3vmin;
+  letter-spacing: 2px;
+}
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.circle-text {
+  width: var(--size);
+  height: var(--size);
+  position: fixed;
+  right: 0;
+  top: 0;
+  color: white;
+  margin: 1.5vmax;
+  transform-origin: center center;
+  animation: rotate 15s infinite linear;
+  cursor: default;
+  z-index: 9;
+}
+.circle-text:hover {
+  animation: rotate 1.5s reverse infinite linear;
+}
+.circle-text span {
+  width: calc(var(--size) / 10);
+  height: calc(var(--size) / 2);
+  font-size: calc(var(--font));
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  text-align: center;
+  text-transform: uppercase;
+  transform-origin: bottom center;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.panels {
+  min-height: 100vmin;
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+}
+
+.panel {
+  flex: 1;
+  cursor: pointer;
+  transition: all 1s var(--func);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.panel::before, .panel::after {
+  content: "";
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  transition: all 0.5s var(--func);
+  z-index: 1;
+}
+.panel::before {
+  height: 50%;
+  bottom: 0;
+  opacity: 0;
+  background: linear-gradient(0deg, rgba(24, 20, 9, 0.9) 0%, transparent 100%);
+}
+.panel::after {
+  height: 100%;
+  top: 0;
+  background: linear-gradient(90deg, rgba(24, 20, 9, 0.9) 0%, transparent 100%);
+}
+.panel:hover {
+  flex: 1.125;
+}
+.panel:hover::after {
+  opacity: 0;
+}
+@media (max-width: 1024px) {
+  .panel {
+    flex: none;
+    width: 50vw;
+    height: 50vh;
+  }
+  .panel:hover {
+    flex: none;
+  }
+}
+@media (max-width: 640px) {
+  .panel {
+    width: 100vw;
+  }
+}
+
+.cast {
+  width: 35vmax;
+  max-width: 30vmax;
+  min-height: 50vh;
+  color: white;
+  padding: 5vmin 3vmin;
+  margin-bottom: 3vmin;
+  display: flex;
+  align-items: flex-start;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+  letter-spacing: 2px;
+}
+@media (max-width: 1024px) {
+  .cast {
+    width: 100%;
+    max-width: 45vmax;
+    min-height: 0;
+    align-items: flex-end;
+  }
+}
+.cast-role {
+  margin: 0;
+  font-family: "Jura", sans-serif;
+  font-size: 3.5vmin;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  font-weight: 400;
+  position: relative;
+  white-space: nowrap;
+}
+.cast-role::after {
+  width: 3.5vmin;
+  height: 3.5vmin;
+  content: "+";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0%;
+  top: 100%;
+  margin: 1vmin 0;
+  color: #0079ff;
+  font-weight: 700;
+}
+
+.cast-name,
+.movie-desc {
+  transform: translateY(20%);
+  opacity: 0;
+  transition: all 0.75s var(--func2);
+  font-size: 2.25vmin;
+}
+
+.cast-name {
+  writing-mode: vertical-rl;
+  transition-delay: 0.55s;
+}
+
+.movie-desc {
+  line-height: 1.3;
+  transition-delay: 0.35s;
+}
+
+.panel.open,
+.panel.open:hover {
+  flex: 2.5;
+  cursor: default;
+}
+.panel.open::before,
+.panel.open:hover::before {
+  opacity: 1;
+}
+.panel.open::after,
+.panel.open:hover::after {
+  opacity: 0;
+}
+@media (max-width: 1024px) {
+  .panel.open,
+.panel.open:hover {
+    flex: none;
+    width: 50vw;
+    height: 50vh;
+  }
+  .panel.open:hover,
+.panel.open:hover:hover {
+    flex: none;
+  }
+}
+@media (max-width: 640px) {
+  .panel.open,
+.panel.open:hover {
+    width: 100vw;
+  }
+}
+
+.panel.open .cast-role::after {
+  animation: rotate 2s infinite linear;
+}
+.panel.open .cast-name {
+  opacity: 1;
+  transform: translateY(0%);
+  transition-delay: 0.35s;
+}
+.panel.open .movie-desc {
+  opacity: 1;
+  transform: translateY(-0.35rem);
+  transition-delay: 0.55s;
+}
+@media (max-width: 1024px) {
+  .panel.open .movie-desc {
+    transform: translateY(0%);
+  }
+}
