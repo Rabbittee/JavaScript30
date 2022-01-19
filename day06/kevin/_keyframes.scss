@@ -1,0 +1,40 @@
+@keyframes shadow-light{
+    0%, 100% {
+        box-shadow: 0 0 150px 10px rgba(255,255,255, 0.7), 0 0 4px 5px rgba(255,255,255, 0.8), 0 0 50px 10px rgba(255,255,255, 0.8), inset 0 0 50px 5px rgba(255,255,255,0.6), inset 0 0 10px 5px rgba(255,255,255,0.8);
+    }
+    12.5% {
+        box-shadow: 0 0 150px 10px rgba(10,255,255, 0.7), 0 0 4px 5px rgba(10,255,255, 0.8), 0 0 50px 10px rgba(10,255,255, 0.8), inset 0 0 50px 5px rgba(10,255,255,0.6), inset 0 0 10px 5px rgba(10,255,255,0.8);
+    }
+    37.5% {
+        box-shadow: 0 0 150px 10px rgba(255,10,255, 0.7), 0 0 4px 5px rgba(255,10,255, 0.8), 0 0 50px 10px rgba(255,10,255, 0.8), inset 0 0 50px 5px rgba(255,10,255,0.6), inset 0 0 10px 5px rgba(255,10,255,0.8);
+    }
+    62.5% {
+        box-shadow: 0 0 150px 10px rgba(255,255,10, 0.7), 0 0 4px 5px rgba(255,255,10, 0.8), 0 0 50px 10px rgba(255,255,10, 0.8), inset 0 0 50px 5px rgba(255,255,10,0.6), inset 0 0 10px 5px rgba(255,255,10,0.8);
+    }
+    87.5%{
+        box-shadow: 0 0 150px 10px rgba(255,255,255, 0.7), 0 0 4px 5px rgba(255,255,255, 0.8), 0 0 50px 10px rgba(255,255,255, 0.8), inset 0 0 50px 5px rgba(255,255,255,0.6), inset 0 0 10px 5px rgba(255,255,255,0.8);
+    }
+}
+
+@keyframes text-shadow-light{
+    0%, 100% {
+        color: rgba(255,255,255,1);
+        text-shadow: 0 0 5px rgba(255,255,255,0.8), 0 0 10px rgba(255,255,255,0.5);
+    }
+    12.5% {
+        color: rgba(10,255,255,1);
+        text-shadow: 0 0 5px rgba(10,255,255,0.8), 0 0 10px rgba(10,255,255,0.5);
+    }
+    37.5% {
+        color: rgba(255,10,255,1);
+        text-shadow: 0 0 5px rgba(255,10,255,0.8), 0 0 10px rgba(255,10,255,0.5);
+    }
+    62.5% {
+        color: rgba(255,255,10,1);
+        text-shadow: 0 0 5px rgba(255,255,10,0.8), 0 0 10px rgba(255,255,10,0.5);
+    }
+    87.5%{
+        color: rgba(255,255,255,1);
+        text-shadow: 0 0 5px rgba(255,255,255,0.8), 0 0 10px rgba(255,255,255,0.5);
+    }
+}
