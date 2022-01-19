@@ -41,8 +41,15 @@ const createImg = (title) => {
     'duration-1000',
     'delay-500',
   ];
-  const unOpenStyles = ['invert', 'right-0', 'bottom-0', 'h-3/5'];
-  const openStyles = ['noInvert', 'left-0', 'top-0', 'h-4/5'];
+  const unOpenStyles = ['inv', 'right-0', 'bottom-0', 'h-3/5'];
+  const openStyles = [
+    'noInvert',
+    'right-full',
+    'bottom-full',
+    'h-4/5',
+    'translate-x-full',
+    'translate-y-full',
+  ];
   img.classList.add(...baseStyles, ...unOpenStyles);
   return {
     img,

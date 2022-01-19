@@ -15,19 +15,23 @@
 }
 
 .panel1 .noInvert {
-  filter: drop-shadow(4px 4px 2px #ffe693);
+  filter: drop-shadow(4px 4px 2px #ffe693) invert(0);
 }
 
 .panel2 .noInvert {
-  filter: drop-shadow(4px 4px 2px #f9caca);
+  filter: drop-shadow(4px 4px 2px #f9caca) invert(0);
 }
 
 .panel3 .noInvert {
-  filter: drop-shadow(4px 4px 2px #63918c);
+  filter: drop-shadow(4px 4px 2px #63918c) invert(0);
 }
 
 .panel4 .noInvert {
-  filter: drop-shadow(4px 4px 2px #dbac98);
+  filter: drop-shadow(4px 4px 2px #dbac98) invert(0);
+}
+
+.inv {
+  filter: drop-shadow(0 0 0 #63918c) invert(100%);
 }
 
 .panel {
