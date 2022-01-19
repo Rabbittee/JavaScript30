@@ -1,4 +1,7 @@
-const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+const dogs = [
+  { name: 'Snickers', age: 2 },
+  { name: 'hugo', age: 8 },
+];
 
 function makeGreen() {
   const p = document.querySelector('p');
@@ -7,13 +10,13 @@ function makeGreen() {
 }
 
 // Regular
-console.log(`halo, I am Snickers`)
+console.log(`halo, I am Snickers`);
 
 // Interpolated
-console.log(`it name ${dogs[0].name}`)
+console.log(`it name ${dogs[0].name}`);
 
 // Styled
-console.log('🐤🐤🐤🐤')
+console.log('🐤🐤🐤🐤');
 
 // warning!
 console.warn('White is a lair');
@@ -25,7 +28,7 @@ console.error('White is lair');
 console.info('Crocodiles eat 3-4 people per year');
 
 // Testing
-console.assert('That is wrong!')
+console.assert('That is wrong!');
 
 // clearing
 const p = document.querySelector('p');
@@ -38,12 +41,12 @@ console.clear();
 console.dir(p);
 
 // Grouping together
-dogs.forEach(({ name, age})=>{
-    console.group(name);
-    console.log(`This is ${name}.`);
-    console.log(`${name} is ${age} years old.`);
-    console.log(`${name} is ${age * 7} dog years old.`);
-    console.groupEnd(name);
+dogs.forEach(({ name, age }) => {
+  console.group(name);
+  console.log(`This is ${name}.`);
+  console.log(`${name} is ${age} years old.`);
+  console.log(`${name} is ${age * 7} dog years old.`);
+  console.groupEnd(name);
 });
 
 // counting
@@ -61,14 +64,13 @@ console.count('Steve');
 console.count('Steve');
 console.count('Steve');
 
-
 // timing
 console.time('fetch data');
 fetch('https://api.github.com/users/wesbos')
-    .then(res=>res.json())
-    .then((payload)=>{
-        console.timeEnd(payload);
-        console.timeEnd('fetch data');
-    })
-    
-console.table(dogs)
+  .then((res) => res.json())
+  .then((payload) => {
+    console.timeEnd(payload);
+    console.timeEnd('fetch data');
+  });
+
+console.table(dogs);
