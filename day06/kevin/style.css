@@ -1,75 +1,127 @@
-html {
-    box-sizing: border-box;
-    background: #ffc600;
-    font-family: 'helvetica neue';
-    font-size: 20px;
-    font-weight: 200;
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+@keyframes shadow-light {
+  0%, 100% {
+    box-shadow: 0 0 150px 10px rgba(255, 255, 255, 0.7), 0 0 4px 5px rgba(255, 255, 255, 0.8), 0 0 50px 10px rgba(255, 255, 255, 0.8), inset 0 0 50px 5px rgba(255, 255, 255, 0.6), inset 0 0 10px 5px rgba(255, 255, 255, 0.8);
   }
-  
-  *, *:before, *:after {
-    box-sizing: inherit;
+  12.5% {
+    box-shadow: 0 0 150px 10px rgba(10, 255, 255, 0.7), 0 0 4px 5px rgba(10, 255, 255, 0.8), 0 0 50px 10px rgba(10, 255, 255, 0.8), inset 0 0 50px 5px rgba(10, 255, 255, 0.6), inset 0 0 10px 5px rgba(10, 255, 255, 0.8);
   }
-  
-  input {
-    width: 100%;
-    padding: 20px;
+  37.5% {
+    box-shadow: 0 0 150px 10px rgba(255, 10, 255, 0.7), 0 0 4px 5px rgba(255, 10, 255, 0.8), 0 0 50px 10px rgba(255, 10, 255, 0.8), inset 0 0 50px 5px rgba(255, 10, 255, 0.6), inset 0 0 10px 5px rgba(255, 10, 255, 0.8);
   }
-  
-  .search-form {
-    max-width: 400px;
-    margin: 50px auto;
+  62.5% {
+    box-shadow: 0 0 150px 10px rgba(255, 255, 10, 0.7), 0 0 4px 5px rgba(255, 255, 10, 0.8), 0 0 50px 10px rgba(255, 255, 10, 0.8), inset 0 0 50px 5px rgba(255, 255, 10, 0.6), inset 0 0 10px 5px rgba(255, 255, 10, 0.8);
   }
-  
-  input.search {
-    margin: 0;
-    text-align: center;
-    outline: 0;
-    border: 10px solid #F7F7F7;
-    width: 120%;
-    left: -10%;
-    position: relative;
-    top: 10px;
-    z-index: 2;
-    border-radius: 5px;
-    font-size: 40px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+  87.5% {
+    box-shadow: 0 0 150px 10px rgba(255, 255, 255, 0.7), 0 0 4px 5px rgba(255, 255, 255, 0.8), 0 0 50px 10px rgba(255, 255, 255, 0.8), inset 0 0 50px 5px rgba(255, 255, 255, 0.6), inset 0 0 10px 5px rgba(255, 255, 255, 0.8);
   }
-  
-  .suggestions {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    /*perspective: 20px;*/
+}
+@keyframes text-shadow-light {
+  0%, 100% {
+    color: white;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
   }
-  
-  .suggestions li {
-    background: white;
-    list-style: none;
-    border-bottom: 1px solid #D8D8D8;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
-    margin: 0;
-    padding: 20px;
-    transition: background 0.2s;
-    display: flex;
-    justify-content: space-between;
-    text-transform: capitalize;
+  12.5% {
+    color: #0affff;
+    text-shadow: 0 0 5px rgba(10, 255, 255, 0.8), 0 0 10px rgba(10, 255, 255, 0.5);
   }
-  
-  .suggestions li:nth-child(even) {
-    transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
-    background: linear-gradient(to bottom,  #ffffff 0%,#EFEFEF 100%);
+  37.5% {
+    color: #ff0aff;
+    text-shadow: 0 0 5px rgba(255, 10, 255, 0.8), 0 0 10px rgba(255, 10, 255, 0.5);
   }
-  
-  .suggestions li:nth-child(odd) {
-    transform: perspective(100px) rotateX(-3deg) translateY(3px);
-    background: linear-gradient(to top,  #ffffff 0%,#EFEFEF 100%);
+  62.5% {
+    color: #ffff0a;
+    text-shadow: 0 0 5px rgba(255, 255, 10, 0.8), 0 0 10px rgba(255, 255, 10, 0.5);
   }
-  
-  span.population {
-    font-size: 15px;
+  87.5% {
+    color: white;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
   }
-  
-  .hl {
-    background: #ffc600;
-  }
-  
+}
+* {
+  font-family: "Rock Salt", cursive;
+  color: white;
+  box-sizing: border-box;
+}
+
+.animate-shadow-light {
+  animation: shadow-light 5s infinite both;
+}
+
+.animate-text-light-shadow {
+  animation: text-shadow-light 5s infinite both;
+}
+
+.body {
+  margin: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  width: 100vw;
+  padding-top: 25rem;
+  padding-bottom: 10rem;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  background: radial-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.95)), url("./wowpatterns-export.jpeg");
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  margin-bottom: 4rem;
+  font-size: 3.5rem;
+  position: relative;
+}
+.label::after, .label::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 5px;
+  width: 100vw;
+  background-color: #fff;
+  border-radius: 5px;
+  animation: shadow-light 5s infinite both;
+}
+.label::after {
+  left: -70px;
+  transform: translate(-100%, -50%);
+}
+.label::before {
+  right: -70px;
+  transform: translate(100%, -50%);
+}
+
+.search {
+  margin-bottom: 2rem;
+  padding: 1rem 1rem;
+  line-height: 2em;
+  text-align: center;
+  font-size: 2rem;
+  outline: none;
+  border-radius: 1.25rem;
+  border: none;
+  background: transparent;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.search::placeholder {
+  text-shadow: 0 0 0 #111;
+}
+
+.suggestions {
+  width: 100%;
+  list-style: none;
+  animation: text-shadow-light 5s infinite both;
+  padding: 0;
+  font-size: 2rem;
+}
+.suggestions li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+}
