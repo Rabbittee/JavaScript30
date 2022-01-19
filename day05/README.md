@@ -4,12 +4,6 @@
 1. 運用`flex`排版與文字置中
 2. 點擊文字時一樣能展開panel
 3. `transform`實現panel展開後`滑入`與`滑出`文字效果
-
-## Links
-
-- [哈奇](https://rabbittee.github.io/JavaScript30/day05/Husky/)
-- [奶捲](https://rabbittee.github.io/JavaScript30/day05/recoil/)
-
 ## 解決繞過文字讓panel可以正常展開的方法
 ### 方法一 
 ```js
@@ -57,3 +51,9 @@ const toggleText = ({target:{ classList }}) => {
 - black magic，只看code的狀況下會不知道發生什麼事
 
 以上是自己的整理，如果有誤歡迎指正
+
+
+## Links
+
+- [哈奇](https://rabbittee.github.io/JavaScript30/day05/Husky/)
+- [奶捲](https://rabbittee.github.io/JavaScript30/day05/recoil/)
