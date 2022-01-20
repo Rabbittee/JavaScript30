@@ -13,16 +13,23 @@ const getFilteredDataByKeyword = (data, keyword = '') => {
         .sort((a, b) => b.population - a.population);
 };
 
-const generateLi = ({ city, population }) => `
-  <li>
-      <span>${city}</span>
-      <span>${population}</span>
-  </li>
-  `;
+const generateEmptyLi = `<li>Nothing</li>`;
+const generateMultiLi = (data) => {
+  return data
+    .map(
+      ({ city, state, population }) => `
+      <li>
+        <span>${city}, ${state}</span>
+        <span>${population}</span>
+      </li>
+      `
+    )
+    .join('');
+};
 
 const renderList = (data = []) => {
-  data = data.length === 0 ? [{ city: 'Nothing!', population: '' }] : data;
-  select('.suggestions').innerHTML = data.map((item) => generateLi(item)).join('');
+  const html = data.length === 0 ? generateEmptyLi : generateMultiLi(data);
+  select('.suggestions').innerHTML = html;
 };
 
 const handleSearch = (data, keyword) => {
