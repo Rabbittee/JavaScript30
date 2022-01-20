@@ -8,8 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-
-      - name: Merge -> gh-pages
+      - name: Merge main -> gh-pages
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: main
+          target_branch: gh-pages
+          github_token: ${{ github.token }}
+      - name: Merge current -> gh-pages
         uses: devmasx/merge-branch@master
         with:
           type: now
