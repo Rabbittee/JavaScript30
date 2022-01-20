@@ -19,6 +19,7 @@ const toggleText = (e) => {
 ```
 優點：
 - 單純父子關係時可以正常運作
+
 缺點：
 - 碰到`div.panel > span > p`或`div.panel`與`p`之間有更多層tag時，操縱的節點不一定是`div.panel`。
 
