@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Type Ahead 👀</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <form class="search-form">
-    <input type="text" class="search" placeholder="City or State">
-    <ul class="suggestions">
-      <li>Filter for a city</li>
-      <li>or a state</li>
-    </ul>
-  </form>
-<script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Type Ahead 👀</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="h-screen w-screen relative overflow-hidden">
+      <aside class="h-full z-10">
+        <form class="search-form">
+          <input type="text" class="search" placeholder="City or State" />
+          <ul class="suggestions"></ul>
+        </form>
+        <div class="introduce card"></div>
+      </aside>
+      <img
+        src="https://michiminoru.files.wordpress.com/2014/04/68168-buzzing-city.gif"
+        class="absolute top-0 left-0"
+        width="100%"
+        alt=""
+      />
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>

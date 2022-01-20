@@ -17,19 +17,31 @@ input {
   padding: 20px;
 }
 
-.search-form {
-  max-width: 400px;
-  margin: 50px auto;
+aside {
+  width: 100%;
+  position: relative;
+  padding-right: 10px;
+  box-shadow: 6px 0px 20px rgba(0, 0, 0, 0.2);
+  transition: all 1s ease-in-out;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(4px);
+}
+
+aside.searching {
+  width: calc(100% / 6);
+  background: rgb(240, 240, 240);
+  backdrop-filter: blur(0px);
 }
 
 input.search {
   margin: 0;
-  text-align: center;
+  text-align: start;
   outline: 0;
   border: 10px solid #f7f7f7;
-  width: 120%;
+  width: 100%;
   left: -10%;
-  position: relative;
   top: 10px;
   z-index: 2;
   border-radius: 5px;
@@ -37,11 +49,29 @@ input.search {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
 }
 
+aside > form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -200px);
+  transition: all 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+aside.searching > form {
+  top: 0%;
+  left: 0%;
+  transform: translate(0%, 0%);
+}
+
 .suggestions {
   margin: 0;
   padding: 0;
   position: relative;
   /*perspective: 20px;*/
+  min-height: 400px;
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .suggestions li {
@@ -50,19 +80,36 @@ input.search {
   border-bottom: 1px solid #d8d8d8;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
   margin: 0;
-  padding: 20px;
-  transition: background 0.2s;
+}
+
+.suggestions > li.options {
+  cursor: pointer;
+}
+
+.suggestions > li > * {
+  pointer-events: none;
+}
+
+.suggestions > li > .banner {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   text-transform: capitalize;
+  transition: all 0.4s;
+  padding: 20px;
 }
 
-.suggestions li:nth-child(even) {
+.suggestions > li.options:hover > .banner {
+  background: rgba(100, 100, 100, 0.4);
+  color: #fff;
+}
+
+.suggestions > li:nth-child(even) {
   transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
   background: linear-gradient(to bottom, #ffffff 0%, #efefef 100%);
 }
 
-.suggestions li:nth-child(odd) {
+.suggestions > li:nth-child(odd) {
   transform: perspective(100px) rotateX(-3deg) translateY(3px);
   background: linear-gradient(to top, #ffffff 0%, #efefef 100%);
 }
@@ -72,5 +119,11 @@ span.population {
 }
 
 .hl {
-  background: #ffc600;
+  color: #ffc600;
+  font-weight: 700;
+}
+
+.introduce {
+  flex: 0 1 100%;
+  margin-top: 140px;
 }

@@ -36,13 +36,15 @@ const highlightKeyword = (keyword) => (tours) => {
   const focusKeyword = findKeyword(keyword);
   return tours.map((tour) => {
     return `
-            <li>
+            <li class="options" data-city="${tour.city}">
+              <div class="banner">
                 <span class="name">
                 ${focusKeyword(tour.city)}
                 </span>
                 <span class="population">
                 ${focusKeyword(tour.population)}
                 </span>
+              </div>
             </li>
         `;
   });
@@ -52,18 +54,33 @@ const combineItem = (tours) => tours.join("");
 
 const insertTo = (node) => (list) => (node.innerHTML = list);
 
-const typeSearch = select("input.search");
-
+const searchBar = select("input.search");
+const aside = select("aside"); 
 const list = select("ul.suggestions");
+const showList = () => list.classList.remove("hidden");
 
 const searchTourismCity = debounce(1000, function (queryContent) {
+
+  if(queryContent.trim().length === 0){
+    insertTo(list)("")
+    return ;
+  }
+
   apiEffect(url)
     .then(filterTourCity(queryContent))
     .then(highlightKeyword(queryContent))
     .then(combineItem)
-    .then(insertTo(list));
+    .then(insertTo(list))
+    .then(showList);
 });
 
-typeSearch.addEventListener("keyup", function ({ target: { value } }) {
+list.addEventListener("click",function({target}){
+  console.log(target.dataset.city)
+  searchBar.value = target.dataset.city
+  aside.classList.add("searching")
+  list.classList.add("hidden")
+})
+
+searchBar.addEventListener("keyup", function ({ target: { value } }) {
   searchTourismCity(value);
 });
