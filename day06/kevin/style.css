@@ -117,7 +117,7 @@
   list-style: none;
   animation: text-shadow-light 5s infinite both;
   padding: 0;
-  font-size: 2rem;
+  font-size: 1.75rem;
 }
 .suggestions li {
   width: 100%;
