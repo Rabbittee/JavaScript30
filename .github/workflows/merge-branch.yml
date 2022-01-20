@@ -1,8 +1,7 @@
-name: Merge any feature branch to gh-pages
+name: Merge any branch to gh-pages
 on:
   pull_request:
-    branches:
-      - 'feature/*'
+
 jobs:
   merge-branch:
     runs-on: ubuntu-latest
