@@ -1,6 +1,6 @@
 name: Merge any feature branch to gh-pages
 on:
-  push:
+  pull_request:
     branches:
       - 'feature/*'
 jobs:
