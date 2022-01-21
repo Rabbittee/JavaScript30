@@ -3,24 +3,19 @@ name: Lint
 on:
   pull_request:
 
-permissions:
-  pull-requests: write
-
 jobs:
-  assign-author:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: toshimaru/auto-author-assign@v1.4.0
-
   lint:
     name: lint
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+
       - name: Setup node
         uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 12
+
       - name: Run lint
         run: npm run lint
