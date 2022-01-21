@@ -52,7 +52,7 @@ input + label {
   font-weight: 500;
   color: #96969a;
   position: absolute;
-  top: 18px;
+  top: 8px;
   left: 6%;
   transform: translateX(0%);
   transition: all 0.6s;
