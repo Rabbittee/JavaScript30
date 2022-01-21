@@ -1,5 +1,5 @@
 const url =
-  "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
+  'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
 const select = (target) => document.querySelector(target);
 
@@ -14,7 +14,7 @@ const debounce = (delay = 0, func) => {
 
 // highlight keyword by searching
 function findKeyword(keyword) {
-  const regex = new RegExp(`(${keyword})`, "gi");
+  const regex = new RegExp(`(${keyword})`, 'gi');
   return function (content) {
     return content.replace(regex, "<span class='hl'>$1</span>");
   };
@@ -26,7 +26,7 @@ async function apiEffect(source) {
 }
 
 const filterTourCity = (keyword) => (tours) => {
-  const regex = new RegExp(keyword, "gi");
+  const regex = new RegExp(keyword, 'gi');
   return tours.filter((tour) => {
     return tour.city.match(regex) || tour.population.match(regex);
   });
@@ -50,17 +50,17 @@ const highlightKeyword = (keyword) => (tours) => {
   });
 };
 
-const combineItem = (tours) => tours.join("");
+const combineItem = (tours) => tours.join('');
 
 const insertTo = (node) => (list) => (node.innerHTML = list);
 
-const searchBar = select("input.search");
-const list = select("ul.suggestions");
-const showList = () => list.classList.remove("hidden");
+const searchBar = select('input.search');
+const list = select('ul.suggestions');
+const showList = () => list.classList.remove('hidden');
 
 const searchTourismCity = debounce(1000, function (queryContent) {
   if (queryContent.trim().length === 0) {
-    insertTo(list)("");
+    insertTo(list)('');
     return;
   }
 
@@ -72,11 +72,11 @@ const searchTourismCity = debounce(1000, function (queryContent) {
     .then(showList);
 });
 
-list.addEventListener("click", function ({ target }) {
+list.addEventListener('click', function ({ target }) {
   searchBar.value = target.dataset.city;
-  list.classList.add("hidden");
+  list.classList.add('hidden');
 });
 
-searchBar.addEventListener("keyup", function ({ target: { value } }) {
+searchBar.addEventListener('keyup', function ({ target: { value } }) {
   searchTourismCity(value);
 });
