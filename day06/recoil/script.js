@@ -55,15 +55,13 @@ const combineItem = (tours) => tours.join("");
 const insertTo = (node) => (list) => (node.innerHTML = list);
 
 const searchBar = select("input.search");
-const aside = select("aside"); 
 const list = select("ul.suggestions");
 const showList = () => list.classList.remove("hidden");
 
 const searchTourismCity = debounce(1000, function (queryContent) {
-
-  if(queryContent.trim().length === 0){
-    insertTo(list)("")
-    return ;
+  if (queryContent.trim().length === 0) {
+    insertTo(list)("");
+    return;
   }
 
   apiEffect(url)
@@ -74,12 +72,10 @@ const searchTourismCity = debounce(1000, function (queryContent) {
     .then(showList);
 });
 
-list.addEventListener("click",function({target}){
-  console.log(target.dataset.city)
-  searchBar.value = target.dataset.city
-  aside.classList.add("searching")
-  list.classList.add("hidden")
-})
+list.addEventListener("click", function ({ target }) {
+  searchBar.value = target.dataset.city;
+  list.classList.add("hidden");
+});
 
 searchBar.addEventListener("keyup", function ({ target: { value } }) {
   searchTourismCity(value);

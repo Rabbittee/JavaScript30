@@ -8,13 +8,14 @@
   </head>
   <body>
     <div class="h-screen w-screen relative overflow-hidden">
-      <aside class="h-full z-10">
+      <main class="h-full z-10">
         <form class="search-form">
-          <input type="text" class="search" placeholder="City or State" />
+          <input type="text" class="search" id="searchBar" pattern="/\s+/" />
+          <label for="searchBar">Let's go</label>
           <ul class="suggestions"></ul>
         </form>
         <div class="introduce card"></div>
-      </aside>
+      </main>
       <img
         src="https://michiminoru.files.wordpress.com/2014/04/68168-buzzing-city.gif"
         class="absolute top-0 left-0"
