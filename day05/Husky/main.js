@@ -61,7 +61,7 @@ const createImg = (title) => {
 };
 
 const transformEvent = (panel) => (e) => {
-  const target = e.target.nodeName === 'IMG' ? e.target.parentElement : e.target;
+  const target = e.target.closest('.panel');
   panel.panelStyle.unOpen.forEach((style) => target.classList.toggle(style));
   panel.panelStyle.open.forEach((style) => target.classList.toggle(style));
 
