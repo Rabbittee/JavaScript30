@@ -11,10 +11,10 @@
 | [03](https://rabbittee.github.io/JavaScript30/day03/) | [CSS Variables](https://rabbittee.github.io/JavaScript30/day03/sample)                                 | 鉛筆 (zoeGuava)     |
 | [04](https://rabbittee.github.io/JavaScript30/day04/) | [Array Cardio Day 1](https://rabbittee.github.io/JavaScript30/day04/sample)                            | 小金 (KimberlyYen)  |
 | [05](https://rabbittee.github.io/JavaScript30/day05/) | [Flex Panel Gallery](https://rabbittee.github.io/JavaScript30/day05/sample)                            | 奶捲 (lee926427)    |
-| [06](https://rabbittee.github.io/JavaScript30/day06/) | [Type Ahead](https://rabbittee.github.io/JavaScript30/day06/sample)                                    |
-| [07](https://rabbittee.github.io/JavaScript30/day07/) | [Array Cardio Day 2](https://rabbittee.github.io/JavaScript30/day07/sample)                            |
-| [08](https://rabbittee.github.io/JavaScript30/day08/) | [Fun with HTML5 Canvas](https://rabbittee.github.io/JavaScript30/day08/sample)                         |
-| [09](https://rabbittee.github.io/JavaScript30/day09/) | [Dev Tools Domination](https://rabbittee.github.io/JavaScript30/day09/sample)                          |
+| [06](https://rabbittee.github.io/JavaScript30/day06/) | [Type Ahead](https://rabbittee.github.io/JavaScript30/day06/sample)                                    | 八月                |
+| [07](https://rabbittee.github.io/JavaScript30/day07/) | [Array Cardio Day 2](https://rabbittee.github.io/JavaScript30/day07/sample)                            | 轉圈圈 (elzuoc)     |
+| [08](https://rabbittee.github.io/JavaScript30/day08/) | [Fun with HTML5 Canvas](https://rabbittee.github.io/JavaScript30/day08/sample)                         | 吠吠 (haha861924)   |
+| [09](https://rabbittee.github.io/JavaScript30/day09/) | [Dev Tools Domination](https://rabbittee.github.io/JavaScript30/day09/sample)                          | 小白 (beareatapple) |
 | [10](https://rabbittee.github.io/JavaScript30/day10/) | [Hold Shift and Check Checkboxes](https://rabbittee.github.io/JavaScript30/day10/sample)               |
 | [11](https://rabbittee.github.io/JavaScript30/day11/) | [Custom Video Player](https://rabbittee.github.io/JavaScript30/day11/sample)                           |
 | [12](https://rabbittee.github.io/JavaScript30/day12/) | [Key Sequence Detection](https://rabbittee.github.io/JavaScript30/day12/sample)                        |
