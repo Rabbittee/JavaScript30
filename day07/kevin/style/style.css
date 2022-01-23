@@ -5,11 +5,18 @@
 html {
   background-color: #111;
   color: #fff;
-  background-image: url("https://images.unsplash.com/photo-1599578705716-8d3d9246f53b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+  background-image: url('https://images.unsplash.com/photo-1599578705716-8d3d9246f53b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
   background-size: cover;
 }
 
-h1, h2, h3, h4, h5, h6, pre, code {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code {
   margin-top: 0;
 }
 

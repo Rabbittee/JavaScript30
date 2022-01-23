@@ -1,52 +1,59 @@
 * {
-   box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 html {
-    background-color: #111;
-    color: #fff;
-    background-image: url('https://images.unsplash.com/photo-1599578705716-8d3d9246f53b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
-    background-size: cover;
+  background-color: #111;
+  color: #fff;
+  background-image: url('https://images.unsplash.com/photo-1599578705716-8d3d9246f53b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
 }
 
-h1,h2,h3,h4,h5,h6,pre,code {
-    margin-top: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code {
+  margin-top: 0;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 code {
-    background-color: #111;
-    color: #e55;
-    padding: 0.1em 0.25em 0.15em;
-    border-radius: 0.25em;
-    display: inline-block;
+  background-color: #111;
+  color: #e55;
+  padding: 0.1em 0.25em 0.15em;
+  border-radius: 0.25em;
+  display: inline-block;
 }
 
 .container {
-    width: 100%;
-    max-width: 786px;
-    margin: 0 auto;
-    padding: 1rem;
+  width: 100%;
+  max-width: 786px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 .card {
-    background-color: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    -moz-backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  text-align: left;
+  margin-bottom: 2rem;
+  pre {
     border-radius: 1rem;
-    padding: 1rem 2rem;
-    text-align: left;
-    margin-bottom: 2rem;
-    pre {
-        border-radius: 1rem;
-        background-color: rgba(0, 0, 0, 0.3);
-        overflow-y: scroll;
-        padding: 1rem;
-        max-height: 10rem;
-    }
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow-y: scroll;
+    padding: 1rem;
+    max-height: 10rem;
+  }
 }
