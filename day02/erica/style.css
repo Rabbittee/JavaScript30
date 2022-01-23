@@ -1,9 +1,8 @@
 html {
-  background: black
-    url("https://images.unsplash.com/photo-1608138665662-7e72fce249f3?w=1280")
+  background: black url('https://images.unsplash.com/photo-1608138665662-7e72fce249f3?w=1280')
     no-repeat center top;
   background-size: cover;
-  font-family: "helvetica neue";
+  font-family: 'helvetica neue';
   text-align: center;
 }
 
@@ -12,8 +11,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-	margin: 0;
-	backdrop-filter: blur(3px);
+  margin: 0;
+  backdrop-filter: blur(3px);
 }
 
 .clock {
@@ -23,13 +22,9 @@ body {
   border-radius: 50%;
   position: relative;
   padding: 2rem;
-  box-shadow:
-		0 0 5rem rgba(255, 255, 255, 0.1),
-    0 0 2rem rgba(255, 255, 255, 0.3),
-		0 0 0.5rem rgba(255, 255, 255, 0.5),
-		inset 0 0 5rem rgba(255, 255, 255, 0.1),
-    inset 0 0 2rem rgba(255, 255, 255, 0.3),
-		inset 0 0 0.5rem rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 5rem rgba(255, 255, 255, 0.1), 0 0 2rem rgba(255, 255, 255, 0.3),
+    0 0 0.5rem rgba(255, 255, 255, 0.5), inset 0 0 5rem rgba(255, 255, 255, 0.1),
+    inset 0 0 2rem rgba(255, 255, 255, 0.3), inset 0 0 0.5rem rgba(255, 255, 255, 0.5);
 }
 
 .clock-face {
@@ -54,12 +49,12 @@ body {
 }
 
 .min-hand {
-	height: 50%;
-	width: 2px;
+  height: 50%;
+  width: 2px;
 }
 
 .second-hand {
   background-color: white;
-	height: 42.5%;
+  height: 42.5%;
   width: 1px;
 }

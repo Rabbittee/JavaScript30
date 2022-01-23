@@ -10,7 +10,9 @@ body {
   margin: 0;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -42,21 +44,21 @@ header {
 h1 {
   color: white;
   font-size: 7vw;
-  text-shadow: 3px 4px 0 rgba(0,0,0,0.2);
+  text-shadow: 3px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 nav {
   background: black;
   top: 0;
   width: 100%;
-  transition:all 0.5s;
+  transition: all 0.5s;
   position: relative;
   z-index: 1;
 }
 
 body.fixed-nav nav {
   position: fixed;
-  box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.1);
 }
 
 nav ul {

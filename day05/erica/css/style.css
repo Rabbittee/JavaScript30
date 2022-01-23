@@ -1,7 +1,7 @@
 /** mixins */
 /** color */
 /** breakpoint */
-@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
 :root {
   --size: auto;
   --font: auto;
@@ -12,7 +12,7 @@
 html {
   box-sizing: border-box;
   background: #181409;
-  font-family: "helvetica neue";
+  font-family: 'helvetica neue';
   font-size: 16px;
   font-weight: 200;
   text-align: left;
@@ -93,8 +93,9 @@ footer a {
   flex-direction: column;
   justify-content: flex-end;
 }
-.panel::before, .panel::after {
-  content: "";
+.panel::before,
+.panel::after {
+  content: '';
   display: block;
   width: 100%;
   position: absolute;
@@ -159,7 +160,7 @@ footer a {
 }
 .cast-role {
   margin: 0;
-  font-family: "Jura", sans-serif;
+  font-family: 'Jura', sans-serif;
   font-size: 3.5vmin;
   text-transform: uppercase;
   writing-mode: vertical-rl;
@@ -170,7 +171,7 @@ footer a {
 .cast-role::after {
   width: 3.5vmin;
   height: 3.5vmin;
-  content: "+";
+  content: '+';
   display: flex;
   align-items: center;
   justify-content: center;
@@ -215,19 +216,19 @@ footer a {
 }
 @media (max-width: 1024px) {
   .panel.open,
-.panel.open:hover {
+  .panel.open:hover {
     flex: none;
     width: 50vw;
     height: 50vh;
   }
   .panel.open:hover,
-.panel.open:hover:hover {
+  .panel.open:hover:hover {
     flex: none;
   }
 }
 @media (max-width: 640px) {
   .panel.open,
-.panel.open:hover {
+  .panel.open:hover {
     width: 100vw;
   }
 }

@@ -2,8 +2,6 @@
 .pnp.loader.mjs
 **/sample/**/*.js
 **/dist/**/*.js
-*.css
-*.scss
 *.html
 *.md
 *.json

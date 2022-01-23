@@ -1,13 +1,13 @@
 html {
   box-sizing: border-box;
-  background: url("oh-la-la.jpeg") center no-repeat;
+  background: url('oh-la-la.jpeg') center no-repeat;
   background-size: cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 }
 
 *,
@@ -62,12 +62,12 @@ h2 {
 }
 
 .plates input + label:before {
-  content: "⬜️";
+  content: '⬜️';
   margin-right: 10px;
 }
 
 .plates input:checked + label:before {
-  content: "🌮";
+  content: '🌮';
 }
 
 .add-items {

@@ -1,7 +1,7 @@
 html {
   box-sizing: border-box;
   background: #ffc600;
-  font-family: "helvetica neue";
+  font-family: 'helvetica neue';
   font-size: 20px;
   font-weight: 200;
 }
@@ -69,7 +69,7 @@ body {
 
 .panel p {
   text-transform: uppercase;
-  font-family: "Amatic SC", cursive;
+  font-family: 'Amatic SC', cursive;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
   font-size: 2em;
 }

@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;500;700&family=Ubuntu:wght@300;400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;500;700&family=Ubuntu:wght@300;400;500&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 html {
   background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
   background-size: cover;
-  font-family: "helvetica neue";
+  font-family: 'helvetica neue';
   text-align: center;
   font-size: 10px;
 }
@@ -35,8 +35,8 @@ main {
   margin: 50px auto;
   position: relative;
   padding: 2rem;
-  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
-    inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef, inset 0 0 10px black,
+    0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .time-value {
