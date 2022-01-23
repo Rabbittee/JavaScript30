@@ -1,7 +1,8 @@
 .pnp.cjs
 .pnp.loader.mjs
 **/sample/**/*.js
-**/dist/**/*.js
+**/dist/**/*.{js,css}
+**/dist
 *.html
 *.md
 *.json
