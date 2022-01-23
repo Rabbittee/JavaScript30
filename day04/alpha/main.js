@@ -1,16 +1,14 @@
 // Get your shorts on - this is an array workout!
 // ## Array Cardio Day 1
-import { inventors } from "./src/inventors.js";
-import { people } from "./src/people.js";
-import { data } from "./src/data.js";
+import { inventors } from './src/inventors.js';
+import { people } from './src/people.js';
+import { data } from './src/data.js';
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
 const fifteen = inventors.filter(({ year }) => year >= 1500 && year < 1600);
 
-console.log(
-  `1. Filter the list of inventors for those who were born in the 1500's`
-);
+console.log(`1. Filter the list of inventors for those who were born in the 1500's`);
 console.table(fifteen);
 
 // Array.prototype.map()
@@ -57,7 +55,7 @@ console.log(`6. skip`);
 // Sort the people alphabetically by last name
 const handleSplit = (array) =>
   array.map((name) => {
-    return name.trim().split(",");
+    return name.trim().split(',');
   });
 
 const sortByAlphabet = handleSplit(people).sort((a, b) => {

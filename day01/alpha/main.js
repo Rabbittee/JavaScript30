@@ -1,5 +1,5 @@
-import "./style.css";
-import "./src/header";
+import './style.css';
+import './src/header';
 
 // thanks fei fei
 const getKeycode = (e) => {
@@ -17,13 +17,11 @@ const play = (currentAudio) => {
 
 const toggleClass = (currentKey, isActive = false) => {
   if (!currentKey) return;
-  currentKey.classList.toggle("play", isActive);
+  currentKey.classList.toggle('play', isActive);
 };
 
 const keyDown = (e) => {
-  const currentAudio = document.querySelector(
-    `audio[data-key="${getKeycode(e)}"]`
-  );
+  const currentAudio = document.querySelector(`audio[data-key="${getKeycode(e)}"]`);
   const currentKey = document.querySelector(`div[data-key="${getKeycode(e)}"]`);
   play(currentAudio);
   toggleClass(currentKey, true);
@@ -38,5 +36,5 @@ const keyUp = (e) => {
  */
 
 //keydown better than keypress because keydown keycode is same between uppercase and lowercase
-document.addEventListener("keydown", keyDown);
-document.addEventListener("keyup", keyUp);
+document.addEventListener('keydown', keyDown);
+document.addEventListener('keyup', keyUp);

@@ -1,4 +1,4 @@
-const header = document.querySelector("header");
+const header = document.querySelector('header');
 
 header.innerHTML = `<nav class="bg-white bg-opacity-75 fixed top-0 w-full">
 <ul class="flex justify-between p-4">

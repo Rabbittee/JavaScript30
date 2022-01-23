@@ -1,8 +1,8 @@
 export default {
-  base: "/JavaScript30/day01/alpha/dist/",
+  base: '/JavaScript30/day01/alpha/dist/',
   server: {
     fs: {
-      allow: [".."],
+      allow: ['..'],
     },
   },
 };

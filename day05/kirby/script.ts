@@ -1,7 +1,7 @@
 const select = (query: string) => document.querySelector<HTMLElement>(query);
 
-select(".panels").addEventListener("click", ({ target }) => {
+select('.panels').addEventListener('click', ({ target }) => {
   if (!(target instanceof Element)) return;
 
-  target.closest(".panel")?.classList.toggle("open");
+  target.closest('.panel')?.classList.toggle('open');
 });

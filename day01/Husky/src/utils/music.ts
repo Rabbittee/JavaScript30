@@ -1,4 +1,4 @@
-import Key from "../models/Key";
+import Key from '../models/Key';
 
 function play(sound: Key) {
   const audio = new Audio(sound?.sound);

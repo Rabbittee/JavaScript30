@@ -1,13 +1,11 @@
-const select = <T extends HTMLElement>(query: string) =>
-  document.querySelector<T>(query);
+const select = <T extends HTMLElement>(query: string) => document.querySelector<T>(query);
 
 const play = (audio: HTMLAudioElement) => {
   audio.currentTime = 0;
   audio.play();
 };
 
-const glow = (element: HTMLElement, flag = true) =>
-  element.classList.toggle("playing", flag);
+const glow = (element: HTMLElement, flag = true) => element.classList.toggle('playing', flag);
 
 const getKeyCode = (key: string) => key.toUpperCase().charCodeAt(0);
 
@@ -25,5 +23,5 @@ function releaseAudioEffect(e: KeyboardEvent) {
   glow(select(`.key[data-key="${code}"]`), false);
 }
 
-document.addEventListener("keydown", playAudioEffect);
-document.addEventListener("keyup", releaseAudioEffect);
+document.addEventListener('keydown', playAudioEffect);
+document.addEventListener('keyup', releaseAudioEffect);
