@@ -1,20 +1,35 @@
+import './style.css';
+
+import mapboxgl from 'mapbox-gl';
+
+import { createMap, addMapData, addMapEvent } from './map';
 import { City } from './interfaces';
 import { api, format } from './utils';
-import './style.css';
-import { createMap } from './map';
 import { endpoint } from './config';
 
-api<City[]>(endpoint)
-  .then(format)
-  .then(createMap)
-  .then((map) => {
-    const searchInput = document.querySelector<HTMLInputElement>('input[name="search"]')!;
+const bounds: [[number, number], [number, number]] = [
+  [-130, 49],
+  [-62, 23],
+]
 
-    const displayMatches = (e: Event) => {
-      const value = (<HTMLInputElement>e.target).value;
-      map.setFilter('point', ['in', ['downcase', value], ['downcase', ['get', 'city']]]);
-    };
+const addSearchEvent = (map:mapboxgl.Map) => {
+  const searchInput = document.querySelector<HTMLInputElement>('input[name="search"]')!;
 
-    searchInput.addEventListener('change', displayMatches);
-    searchInput.addEventListener('keyup', displayMatches);
-  });
+  const displayMatches = (e: Event) => {
+    const value = (<HTMLInputElement>e.target).value;
+    map.setFilter('point', ['in', ['downcase', value], ['downcase', ['get', 'city']]]);
+  };
+
+  searchInput.addEventListener('change', displayMatches);
+  searchInput.addEventListener('keyup', displayMatches);
+}
+
+const promises: [Promise<mapboxgl.Map>, Promise<City[]>] = [
+  createMap(bounds),
+  api<City[]>(endpoint).then(format),
+]
+
+Promise.all(promises)
+  .then(([map, data]) => addMapData(map, data))
+  .then(addMapEvent)
+  .then(addSearchEvent)

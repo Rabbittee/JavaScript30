@@ -112,43 +112,48 @@ const genMouseFn = (map: mapboxgl.Map, popup: mapboxgl.Popup) => {
   };
 };
 
-const createMap = async (data: City[]): Promise<mapboxgl.Map> => {
+const createMap = async (bounds: [[number, number], [number, number]]): Promise<mapboxgl.Map> => {
   mapboxgl.accessToken = mapboxToken;
   const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v10',
-    bounds: [
-      [-130, 49],
-      [-62, 23],
-    ],
+    bounds: bounds,
   });
 
   return new Promise((resovle) => {
     map.on('load', () => {
-      map.addSource('point', {
-        type: 'geojson',
-        data: genMultiPointGeoJson(data),
-      });
-
-      map.addLayer({
-        id: 'point',
-        source: 'point',
-        type: 'circle',
-        paint: genPaint(data),
-      });
-
-      const popup = new mapboxgl.Popup({
-        closeButton: false,
-        closeOnClick: false,
-      });
-
-      const { enter: mouseenterFn, leave: mouseleaveFn } = genMouseFn(map, popup);
-
-      map.on('mouseenter', 'point', mouseenterFn);
-      map.on('mouseleave', 'point', mouseleaveFn);
       resovle(map);
     });
   });
 };
 
-export { createMap };
+const addMapData = (map: mapboxgl.Map, data: City[]): mapboxgl.Map => {
+  map.addSource('point', {
+    type: 'geojson',
+    data: genMultiPointGeoJson(data),
+  });
+
+  map.addLayer({
+    id: 'point',
+    source: 'point',
+    type: 'circle',
+    paint: genPaint(data),
+  });
+
+  return map
+}
+
+const addMapEvent = (map: mapboxgl.Map): mapboxgl.Map => {
+  const popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+  });
+
+  const { enter: mouseenterFn, leave: mouseleaveFn } = genMouseFn(map, popup);
+
+  map.on('mouseenter', 'point', mouseenterFn);
+  map.on('mouseleave', 'point', mouseleaveFn);
+  return map
+}
+
+export { createMap, addMapData, addMapEvent };
