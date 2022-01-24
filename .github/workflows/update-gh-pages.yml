@@ -19,4 +19,4 @@ jobs:
           git pull
           git checkout gh-pages
           git merge origin/${{ github.event.pull_request.head.ref }} --ff
-        git push
+          git push
