@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@keyframes shadow-light {
+  0%,
+  100% {
+    box-shadow: 0 0 150px 10px rgba(255, 255, 255, 0.7), 0 0 4px 5px rgba(255, 255, 255, 0.8),
+      0 0 50px 10px rgba(255, 255, 255, 0.8), inset 0 0 50px 5px rgba(255, 255, 255, 0.6),
+      inset 0 0 10px 5px rgba(255, 255, 255, 0.8);
+  }
+  12.5% {
+    box-shadow: 0 0 150px 10px rgba(10, 255, 255, 0.7), 0 0 4px 5px rgba(10, 255, 255, 0.8),
+      0 0 50px 10px rgba(10, 255, 255, 0.8), inset 0 0 50px 5px rgba(10, 255, 255, 0.6),
+      inset 0 0 10px 5px rgba(10, 255, 255, 0.8);
+  }
+  37.5% {
+    box-shadow: 0 0 150px 10px rgba(255, 10, 255, 0.7), 0 0 4px 5px rgba(255, 10, 255, 0.8),
+      0 0 50px 10px rgba(255, 10, 255, 0.8), inset 0 0 50px 5px rgba(255, 10, 255, 0.6),
+      inset 0 0 10px 5px rgba(255, 10, 255, 0.8);
+  }
+  62.5% {
+    box-shadow: 0 0 150px 10px rgba(255, 255, 10, 0.7), 0 0 4px 5px rgba(255, 255, 10, 0.8),
+      0 0 50px 10px rgba(255, 255, 10, 0.8), inset 0 0 50px 5px rgba(255, 255, 10, 0.6),
+      inset 0 0 10px 5px rgba(255, 255, 10, 0.8);
+  }
+  87.5% {
+    box-shadow: 0 0 150px 10px rgba(255, 255, 255, 0.7), 0 0 4px 5px rgba(255, 255, 255, 0.8),
+      0 0 50px 10px rgba(255, 255, 255, 0.8), inset 0 0 50px 5px rgba(255, 255, 255, 0.6),
+      inset 0 0 10px 5px rgba(255, 255, 255, 0.8);
+  }
+}
+@keyframes text-shadow-light {
+  0%,
+  100% {
+    color: white;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  12.5% {
+    color: #0affff;
+    text-shadow: 0 0 5px rgba(10, 255, 255, 0.8), 0 0 10px rgba(10, 255, 255, 0.5);
+  }
+  37.5% {
+    color: #ff0aff;
+    text-shadow: 0 0 5px rgba(255, 10, 255, 0.8), 0 0 10px rgba(255, 10, 255, 0.5);
+  }
+  62.5% {
+    color: #ffff0a;
+    text-shadow: 0 0 5px rgba(255, 255, 10, 0.8), 0 0 10px rgba(255, 255, 10, 0.5);
+  }
+  87.5% {
+    color: white;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+}
+* {
+  font-family: 'Rock Salt', cursive;
+  color: white;
+  box-sizing: border-box;
+}
+
+.animate-shadow-light {
+  animation: shadow-light 5s infinite both;
+}
+
+.animate-text-light-shadow {
+  animation: text-shadow-light 5s infinite both;
+}
+
+.body {
+  margin: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  width: 100vw;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  background: radial-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.95)),
+    url('./../images/wowpatterns-export.jpeg');
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  margin-bottom: 4rem;
+  font-size: 3.5rem;
+  position: relative;
+}
+.label::after,
+.label::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 5px;
+  width: 100vw;
+  background-color: #fff;
+  border-radius: 5px;
+  animation: shadow-light 5s infinite both;
+}
+.label::after {
+  left: -70px;
+  transform: translate(-100%, -50%);
+}
+.label::before {
+  right: -70px;
+  transform: translate(100%, -50%);
+}
+
+.search {
+  margin-bottom: 2rem;
+  padding: 1rem 1rem;
+  line-height: 2em;
+  text-align: center;
+  font-size: 2rem;
+  outline: none;
+  border-radius: 1.25rem;
+  border: none;
+  background: transparent;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.search::placeholder {
+  text-shadow: 0 0 0 #111;
+}
+
+.suggestions {
+  width: 100%;
+  list-style: none;
+  animation: text-shadow-light 5s infinite both;
+  padding: 0;
+  font-size: 1.75rem;
+}
+.suggestions li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+}
