@@ -16,8 +16,8 @@ jobs:
           git config --global user.email "rabbitteetw@gmail.com"
           git config --global user.name "Rabbittee"
           git status
-          git pull
           git checkout gh-pages
+          git pull
           git merge origin/${{ github.event.pull_request.head.ref }} --ff
       - name: Set up Python 3.X
         uses: actions/setup-python@v2
