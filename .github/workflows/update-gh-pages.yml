@@ -1,0 +1,22 @@
+name: update gh-pages
+on:
+  pull_request:
+    types: [opened, synchronize, closed]
+jobs:
+  merge_ghpage:
+    name: update gh-pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+      - name: perform merge
+        run: |
+          git config --global user.email "rabbitteetw@gmail.com"
+          git config --global user.name "Rabbittee"
+          git status
+          git pull
+          git checkout gh-pages
+          git merge origin/${{ github.event.pull_request.head.ref }} --ff
+          git push
