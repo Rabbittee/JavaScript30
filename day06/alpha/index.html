@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>Type Ahead 👀</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header></header>
+    <div class="background">
+      <div class="wrapper">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+        <div class="four"></div>
+      </div>
+      <div class="container">
+        <div class="box">
+          <form class="search-form">
+            <input type="text" class="search" placeholder="City or State" />
+            <ul class="suggestions">
+              <li>Filter for a city</li>
+              <li>or a state</li>
+            </ul>
+          </form>
+        </div>
+        <ul class="box result card">
+          <li class="list-item">No result</li>
+        </ul>
+      </div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+    <script>
+      const endpoint =
+        'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+    </script>
+  </body>
+</html>

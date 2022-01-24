@@ -1,0 +1,20 @@
+@keyframes move {
+  100% {
+    transform: rotate(-3turn) translate(250px) rotate(3turn);
+  }
+}
+@keyframes moveOn {
+  100% {
+    transform: rotate(3turn) translate(250px) rotate(-3turn);
+  }
+}
+@keyframes fade {
+  0% {
+    transform: translateX(100px) scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px) scale(1);
+    opacity: 1;
+  }
+}
