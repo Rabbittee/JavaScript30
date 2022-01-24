@@ -3,8 +3,8 @@ on:
   pull_request:
     types: [closed]
 jobs:
-  create_daily:
-    name: create daily folder
+  scan_link:
+    name: scan link to update readme
     if: ${{ github.event.pull_request.merged  }}
     runs-on: ubuntu-latest
     steps:
