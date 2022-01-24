@@ -1,13 +1,13 @@
 import './style.css';
 
-import mapboxgl from 'mapbox-gl';
+import mapboxgl, { LngLatBoundsLike } from 'mapbox-gl';
 
 import { createMap, addMapData, addMapEvent } from './map';
-import { Bound, City } from './interfaces';
+import { City } from './interfaces';
 import { api, format } from './utils';
 import { endpoint } from './config';
 
-const bounds: Bound = [
+const bounds: LngLatBoundsLike = [
   [-130, 49],
   [-62, 23],
 ];

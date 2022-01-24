@@ -12,6 +12,5 @@ interface Boundary {
   max: number;
 }
 
-type Bound = [[number, number], [number, number]];
 
-export { City, Bound, Boundary };
+export { City, Boundary };

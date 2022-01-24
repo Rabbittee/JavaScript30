@@ -1,9 +1,9 @@
-import mapboxgl, { EventData, Expression } from 'mapbox-gl';
+import mapboxgl, { EventData, Expression, LngLatBoundsLike } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { Feature, FeatureCollection, Point } from 'geojson';
 
-import { Bound, Boundary, City } from './interfaces';
+import { Boundary, City } from './interfaces';
 import { getBoundary } from './utils';
 import { mapboxToken, green, red } from './config';
 
@@ -126,7 +126,7 @@ const genMouseFn = (map: mapboxgl.Map, popup: mapboxgl.Popup) => {
   };
 };
 
-const createMap = async (bounds: Bound): Promise<mapboxgl.Map> => {
+const createMap = async (bounds: LngLatBoundsLike): Promise<mapboxgl.Map> => {
   mapboxgl.accessToken = mapboxToken;
   const map = new mapboxgl.Map({
     container: 'map',
