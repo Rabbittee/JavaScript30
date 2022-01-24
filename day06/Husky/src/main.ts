@@ -10,9 +10,9 @@ import { endpoint } from './config';
 const bounds: Bound = [
   [-130, 49],
   [-62, 23],
-]
+];
 
-const addSearchEvent = (map:mapboxgl.Map) => {
+const addSearchEvent = (map: mapboxgl.Map) => {
   const searchInput = document.querySelector<HTMLInputElement>('input[name="search"]')!;
 
   const displayMatches = (e: Event) => {
@@ -30,14 +30,14 @@ const addSearchEvent = (map:mapboxgl.Map) => {
   };
 
   searchInput.addEventListener('input', displayMatches);
-}
+};
 
 const waitGenInitMapAndGetData: [Promise<mapboxgl.Map>, Promise<City[]>] = [
   createMap(bounds),
   api<City[]>(endpoint).then(format),
-]
+];
 
 Promise.all(waitGenInitMapAndGetData)
   .then(([map, data]) => addMapData(map, data))
   .then(addMapEvent)
-  .then(addSearchEvent)
+  .then(addSearchEvent);
