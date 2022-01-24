@@ -3,7 +3,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { Feature, FeatureCollection, Point } from 'geojson';
 
-import { City } from './interfaces';
+import { Bound, Boundary, City } from './interfaces';
 import { getBoundary } from './utils';
 import { mapboxToken, green, red } from './config';
 
@@ -27,29 +27,40 @@ const genMultiPointGeoJson = (data: City[], func?: (arg: City) => Boolean): Feat
   };
 };
 
-const genPaint = (data: City[]) => {
-  const populationBoundary = getBoundary(data, (row) => <number>row.population);
-  const radiusExpression: Expression = [
+const getLinearExpression = (
+  propertyKey: string,
+  boundary: Boundary,
+  minTarget: number | string,
+  maxTarget: number | string,
+  addZero: boolean = false
+): Expression => {
+  const expression: Expression = [
     'interpolate',
     ['linear'],
-    ['get', 'population'],
-    populationBoundary.min,
-    5,
-    populationBoundary.max,
-    20,
+    ['get', propertyKey],
+    boundary.min,
+    minTarget,
+    boundary.max,
+    maxTarget,
   ];
 
-  const colorExpression: Expression = [
-    'interpolate',
-    ['linear'],
-    ['get', 'growth_from_2000_to_2013'],
-    -10,
+  if (addZero) {
+    expression.splice(5, 0, 0, typeof minTarget === 'string' ? '#FFFFFF' : 0);
+  }
+
+  return expression;
+};
+
+const genPaint = (data: City[]) => {
+  const populationBoundary = getBoundary(data, (row) => <number>row.population);
+  const radiusExpression = getLinearExpression('population', populationBoundary, 5, 20);
+  const colorExpression = getLinearExpression(
+    'growth_from_2000_to_2013',
+    { min: -10, max: 30 },
     red,
-    0,
-    '#FFFFFF',
-    30,
     green,
-  ];
+    true
+  );
 
   return {
     'circle-color': colorExpression,
@@ -94,6 +105,9 @@ const genMouseFn = (map: mapboxgl.Map, popup: mapboxgl.Popup) => {
     const coordinates = e.features[0].geometry.coordinates.slice();
     const description = genPopupContent(<City>e.features[0].properties);
 
+    // Ensure that if the map is zoomed out such that multiple
+    // copies of the feature are visible, the popup appears
+    // over the copy being pointed to.
     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
       coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
     }
@@ -112,7 +126,7 @@ const genMouseFn = (map: mapboxgl.Map, popup: mapboxgl.Popup) => {
   };
 };
 
-const createMap = async (bounds: [[number, number], [number, number]]): Promise<mapboxgl.Map> => {
+const createMap = async (bounds: Bound): Promise<mapboxgl.Map> => {
   mapboxgl.accessToken = mapboxToken;
   const map = new mapboxgl.Map({
     container: 'map',
@@ -140,8 +154,8 @@ const addMapData = (map: mapboxgl.Map, data: City[]): mapboxgl.Map => {
     paint: genPaint(data),
   });
 
-  return map
-}
+  return map;
+};
 
 const addMapEvent = (map: mapboxgl.Map): mapboxgl.Map => {
   const popup = new mapboxgl.Popup({
@@ -153,7 +167,7 @@ const addMapEvent = (map: mapboxgl.Map): mapboxgl.Map => {
 
   map.on('mouseenter', 'point', mouseenterFn);
   map.on('mouseleave', 'point', mouseleaveFn);
-  return map
-}
+  return map;
+};
 
 export { createMap, addMapData, addMapEvent };

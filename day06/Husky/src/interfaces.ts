@@ -7,5 +7,14 @@ interface City {
   rank?: string;
   state: string;
 }
+interface Boundary {
+  min: number;
+  max: number;
+}
 
-export { City };
+type Bound = [
+  [number, number],
+  [number, number]
+];
+
+export { City, Bound, Boundary };
