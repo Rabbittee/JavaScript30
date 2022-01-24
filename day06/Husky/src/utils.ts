@@ -10,14 +10,14 @@ const api = async <T>(url: string): Promise<T> => {
 
 const format = (data: City[]) => {
   return data.map((row) => {
-    const { rank, ...rust } = row;
-    if (typeof rust.growth_from_2000_to_2013 === 'string') {
-      rust.growth_from_2000_to_2013 = Number(rust.growth_from_2000_to_2013.slice(0, -1));
+    const { rank, ...rest } = row;
+    if (typeof rest.growth_from_2000_to_2013 === 'string') {
+      rest.growth_from_2000_to_2013 = Number(rest.growth_from_2000_to_2013.slice(0, -1));
     }
-    if (typeof rust.population === 'string') {
-      rust.population = Number(rust.population);
+    if (typeof rest.population === 'string') {
+      rest.population = Number(rest.population);
     }
-    return rust;
+    return rest;
   });
 };
 
