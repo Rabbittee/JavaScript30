@@ -12,5 +12,4 @@ interface Boundary {
   max: number;
 }
 
-
 export { City, Boundary };
