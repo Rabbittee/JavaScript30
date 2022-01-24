@@ -1,7 +1,7 @@
 name: update gh-pages
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, closed]
 jobs:
   merge_ghpage:
     name: update gh-pages
