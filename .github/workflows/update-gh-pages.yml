@@ -1,7 +1,7 @@
 name: update gh-pages
 on:
   pull_request:
-    types: [opened, synchronize, closed]
+    types: [opened, synchronize, reopened]
 jobs:
   merge_ghpage:
     name: update gh-pages
@@ -19,4 +19,15 @@ jobs:
           git pull
           git checkout gh-pages
           git merge origin/${{ github.event.pull_request.head.ref }} --ff
+      - name: Set up Python 3.X
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Run Python Script
+        run: |
+          python script/getLink.py
+      - name: push merge
+        run: |
+          git add .
+          git commit -m "update README link"
           git push
