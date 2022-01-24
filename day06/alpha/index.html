@@ -2,10 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <title>Type Ahead 👀</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <header></header>
     <div class="background">
       <div class="wrapper">
         <div class="one"></div>
@@ -15,18 +17,16 @@
       </div>
       <div class="container">
         <div class="box">
-          <div class="card">
-            <form class="search-form">
-              <input type="text" class="search" placeholder="City or State" />
-              <ul class="suggestions">
-                <li>Filter for a city</li>
-                <li>or a state</li>
-              </ul>
-            </form>
-          </div>
+          <form class="search-form">
+            <input type="text" class="search" placeholder="City or State" />
+            <ul class="suggestions">
+              <li>Filter for a city</li>
+              <li>or a state</li>
+            </ul>
+          </form>
         </div>
-        <ul class="box result">
-          <li class="card list-item">answer</li>
+        <ul class="box result card">
+          <li class="list-item">No result</li>
         </ul>
       </div>
     </div>

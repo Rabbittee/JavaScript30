@@ -1,0 +1,139 @@
+.background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+
+  .one {
+    width: 1600px;
+    height: 1600px;
+    border-radius: 100%;
+    background-color: #ee606e;
+    left: -1000px;
+    top: -300px;
+    z-index: 1;
+    animation: move 12s linear infinite;
+    transform: rotate(0) translate(80px) rotate(0);
+  }
+
+  .two {
+    width: 100%;
+    height: 100%;
+    background: $red;
+    top: 0;
+    left: 0;
+  }
+
+  .three {
+    width: 1450px;
+    height: 1450px;
+    background: yellow;
+    border-radius: 100%;
+    bottom: -700px;
+    right: -100px;
+    animation: moveOn 12s linear infinite;
+    transform: rotate(0) translate(180px) rotate(0);
+  }
+
+  .four {
+    width: 1360px;
+    height: 1360px;
+    margin: auto;
+    top: -600px;
+    left: 700px;
+    border-radius: 100%;
+    background: #17b4ed;
+    animation: move 16s linear infinite;
+    transform: rotate(0) translate(80px) rotate(0);
+  }
+}
+
+.wrapper div {
+  position: absolute;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 3px solid $lightWhite;
+  box-shadow: 0 0 15px $lightWhite inset;
+  padding: 20px 0;
+  z-index: 5;
+  width: 100%;
+  margin: 24px;
+}
+
+.suggestions {
+  display: flex;
+  li {
+    margin: 4px;
+  }
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  width: 100%;
+}
+
+.container {
+  margin-top: 50px;
+  min-width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include breakpoint($sm) {
+    min-width: 90vw;
+  }
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  // align-items: center;
+  overflow-y: auto;
+  scrollbar-width: none;
+  height: 60vh;
+  width: 100%;
+
+  // position: absolute;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.list-item {
+  animation: fade 1s ease-in-out;
+  border-left: 4px solid $darkRed;
+  box-shadow: 0 0 20px $darkRed;
+  background: rgba(255, 8, 8, 0.1);
+  color: $white;
+  font-size: 1.5rem;
+  width: 60%;
+  padding: 16px;
+  margin: 18px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  small {
+    font-size: 16px;
+    color: rgb(108, 108, 252);
+  }
+}
