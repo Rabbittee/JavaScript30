@@ -1,0 +1,10 @@
+@keyframes move {
+  100% {
+    transform: rotate(-3turn) translate(250px) rotate(3turn);
+  }
+}
+@keyframes moveOn {
+  100% {
+    transform: rotate(3turn) translate(250px) rotate(-3turn);
+  }
+}
