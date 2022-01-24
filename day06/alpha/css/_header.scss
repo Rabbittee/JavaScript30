@@ -1,6 +1,8 @@
 header {
   nav {
-    background: rgba($white, 0.45);
+    background: rgba($dark, 0.15);
+    box-shadow: 0 0 15px rgba($dark, 0.25);
+    color: $white;
     position: fixed;
     top: 0;
     width: 100%;
@@ -17,7 +19,7 @@ header {
 
       a {
         text-decoration: none;
-        color: $dark;
+        color: $white;
         &:hover {
           color: blue;
         }
