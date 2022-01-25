@@ -51,7 +51,7 @@ var memo = function (keyFn, fn) {
 var fetchCity = memo(
   JSON.stringify,
   function () {
-    return fetch(endpoint).then(toJSON);
+    return fetch(endpoint).then(toJSON).then(tap(console.log));
   }
   //
 );
@@ -60,11 +60,18 @@ var searchWith = function (token) {
     return RegExp(token, "ig").test(target);
   };
 };
+var replaceWith = function (token, replacement) {
+  return function (target) {
+    return target.replace(RegExp("(".concat(token, ")"), "ig"), replacement);
+  };
+};
 function Record(_a) {
   var city = _a.city,
+    state = _a.state,
     population = _a.population;
   return /*html */ "\n          <li>\n              <span>"
-    .concat(city, "</span>\n              <span>")
+    .concat(city, ", ")
+    .concat(state, "</span>\n              <span>")
     .concat(population, "</span>\n          </li>\n      ")
     .replace(/\n/g, "");
 }
@@ -73,7 +80,11 @@ select(".search").addEventListener(
   debounce(300, function (_a) {
     var target = _a.target;
     if (!(target instanceof HTMLInputElement)) return;
+    if (!target.value) {
+      return render(select(".suggestions"))("");
+    }
     var search = searchWith(target.value);
+    var replace = replaceWith(target.value, "<mark>$1</mark>");
     fetchCity()
       .then(
         filter(function (_a) {
@@ -84,6 +95,7 @@ select(".search").addEventListener(
       )
       .then(map(Record))
       .then(join(""))
+      .then(replace)
       .then(render(select(".suggestions")));
   })
 );
