@@ -24,12 +24,14 @@ function findWord(word, data) {
 // 傳回過濾結果
 function getAnswer() {
   const answer = findWord(this.value, data);
-
+  // 鳥神相救：this.value另存變數
+  const keyword = this.value;
+  const keywordRe = new RegExp(keyword, 'gi');
   // 結果更新至頁面
   const placeList = answer.map(function (place) {
-    // HELP！highlight搜尋文字 有bug無法運作
-    const city = place.city.split(this.value).join(`<span class="hl">${this.value}</span>`);
-    const state = place.state.split(this.value).join(`<span class="hl">${this.value}</span>`);
+    // highlight搜尋文字 哈奇建議：使用replace
+    const city = place.city.replace(keywordRe, `<span class="hl">${keyword}</span>`);
+    const state = place.state.replace(keywordRe, `<span class="hl">${keyword}</span>`);
     return `<li><span>${city}, ${state}</span> <span class="population">${place.population}</span></li>`;
   });
   document.querySelector('.suggestions').innerHTML = placeList.join('');
