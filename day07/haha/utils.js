@@ -60,11 +60,11 @@ function card({ title, subtitle, answer }, index) {
   const div2 = document.createElement('div');
   const div3 = document.createElement('div');
   div.classList.add(`box`, `box-bg-${index}`, `box-animation-${index % 2}`);
-  div2.classList.add(`box-animation-${index % 2}`, `card`)
-  div3.classList.add(`box-animation-${index % 2}`, `card`)
+  div2.classList.add(`box-animation-${index % 2}`, `card`);
+  div3.classList.add(`box-animation-${index % 2}`, `card`);
   div.innerHTML = `${title}`;
-  div2.innerHTML = `${subtitle}`
-  div3.innerText = `${JSON.stringify(answer)}`
+  div2.innerHTML = `${subtitle}`;
+  div3.innerText = `${JSON.stringify(answer)}`;
   box.appendChild(div);
   box.appendChild(div2);
   box.appendChild(div3);
