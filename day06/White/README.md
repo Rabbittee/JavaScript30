@@ -7,4 +7,5 @@
 
 ## 相關資源
 
-正規表示式 https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+1. 正規表示式 https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+2. replace https://www.w3schools.com/jsref/jsref_replace.asp
