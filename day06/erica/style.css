@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 body {
-  background: #E9EAF0;
-  color: #3C3D53;
+  background: #e9eaf0;
+  color: #3c3d53;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -39,7 +39,7 @@ input {
   color: rgba(60, 61, 83, 0.15);
 }
 .search:focus {
-  color: #3C3D53;
+  color: #3c3d53;
 }
 
 .suggestions {
