@@ -1,5 +1,5 @@
 var endpoint =
-  "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
+  'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 var toJSON = function (res) {
   return res.json();
 };
@@ -57,34 +57,34 @@ var fetchCity = memo(
 );
 var searchWith = function (token) {
   return function (target) {
-    return RegExp(token, "ig").test(target);
+    return RegExp(token, 'ig').test(target);
   };
 };
 var replaceWith = function (token, replacement) {
   return function (target) {
-    return target.replace(RegExp("(".concat(token, ")"), "ig"), replacement);
+    return target.replace(RegExp('('.concat(token, ')'), 'ig'), replacement);
   };
 };
 function Record(_a) {
   var city = _a.city,
     state = _a.state,
     population = _a.population;
-  return /*html */ "\n          <li>\n              <span>"
-    .concat(city, ", ")
-    .concat(state, "</span>\n              <span>")
-    .concat(population, "</span>\n          </li>\n      ")
-    .replace(/\n/g, "");
+  return /*html */ '\n          <li>\n              <span>'
+    .concat(city, ', ')
+    .concat(state, '</span>\n              <span>')
+    .concat(population, '</span>\n          </li>\n      ')
+    .replace(/\n/g, '');
 }
-select(".search").addEventListener(
-  "input",
+select('.search').addEventListener(
+  'input',
   debounce(300, function (_a) {
     var target = _a.target;
     if (!(target instanceof HTMLInputElement)) return;
     if (!target.value) {
-      return render(select(".suggestions"))("");
+      return render(select('.suggestions'))('');
     }
     var search = searchWith(target.value);
-    var replace = replaceWith(target.value, "<mark>$1</mark>");
+    var replace = replaceWith(target.value, '<mark>$1</mark>');
     fetchCity()
       .then(
         filter(function (_a) {
@@ -94,8 +94,8 @@ select(".search").addEventListener(
         })
       )
       .then(map(Record))
-      .then(join(""))
+      .then(join(''))
       .then(replace)
-      .then(render(select(".suggestions")));
+      .then(render(select('.suggestions')));
   })
 );
