@@ -26,6 +26,7 @@ function getAnswer() {
   const answer = findWord(this.value, data);
   // 鳥神相救：this.value另存變數
   const keyword = this.value;
+  // replace 會用到的正規式
   const keywordRe = new RegExp(keyword, 'gi');
   // 結果更新至頁面
   const placeList = answer.map(function (place) {
