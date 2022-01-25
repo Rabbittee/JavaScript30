@@ -56,17 +56,20 @@ const memo = <T, R>(keyFn: Fn<T, string>, fn: Fn<T, R>) => {
 
 const fetchCity = memo<void, Promise<City[]>>(
   JSON.stringify,
-  () => fetch(endpoint).then(toJSON)
+  () => fetch(endpoint).then(toJSON).then(tap(console.log))
   //
 );
 
 const searchWith = (token: string) => (target: string) =>
   RegExp(token, "ig").test(target);
 
-function Record({ city, population }: City) {
+const replaceWith = (token: string, replacement: string) => (target: string) =>
+  target.replace(RegExp(`(${token})`, "ig"), replacement);
+
+function Record({ city, state, population }: City) {
   return /*html */ `
           <li>
-              <span>${city}</span>
+              <span>${city}, ${state}</span>
               <span>${population}</span>
           </li>
       `.replace(/\n/g, "");
@@ -77,12 +80,18 @@ select(".search").addEventListener(
   debounce(300, ({ target }) => {
     if (!(target instanceof HTMLInputElement)) return;
 
+    if (!target.value) {
+      return render(select(".suggestions"))("");
+    }
+
     const search = searchWith(target.value);
+    const replace = replaceWith(target.value, "<mark>$1</mark>");
 
     fetchCity()
       .then(filter(({ city, state }) => search(city) || search(state)))
       .then(map(Record))
       .then(join(""))
+      .then(replace)
       .then(render(select(".suggestions")));
   })
 );
