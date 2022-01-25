@@ -10,11 +10,22 @@ type City = {
 const toJSON = (res: Response) => res.json();
 
 type Fn<T, R> = (arg: T) => R;
-const tap = <T>(fn: Fn<T, void>) => (arg: T) => (fn(arg), arg);
+const tap =
+  <T>(fn: Fn<T, void>) =>
+  (arg: T) => (fn(arg), arg);
 
-const filter = <T>(fn: Fn<T, boolean>) => (list: T[]) => list.filter(fn);
-const map = <T, R>(fn: Fn<T, R>) => (list: T[]) => list.map(fn);
-const join = <T>(sep: string) => (list: T[]) => list.join(sep);
+const filter =
+  <T>(fn: Fn<T, boolean>) =>
+  (list: T[]) =>
+    list.filter(fn);
+const map =
+  <T, R>(fn: Fn<T, R>) =>
+  (list: T[]) =>
+    list.map(fn);
+const join =
+  <T>(sep: string) =>
+  (list: T[]) =>
+    list.join(sep);
 
 const select = <T extends Element>(query: string) =>
   document.querySelector<T>(query);
