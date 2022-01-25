@@ -54,30 +54,20 @@ const answers = [
   },
 ];
 
-function createElement({ title, subtitle, answer }, index) {
-  // const article = document.querySelector('.article')
-  const div = document.createElement('div');
-  div.classList.add(`box`, `box-bg-${index}`, `box-animation-${index % 2}`);
-  div.innerHTML = `
-    <div class="title">${title}</div>
-    <div class="subtitle">${subtitle}</div>
-    <div class="answer">${answer}</div>
-  `;
-  document.body.appendChild(div);
-}
-
 function card({ title, subtitle, answer }, index) {
   const box = document.querySelector(`.bg-${index}`);
   const div = document.createElement('div');
   const div2 = document.createElement('div');
+  const div3 = document.createElement('div');
   div.classList.add(`box`, `box-bg-${index}`, `box-animation-${index % 2}`);
-  div2.classList.add(`box-animation-${index % 2}`)
-  div.innerHTML = `
-    <div>${title}</div>
-  `;
+  div2.classList.add(`box-animation-${index % 2}`, `card`)
+  div3.classList.add(`box-animation-${index % 2}`, `card`)
+  div.innerHTML = `${title}`;
   div2.innerHTML = `${subtitle}`
+  div3.innerText = `${JSON.stringify(answer)}`
   box.appendChild(div);
   box.appendChild(div2);
+  box.appendChild(div3);
   // if (index === 1) return animationSection2();
   // if (index === 3) return animationSection4();
 }
