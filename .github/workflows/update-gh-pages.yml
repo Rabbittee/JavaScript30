@@ -18,7 +18,8 @@ jobs:
           git status
           git pull
           git checkout gh-pages
-          git merge origin/${{ github.event.pull_request.head.ref }} --ff
+          git merge --squash -X theirs origin/${{ github.event.pull_request.head.ref }}
+          git commit -m 'Auto-merge ${{ github.event.pull_request.head.ref }}'
           git push
       - name: Set up Python 3.X
         uses: actions/setup-python@v2
