@@ -6,9 +6,8 @@ const select = (identity) => document.querySelector(identity);
 const getData = () => fetch(endpoint).then((res) => res.json());
 
 const getFilteredDataByKeyword = (data, keyword = '') => {
-  return !keyword
-    ? []
-    : data
+  if(keyword === '') return []
+  return data
         .filter(({ city, state }) => city.includes(keyword) || state.includes(keyword))
         .sort((a, b) => b.population - a.population);
 };
