@@ -21,11 +21,17 @@ body{
     font-family: 'Comic Neue', cursive;
     font-weight: bold;
 }
-/* 置中 */
-/* body * {
-    width: 100vw;
-    text-align: center;
-} */
+.card {
+    /* background-color:rgba(0, 0, 0, 0.5); */
+    font-size: 5rem;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    margin-left: 8rem;
+    text-shadow: 3px 3px 0 #555, 5px 5px 0 white;
+    color: black;
+
+}
 
 .box {
     background-repeat:no-repeat;
