@@ -4,7 +4,7 @@ const people = [
   { name: 'Wes', year: 1988 },
   { name: 'Kait', year: 1986 },
   { name: 'Irv', year: 1970 },
-  { name: 'Lux', year: 2015 }
+  { name: 'Lux', year: 2015 },
 ];
 
 const comments = [
@@ -12,7 +12,7 @@ const comments = [
   { text: 'Super good', id: 823423 },
   { text: 'You are the best', id: 2039842 },
   { text: 'Ramen is my fav food ever', id: 123523 },
-  { text: 'Nice Nice Nice!', id: 542328 }
+  { text: 'Nice Nice Nice!', id: 542328 },
 ];
 
 //* Some and Every Checks
@@ -20,13 +20,13 @@ const currentYear = new Date().getFullYear();
 
 //* Array.prototype.some() // is at least one person 19 or older?
 function checkNineteen(data) {
-  return data.some((element) => (currentYear - element.year) >= 19);
+  return data.some((element) => currentYear - element.year >= 19);
 }
 console.log('is at least one person 19 or older?', checkNineteen(people));
 
 //* Array.prototype.every() // is everyone 19 or older?
 function overNineteen(data) {
-  return data.every((element) => (currentYear - element) >= 19);
+  return data.every((element) => currentYear - element >= 19);
 }
 console.log('overNineteen: ', overNineteen(people));
 
@@ -34,7 +34,7 @@ console.log('overNineteen: ', overNineteen(people));
 //* Find is like filter, but instead returns just the one you are looking for
 //* find the comment with the ID of 823423
 function findID(data, id) {
-  const result = data.find((element) => (element.id === id));
+  const result = data.find((element) => element.id === id);
   return result;
 }
 console.log(findID(comments, 823423));
