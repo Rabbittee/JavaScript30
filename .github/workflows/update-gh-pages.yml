@@ -11,7 +11,7 @@ jobs:
         with:
           ref: gh-pages
           fetch-depth: 0
-      - name: perform merge
+      - name: update github page
         run: |
           git config --global user.email "rabbitteetw@gmail.com"
           git config --global user.name "Rabbittee"
@@ -24,10 +24,10 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
-      - name: Run Python Script
+      - name: Run Python Script get Link
         run: |
           python script/getLink.py
-      - name: push merge
+      - name: update readme link and index.html
         run: |
           git add .
           git commit -m "update README link" || echo "not change to commit"
