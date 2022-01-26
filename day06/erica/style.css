@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+body {
+  background: #e9eaf0;
+  color: #3c3d53;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-top: 10vmax;
+  margin: 0;
+}
+
+body,
+input {
+  font-family: "Manrope", sans-serif;
+  font-weight: 200;
+}
+
+.search-form {
+  background: white;
+  min-width: 50vmax;
+  border-radius: 1vmin;
+  box-shadow: 0 1vmin 2vmin rgba(60, 61, 83, 0.1);
+}
+
+.search {
+  width: calc(100% - 8vmin);
+  font-size: 5vmin;
+  text-align: center;
+  background: transparent;
+  padding: 2.8vmin 4vmin;
+  margin: 0;
+  border: 0;
+  outline: 0;
+}
+.search::placeholder {
+  color: rgba(60, 61, 83, 0.15);
+}
+.search:focus {
+  color: #3c3d53;
+}
+
+.suggestions {
+  padding: 0 2vmin;
+  margin: 0;
+  list-style: none;
+  border-top: 1px solid rgba(60, 61, 83, 0.1);
+}
+.suggestions li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1.4vmin;
+}
+.suggestions li:first-child {
+  margin-top: 2.8vmin;
+}
+.suggestions li:last-child {
+  margin-bottom: 2.8vmin;
+}
+.suggestions li span {
+  padding: 1vmin 1.4vmin;
+  border-radius: 4px;
+}
+.suggestions li .population {
+  margin-left: auto;
+}
+.suggestions li .city {
+  background: rgba(60, 61, 83, 0.5);
+  color: white;
+}
