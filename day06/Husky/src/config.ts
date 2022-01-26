@@ -1,0 +1,9 @@
+const mapboxToken =
+  'pk.eyJ1Ijoic2hpaGNoaWhzdSIsImEiOiJja3lwODhxdTIwN2wxMm5vMXprZXE5aDhuIn0.zHD30PgCppbeuOWqYlzFQQ';
+
+const green = '#43A047';
+const red = '#E53935';
+const endpoint =
+  'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+export { endpoint, mapboxToken, green, red };
