@@ -19,6 +19,7 @@ jobs:
           git pull
           git checkout gh-pages
           git merge --squash -X theirs origin/${{ github.event.pull_request.head.ref }}
+          git add .
           git commit -m 'Auto-merge ${{ github.event.pull_request.head.ref }}' || echo "not change to commit"
           git push
       - name: Set up Python 3.X
