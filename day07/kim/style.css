@@ -1,20 +1,26 @@
-html {
-  background-color: antiquewhite;
-}
-.container {
-  max-width: 800px;
+body {
+  background: antiquewhite;
+  margin: 0;
+  padding: 3vmax;
   display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  justify-content: center;
+  color: #555;
+}
+
+.container {
+  max-width: 768px;
+  padding: 0 3vmin;
+}
+
+.container div {
+  background: rgba(255, 255, 255, 0.4);
+  padding: 0 3vmin;
+  margin-bottom: 5vmax;
+  max-height: 12.25rem;
   overflow: scroll;
+  border-radius: 0.8vmin;
+  box-shadow: 0 0.8vmin 2vmin rgba(0, 0, 0, 0.03);
 }
 h2 {
   color: burlywood;
-  background-color: white;
-  border-radius: 10px;
-}
-p {
-  color: chocolate;
 }
