@@ -1,0 +1,168 @@
+/* 背景圖片 */
+/* body{
+    margin:50px 0;
+    padding:0px;
+    background:#fff url('./assets/smart.jpg') center center fixed no-repeat;
+    background-size: cover;
+    font-family: 'Comic Neue', cursive;
+    overflow-x: hidden;
+}  */
+
+/* 遮罩 */
+/* body::before{
+    content: '';
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    background-color: rgb(235, 235, 199);
+    z-index: -1;
+    opacity: .5;
+} */
+body {
+  font-family: 'Comic Neue', cursive;
+  font-weight: bold;
+}
+.card {
+  /* background-color:rgba(0, 0, 0, 0.5); */
+  font-size: 5rem;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  margin-left: 8rem;
+  text-shadow: 3px 3px 0 #555, 5px 5px 0 white;
+  color: black;
+}
+
+.box {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: rgb(235, 235, 199);
+  width: 90%;
+  height: 35vh;
+  padding: 1.5rem 1rem;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  border-radius: 3rem;
+  word-wrap: break-word;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.box-bg-0 {
+  background-image: url('./assets/熊熊飛高高.jpg');
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.box-bg-1 {
+  background-image: url('./assets/Tim.jpg');
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.box-bg-2 {
+  background-image: url('./assets/吉他小子.jpg');
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.box-bg-3 {
+  background-image: url('./assets/Stuart.jpg');
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.box-animation-0 {
+  background-position: left;
+  justify-content: end;
+  padding-right: 8rem;
+  animation: fade-in-left 1.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+.box-animation-1 {
+  background-position: right;
+  justify-content: start;
+  padding-left: 1rem;
+  animation: fade-in-right 1.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@keyframes fade-in-left {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-right {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 滾動視差背景 */
+section {
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  color: black;
+  /* line-height: 100vh; */
+  text-align: left;
+  font-size: 4rem;
+}
+
+.bg {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  /* animation:kenburns-top 5s ease-out both; */
+}
+
+.bg-0 {
+  background-image: url('./assets/smart.jpg');
+}
+
+.bg-1 {
+  background-image: url('./assets/小小兵2.jpg');
+}
+
+.bg-2 {
+  background-image: url('./assets/小小兵3.jpg');
+}
+
+.bg-3 {
+  background-image: url('./assets/醜.jpg');
+}
+
+.bg-shacking {
+  animation: shacking 2s both;
+  width: 20%;
+  animation-iteration-count: infinite;
+  margin-bottom: 10rem;
+}
+
+@keyframes shacking {
+  0%,
+  100% {
+    transform: translateX(0);
+    transform-origin: 50% 50%;
+  }
+  15% {
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
