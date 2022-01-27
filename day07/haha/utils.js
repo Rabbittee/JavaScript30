@@ -24,12 +24,14 @@ console.log('is everyone 19 or older?', everyoneAdult);
 
 const ID = 823423;
 const sameID = ({ id }) => id === ID;
+const cutArr = (begin, end) => comments.slice(begin, end);
 
 const findID = comments.find((el) => sameID(el));
-console.log('🚀 ~ findID', findID);
+console.log('find the comment with the ID of 823423', findID);
 
 const findIdx = comments.findIndex((el) => sameID(el));
-console.log('🚀 ~ findIdx', findIdx);
+const newArr = [...cutArr(0, findIdx), ...cutArr(findIdx + 1)];
+console.table(newArr);
 
 const answers = [
   {
@@ -50,7 +52,7 @@ const answers = [
   {
     title: 'Q4: Delete the comment with the ID of 823423',
     subtitle: 'Array.prototype.findIndex()',
-    answer: findIdx,
+    answer: newArr,
   },
 ];
 
