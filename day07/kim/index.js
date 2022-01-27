@@ -54,14 +54,24 @@ render('3. find the comment with the ID of 823423', find);
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
-
 function q4() {
   // 找到值
+  const find = comments.find((onePerson) => {
+    return onePerson.id === 123523;
+  });
+
+  // 找到索引值
   const findIndex = comments.findIndex((index) => {
     return index.id === find.id;
   });
-  // 刪除值
-  comments.splice(findIndex, 1);
-  render('4. delete the comment with the ID of 823423', comments);
+
+  // 索引值：前面
+  const newCommentStart = comments.slice(0, findIndex);
+  // 索引值：後面
+  const newCommentEnd = comments.slice(findIndex + 1);
+  // 組合新陣列
+  const conbine = newCommentStart.concat(newCommentEnd);
+
+  render('4. delete the comment with the ID of 823423', conbine);
 }
 q4();
