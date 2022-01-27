@@ -19,7 +19,7 @@ const comments = [
 function render(title, answer) {
   const container = document.querySelector('.container');
   container.innerHTML += `<h2> ${title} </h2>`;
-  container.innerHTML += `<p><pre> ${JSON.stringify(answer)}</pre> </p>`;
+  container.innerHTML += `<div><pre> ${JSON.stringify(answer, null, 2)}</pre> </div>`;
 }
 
 // Now Year
