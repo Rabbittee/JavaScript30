@@ -1,32 +1,40 @@
 const endpoint =
   'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
-// * get DOM element
 const select = function (dom) {
   return document.querySelector(dom);
 };
 
-// * get data
-let cities = [];
+const cities = [];
 fetch(endpoint)
   .then((response) => response.json())
   .then((data) => {
     cities.push(...data);
-    initialRender();
   })
   .catch((error) => console.log(`Error: ${error}`));
-console.log(cities);
 
-// * numberWithCommas
+const filterData = (searchInput, data) => {
+  return data.filter((item) => {
+    return item.city.includes(searchInput) || item.state.includes(searchInput);
+  });
+};
 
-// * initial render
-const initialRender = (data = cities) => {
-  const domStructure = data
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+const renderData = (e) => {
+  const inputValue = e.target.value;
+  const filteredData = filterData(inputValue, cities);
+  const domStructure = filteredData
     .map(({ city, state, population }) => {
+      const regex = new RegExp(inputValue, 'gi');
+      const cityName = city.replace(regex, `<span class="hl">${inputValue}</span>`);
+      const stateName = state.replace(regex, `<span class="hl">${inputValue}</span>`);
       return `
       <li>
-        <span class="name">${city}, ${state}</span>
-        <span class="population">${population}</span>
+        <span class="name">${cityName}, ${stateName}</span>
+        <span class="population">${numberWithCommas(population)}</span>
       </li>
     `;
     })
@@ -34,37 +42,4 @@ const initialRender = (data = cities) => {
   select('.suggestions').innerHTML = domStructure;
 };
 
-// * render Data
-const renderData = (data) => {
-  const domStructure = cities
-    .map(({ city, state, population }) => {
-      // * filter data here
-      // * if match inputString -> true
-      // * and mark the string which match the ReGex
-      city = data.match(/${data}/);
-      state = state.includes(data);
-      return `
-      <li>
-        <span class="name">${city}, ${state}</span>
-        <span class="population">${population}</span>
-      </li>
-    `;
-    })
-    .join('');
-  select('.suggestions').innerHTML = domStructure;
-};
-
-// * add input event listener and update searchInput's value
-let searchInput = '';
-select('.search').addEventListener('input', (e) => {
-  searchInput = e.target.value;
-  renderData(searchInput);
-});
-
-// * initial render
-
-// * 0. rendering the city list
-// * 1. when type word in input, active the function filter the Data array.
-// * 2. typing -> search the e.target.value
-// * 3. after search -> rendering the DOM
-// TODO:  <span class="population">${numberWithCommas(population)}</span>
+select('.search').addEventListener('input', renderData);
