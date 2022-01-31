@@ -11,24 +11,26 @@ jobs:
         with:
           ref: gh-pages
           fetch-depth: 0
-      - name: perform merge
+      - name: update github page
         run: |
           git config --global user.email "rabbitteetw@gmail.com"
           git config --global user.name "Rabbittee"
           git status
           git pull
           git checkout gh-pages
-          git merge origin/${{ github.event.pull_request.head.ref }} --ff
+          git merge --squash -X theirs origin/${{ github.event.pull_request.head.ref }}
+          git add .
+          git commit -m 'Auto-merge ${{ github.event.pull_request.head.ref }}' || echo "not change to commit"
           git push
       - name: Set up Python 3.X
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
-      - name: Run Python Script
+      - name: Run Python Script get Link
         run: |
           python script/getLink.py
-      - name: push merge
+      - name: update readme link and index.html
         run: |
           git add .
-          git commit -m "update README link"
+          git commit -m "update README link" || echo "not change to commit"
           git push
