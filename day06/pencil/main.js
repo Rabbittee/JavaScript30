@@ -5,11 +5,12 @@ const select = function (dom) {
   return document.querySelector(dom);
 };
 
-const cities = [];
+let cities = [];
 fetch(endpoint)
   .then((response) => response.json())
   .then((data) => {
-    cities.push(...data);
+    cities = data;
+    select('.search').addEventListener('input', renderData);
   })
   .catch((error) => console.log(`Error: ${error}`));
 
@@ -28,9 +29,8 @@ const renderData = (e) => {
   const filteredData = filterData(inputValue, cities);
   const domStructure = filteredData
     .map(({ city, state, population }) => {
-      const regex = new RegExp(inputValue, 'gi');
-      const cityName = city.replace(regex, `<span class="hl">${inputValue}</span>`);
-      const stateName = state.replace(regex, `<span class="hl">${inputValue}</span>`);
+      const cityName = city.replaceAll(inputValue, `<span class="hl">${inputValue}</span>`);
+      const stateName = state.replaceAll(inputValue, `<span class="hl">${inputValue}</span>`);
       return `
       <li>
         <span class="name">${cityName}, ${stateName}</span>
@@ -41,5 +41,3 @@ const renderData = (e) => {
     .join('');
   select('.suggestions').innerHTML = domStructure;
 };
-
-select('.search').addEventListener('input', renderData);
