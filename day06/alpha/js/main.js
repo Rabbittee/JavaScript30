@@ -1,9 +1,11 @@
 import { fetchData } from './fetch.js';
-import './header.js';
+import Header from './header.js';
+
+Header();
 
 const data = await fetchData();
 
-const select = (element) => document.querySelector(element);
+const select = (selector) => document.querySelector(selector);
 
 const init = () => (select('.result').innerHTML = ` <li class="list-item">No result</li>`);
 
