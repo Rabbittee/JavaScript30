@@ -3,6 +3,5 @@ const endpoint =
 
 export async function fetchData() {
   const res = await fetch(endpoint);
-  const data = res.json();
-  return data;
+  return res.json();
 }
