@@ -1,0 +1,16 @@
+@mixin breakpoint($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+/* colors */
+$dark: black;
+$white: white;
+$lightWhite: rgba(255, 255, 255, 0.65);
+$darkRed: rgba(255, 8, 8, 0.43);
+$red: #ff335d;
+
+/* breakpoint */
+$sm: 768px;
+$md: 1024px;

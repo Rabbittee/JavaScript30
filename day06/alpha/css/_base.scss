@@ -1,0 +1,31 @@
+html,
+body {
+  background-color: $white;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+input {
+  border: 0;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 5px hsl(0, 0%, 96%);
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+  }
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.45);
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
