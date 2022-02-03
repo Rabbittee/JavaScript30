@@ -3,3 +3,4 @@
 ## Links
 
 - [凱文](https://rabbittee.github.io/JavaScript30/day08/kevin/)
+- [阿金](https://rabbittee.github.io/JavaScript30/day08/kim/)
