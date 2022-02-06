@@ -9,5 +9,6 @@
 - [吠吠](https://rabbittee.github.io/JavaScript30/day06/haha/)
 - [凱文](https://rabbittee.github.io/JavaScript30/day06/kevin/)
 - [哈囉](https://rabbittee.github.io/JavaScript30/day06/kirby/)
+- [鉛筆](https://rabbittee.github.io/JavaScript30/day06/pencil/)
 - [+5](https://rabbittee.github.io/JavaScript30/day06/plusfive/)
 - [奶捲](https://rabbittee.github.io/JavaScript30/day06/recoil/)
