@@ -3,8 +3,8 @@ const select = (target) => document.querySelector(target);
 function canvasEffect(node) {
   if (!node) return;
 
-  const container = node.closest('.canvas-container');
-  const fixHeight = window.innerHeight - container.offsetHeight;
+  const container = node.closest(".canvas-container");
+  const toolBarHeight = 40;
 
   const brush = {
     state: {
@@ -15,7 +15,7 @@ function canvasEffect(node) {
         y: 0,
       },
       width: 20,
-      strokeFill: '#000000',
+      strokeFill: "#000000",
       alpha: 1,
     },
     setDrawing: (state) => (brush.state.isDrawing = state),
@@ -37,7 +37,8 @@ function canvasEffect(node) {
   node.height = container.offsetHeight;
 
   function randomWidth() {
-    if (brush.state.width >= 100 || brush.state.width <= 5) direction = !direction;
+    if (brush.state.width >= 100 || brush.state.width <= 5)
+      direction = !direction;
     if (direction) brush.state.width++;
     else brush.state.width--;
     return brush.state.width;
@@ -50,31 +51,33 @@ function canvasEffect(node) {
   }
 
   function draw(event) {
-    const ctx = node.getContext('2d');
+    const ctx = node.getContext("2d");
     ctx.lineWidth = brush.state.isRandom ? randomWidth() : brush.state.width;
-    ctx.strokeStyle = brush.state.isRandom ? randomColor() : brush.state.strokeFill;
-    ctx.lineJoin = 'round';
-    ctx.lineCap = 'round';
+    ctx.strokeStyle = brush.state.isRandom
+      ? randomColor()
+      : brush.state.strokeFill;
+    ctx.lineJoin = "round";
+    ctx.lineCap = "round";
     ctx.beginPath();
     ctx.moveTo(brush.state.lastPoint.x, brush.state.lastPoint.y);
     ctx.lineTo(event.offsetX, event.offsetY);
     ctx.closePath();
     ctx.stroke();
 
-    brush.updatePoint(mousePoint.x, mousePoint.y - fixHeight);
+    brush.updatePoint(mousePoint.x, mousePoint.y - toolBarHeight);
   }
 
-  node.addEventListener('mousedown', function (e) {
+  node.addEventListener("mousedown", function (e) {
     brush.setDrawing(true);
   });
 
-  node.addEventListener('mouseup', function (e) {
+  node.addEventListener("mouseup", function (e) {
     brush.setDrawing(false);
   });
 
-  node.addEventListener('mousemove', function (e) {
+  node.addEventListener("mousemove", function (e) {
     if (!brush.state.isDrawing) return;
-    brush.updatePoint(e.clientX, e.clientY - fixHeight);
+    brush.updatePoint(e.clientX, e.clientY - toolBarHeight);
     draw(e);
   });
 
@@ -85,21 +88,24 @@ function canvasEffect(node) {
   };
 }
 
-const toolbar = select('#tools');
+const toolbar = select("#tools");
 
-const container = select('#draw');
+const svgNode = select("#draw");
 
-const brush = canvasEffect(container);
+const brush = canvasEffect(svgNode);
 
-toolbar.addEventListener('input', function ({ target: { name, value, checked } }) {
-  switch (name) {
-    case 'width':
-      brush.width(value);
-      break;
-    case 'color':
-      brush.strokeFill(value);
-      break;
-    case 'random':
-      brush.random(checked);
+toolbar.addEventListener(
+  "input",
+  function ({ target: { name, value, checked } }) {
+    switch (name) {
+      case "width":
+        brush.width(value);
+        break;
+      case "color":
+        brush.strokeFill(value);
+        break;
+      case "random":
+        brush.random(checked);
+    }
   }
-});
+);
