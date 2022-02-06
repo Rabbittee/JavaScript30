@@ -44,8 +44,7 @@ function state<State, Action>(value: State) {
   return { observe };
 }
 
-const clamp = (min: number, max: number) => (value: number) =>
-  Math.min(max, Math.max(min, value));
+const clamp = (min: number, max: number) => (value: number) => Math.min(max, Math.max(min, value));
 
 const hsl = ([h, s, l]: Vec3) => `hsl(
     ${clamp(0, 360)(h)}, 
@@ -53,11 +52,12 @@ const hsl = ([h, s, l]: Vec3) => `hsl(
     ${clamp(0, 100)(l)}%
 )`;
 
-const select = <T extends Element>(query: string) =>
-  document.querySelector<T>(query);
+const select = <T extends Element>(query: string) => document.querySelector<T>(query);
 
-const setSize = ([width, height]: Vec2) => (element: Size) =>
-  Object.assign(element, { width, height });
+const setSize =
+  ([width, height]: Vec2) =>
+  (element: Size) =>
+    Object.assign(element, { width, height });
 
 type Context = CanvasRenderingContext2D;
 
@@ -66,18 +66,15 @@ type State = {
   cursor: Vec2;
 };
 
-type Action =
-  | { type: "press" }
-  | { type: "execute"; cursor: Vec2 }
-  | { type: "release" };
+type Action = { type: 'press' } | { type: 'execute'; cursor: Vec2 } | { type: 'release' };
 
 function Drawer() {
-  const canvas = select<HTMLCanvasElement>("#draw");
+  const canvas = select<HTMLCanvasElement>('#draw');
   setSize([window.innerWidth, window.innerHeight])(canvas);
 
-  const context = canvas.getContext("2d");
+  const context = canvas.getContext('2d');
 
-  context.lineCap = "round";
+  context.lineCap = 'round';
 
   function changeColor(color: string) {
     context.strokeStyle = color;
@@ -118,17 +115,17 @@ state<State, Action>({
   cursor: [0, 0],
 })
   .observe((dispatch) => {
-    window.addEventListener("pointerdown", () => dispatch({ type: "press" }));
+    window.addEventListener('pointerdown', () => dispatch({ type: 'press' }));
 
-    window.addEventListener("pointermove", ({ x, y }) =>
-      dispatch({ type: "execute", cursor: [x, y] })
+    window.addEventListener('pointermove', ({ x, y }) =>
+      dispatch({ type: 'execute', cursor: [x, y] })
     );
 
-    window.addEventListener("pointerup", () => dispatch({ type: "release" }));
+    window.addEventListener('pointerup', () => dispatch({ type: 'release' }));
   })
   .reduce((state, event) => {
-    if (event.type === "press") return { ...state, holding: true };
-    if (event.type === "execute") return { ...state, cursor: event.cursor };
-    if (event.type === "release") return { ...state, holding: false };
+    if (event.type === 'press') return { ...state, holding: true };
+    if (event.type === 'execute') return { ...state, cursor: event.cursor };
+    if (event.type === 'release') return { ...state, holding: false };
   })
   .then(Drawer());
