@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body class="h-screen w-screen">
+    <div id="app" class="bg-gray-800 flex flex-col w-screen relative">
+      <section class="flex bg-gray-500 w-full max-w-5xl">
+        <h1 class="whitespace-nowrap text-white text-3xl font-bold my-20">Drawing board</h1>
+        <aside class="flex items-center px-4">
+          <label for="brush" class="p-2 text-stone-50">color</label>
+          <input type="color" name="brush" id="brush" />
+          <button
+            id="clear"
+            class="text-white bg-green-600 px-4 py-1 rounded-md m-4 hover:bg-green-900 transition-colors duration-500"
+          >
+            clear
+          </button>
+        </aside>
+      </section>
+
+      <canvas id="myCanvas"> </canvas>
+    </div>
+    <!-- <script type="module" src="/src/main.js"></script> -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
