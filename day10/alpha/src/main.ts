@@ -81,15 +81,23 @@ function deleteItem(e: Event) {
   const target = e.target as HTMLElement;
   const parent = target.parentNode as HTMLElement;
 
-  const id = Number(parent.dataset.key);
+  parent.classList.add('animate-fadeOut');
+}
 
-  const index = list.findIndex((item) => item.id === id);
-  if (parent.classList.contains('todo-item')) {
-    list.splice(index, 1);
-  } else {
-    completeList.splice(index, 1);
-  }
+inProgressLists.addEventListener('animationend', (e) => {
+  checkDelete(e, list);
+});
 
+completeLists.addEventListener('animationend', (e) => {
+  checkDelete(e, completeList);
+});
+
+function checkDelete(e: AnimationEvent, array: List[]) {
+  if (e.animationName !== 'fadeOut') return;
+  const target = select('.animate-fadeOut') as HTMLElement;
+  const id = Number(target.dataset.key);
+  const index = array.findIndex((item) => item.id === id);
+  array.splice(index, 1);
   update();
 }
 
@@ -99,6 +107,7 @@ function render() {
 }
 
 function renderTodoList() {
+  let context = '';
   list.map((item) => {
     const element = `<li class="flex bg-zinc-50 rounded-lg p-4 justify-between items-center todo-item animate-fadeIn" data-key="${item.id}">
   
@@ -117,11 +126,14 @@ function renderTodoList() {
       Delete
     </button>
     </li>`;
-    inProgressLists.insertAdjacentHTML('afterbegin', element);
+    context += element;
   });
+
+  inProgressLists.innerHTML = context;
 }
 
 function renderCompleteList() {
+  let context = '';
   completeList.map((item) => {
     const element = `<li class="flex bg-zinc-50 rounded-lg p-4 justify-between items-center complete-item animate-fadeIn " data-key="${item.id}">
   
@@ -140,6 +152,7 @@ function renderCompleteList() {
       Delete
     </button>
     </li>`;
-    completeLists.insertAdjacentHTML('afterbegin', element);
+    context += element;
   });
+  completeLists.innerHTML = context;
 }
