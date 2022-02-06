@@ -1,0 +1,22 @@
+html,
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.eraser {
+  color: #e899c5;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  float: right;
+}
+
+.eraser:hover {
+  cursor: pointer;
+}
+
+input[type='color'] {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  float: right;
+}
