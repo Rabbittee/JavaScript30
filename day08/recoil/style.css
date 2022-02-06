@@ -4,6 +4,5 @@ body {
 }
 
 canvas {
-  background-image: url("https://st.depositphotos.com/1019436/2254/v/950/depositphotos_22544613-stock-illustration-canvas-texture-seamless.jpg");
-  aspect-ratio: 16/9;
+  background-image: url('https://st.depositphotos.com/1019436/2254/v/950/depositphotos_22544613-stock-illustration-canvas-texture-seamless.jpg');
 }
