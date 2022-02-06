@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.complete {
+  @apply border-teal-500 text-teal-500;
+}
