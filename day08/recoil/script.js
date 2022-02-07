@@ -7,6 +7,8 @@ function canvasEffect(node) {
   const toolBarHeight = 40;
   const drawHeight = window.offsetHeight - toolBarHeight;
 
+  const ctx = node.getContext('2d');
+  
   const brush = {
     state: {
       isRandom: false,
@@ -33,7 +35,7 @@ function canvasEffect(node) {
   node.height = container.offsetHeight;
 
   function randomWidth() {
-    if (brush.state.width >= 100 || brush.state.width <= 5) direction = !direction;
+    if (brush.state.width >= 100 || brush.state.width <= 10) direction = !direction;
     if (direction) brush.state.width++;
     else brush.state.width--;
     return brush.state.width;
@@ -46,20 +48,19 @@ function canvasEffect(node) {
   }
 
   function draw(event) {
-    const ctx = node.getContext('2d');
-    ctx.lineWidth = brush.state.isRandom ? randomWidth() : brush.state.width;
-    ctx.strokeStyle = brush.state.isRandom ? randomColor() : brush.state.strokeFill;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
+    ctx.lineWidth = brush.state.isRandom ? randomWidth() : brush.state.width;
+    ctx.strokeStyle = brush.state.isRandom ? randomColor() : brush.state.strokeFill;
     ctx.beginPath();
     ctx.moveTo(brush.state.lastPoint.x, brush.state.lastPoint.y);
     ctx.lineTo(event.offsetX, event.offsetY);
-    ctx.closePath();
     ctx.stroke();
   }
 
   node.addEventListener('mousedown', function (e) {
     brush.setDrawing(true);
+    brush.updatePoint(e.offsetX, e.offsetY - drawHeight);
   });
 
   node.addEventListener('mouseup', function (e) {
@@ -68,7 +69,6 @@ function canvasEffect(node) {
 
   node.addEventListener('mousemove', function (e) {
     if (!brush.state.isDrawing) return;
-    brush.updatePoint(e.clientX, e.clientY - drawHeight);
     draw(e);
   });
 
