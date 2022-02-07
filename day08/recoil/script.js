@@ -8,7 +8,7 @@ function canvasEffect(node) {
   const drawHeight = window.offsetHeight - toolBarHeight;
 
   const ctx = node.getContext('2d');
-  
+
   const brush = {
     state: {
       isRandom: false,
