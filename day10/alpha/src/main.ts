@@ -78,9 +78,10 @@ function update() {
 update();
 
 function deleteItem(e: Event) {
+  console.log('delete');
   const target = e.target as HTMLElement;
   const parent = target.parentNode as HTMLElement;
-
+  parent.classList.remove('animate-fadeIn');
   parent.classList.add('animate-fadeOut');
 }
 
