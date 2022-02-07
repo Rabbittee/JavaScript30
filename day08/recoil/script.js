@@ -4,9 +4,6 @@ function canvasEffect(node) {
   if (!node) return;
 
   const container = node.closest('.canvas-container');
-  const toolBarHeight = 40;
-  const drawHeight = window.offsetHeight - toolBarHeight;
-
   const ctx = node.getContext('2d');
 
   const brush = {
@@ -56,11 +53,12 @@ function canvasEffect(node) {
     ctx.moveTo(brush.state.lastPoint.x, brush.state.lastPoint.y);
     ctx.lineTo(event.offsetX, event.offsetY);
     ctx.stroke();
+    brush.updatePoint(event.offsetX, event.offsetY);
   }
 
   node.addEventListener('mousedown', function (e) {
     brush.setDrawing(true);
-    brush.updatePoint(e.offsetX, e.offsetY - drawHeight);
+    brush.updatePoint(e.offsetX, e.offsetY);
   });
 
   node.addEventListener('mouseup', function (e) {
