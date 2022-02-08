@@ -1,5 +1,14 @@
+// set brush color
+const setBrushColor = (color) => (ctx.strokeStyle = color);
+// set brush width
+const setBrushWidth = (width) => (ctx.lineWidth = width);
+// set mouse location
+const setMouseXY = ({ offsetX, offsetY }) => ([lastX, lastY] = [offsetX, offsetY]);
+// select dom
+const selectDom = (target) => document.querySelector(target);
+
 // canvas background setting
-const canvas = document.querySelector('#draw');
+const canvas = selectDom('#draw');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const ctx = canvas.getContext('2d');
@@ -31,20 +40,13 @@ function drawing(e) {
 }
 
 // color picker
-const picker = document.querySelector('input[type="color"]');
+const picker = selectDom('input[type="color"]');
 picker.addEventListener('input', () => setBrushColor(picker.value));
 
 // eraser
-const eraser = document.querySelector('.eraser');
+const eraser = selectDom('.eraser');
 eraser.addEventListener('click', () => setBrushColor('white'));
 
 // slider
-const slider = document.querySelector('input[type="range"]');
+const slider = selectDom('input[type="range"]');
 slider.addEventListener('input', () => setBrushWidth(slider.value));
-
-// set brush color
-const setBrushColor = (color) => (ctx.strokeStyle = color);
-// set brush width
-const setBrushWidth = (width) => (ctx.lineWidth = width);
-// set mouse location
-const setMouseXY = ({ offsetX, offsetY }) => ([lastX, lastY] = [offsetX, offsetY]);
