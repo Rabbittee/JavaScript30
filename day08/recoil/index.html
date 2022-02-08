@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class=" h-screen w-screen bg-slate-100 shadow-md flex flex-col">
+  <form class="h-10 flex " id="tools">
+      <label class="flex items-center px-2">
+        <span>color:</span>
+        <input type="color" name="color" value="#000000">
+      </label>
+      <label class="flex items-center px-2">
+        <span>width:</span>
+        <input type="range" name="width" value="20" min="10" max="100">
+      </label>
+      <label class="flex items-center px-2">
+        <span>random:</span>
+        <input type="checkbox" name="random" >
+      </label>
+  </form>
+  <div class="flex-1 canvas-container">
+    <canvas id="draw" width="800" height="800"></canvas>
+  </div>
+<script src="script.js" defer>
+</script>
+
+</body>
+</html>
