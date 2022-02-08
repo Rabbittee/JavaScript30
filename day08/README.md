@@ -7,3 +7,4 @@
 - [凱文](https://rabbittee.github.io/JavaScript30/day08/kevin/)
 - [阿金](https://rabbittee.github.io/JavaScript30/day08/kim/)
 - [哈囉](https://rabbittee.github.io/JavaScript30/day08/kirby/)
+- [+5](https://rabbittee.github.io/JavaScript30/day08/plusfive/)
