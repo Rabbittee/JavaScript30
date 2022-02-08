@@ -1,0 +1,28 @@
+<!--
+ * @Author:Claire Li
+ * @Date:2022-02-07 13:19:37
+ * @LastEditors:Claire Li
+ * @LastEditTime:2022-02-08 11:24:20
+ * @Description:
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@1.25.4/dist/full.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet" type="text/css" />
+
+  <title>HTML5 Canvas</title>
+</head>
+<body>
+  <div class="flex m-2 space-x-2 w-1/4">
+    <input id="lineWidth" type="range" max="100" value="40" class="range w-full">
+    <div id="eraser" class="cursor-pointer rounded">
+      <img src="./eraser.svg" alt="" class="rounded">
+    </div>
+  </div>
+  <canvas id="draw" width="800" height="800"></canvas>
+  <script src="main.js"></script>
+</body>
+</html>
