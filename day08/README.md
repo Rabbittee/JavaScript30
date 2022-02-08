@@ -1,4 +1,5 @@
 # day08
+[筆記](https://www.notion.so/rabbit-church/08-Fun-with-HTML5-Canvas-6669b0113060416fa771d4b024f2d9b0)
 
 ## Links
 
