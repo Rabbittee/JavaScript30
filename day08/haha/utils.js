@@ -8,7 +8,7 @@ const setMouseXY = ({ offsetX, offsetY }) => ([lastX, lastY] = [offsetX, offsetY
 const selectDom = (target) => document.querySelector(target);
 
 // canvas background setting
-const canvas = selectDom('#draw')
+const canvas = selectDom('#draw');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const ctx = canvas.getContext('2d');
