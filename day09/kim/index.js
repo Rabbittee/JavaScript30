@@ -1,12 +1,12 @@
 const dogs = [
-    { name: 'Snickers', age: 2 },
-    { name: 'hugo', age: 8 },
+  { name: 'Snickers', age: 2 },
+  { name: 'hugo', age: 8 },
 ];
 
 function makeGreen() {
-    const p = document.querySelector('p');
-    p.style.color = '#BADA55';
-    p.style.fontSize = '50px';
+  const p = document.querySelector('p');
+  p.style.color = '#BADA55';
+  p.style.fontSize = '50px';
 }
 
 // Regular
@@ -17,8 +17,8 @@ console.log('Hello I am a %s string', '👼');
 
 // Styled
 console.log(
-    '%c I am some great text Kim ',
-    'font-size: 50px; background-color: skyblue;color: white;border-radius: 50px;'
+  '%c I am some great text Kim ',
+  'font-size: 50px; background-color: skyblue;color: white;border-radius: 50px;'
 );
 
 // warning!
@@ -45,12 +45,12 @@ console.clear();
 
 // Grouping together
 dogs.forEach((dog) => {
-    // console.group(`${dog.name}`);
-    console.groupCollapsed(`${dog.name}`);
-    console.log(`This is ${dog.name}`);
-    console.log(`This is ${dog.name}, This is dog ${dog.age} years`);
-    console.log(`This is ${dog.name}, This is dog ${dog.age * 7} years`);
-    console.groupEnd(`${dog.name}`);
+  // console.group(`${dog.name}`);
+  console.groupCollapsed(`${dog.name}`);
+  console.log(`This is ${dog.name}`);
+  console.log(`This is ${dog.name}, This is dog ${dog.age} years`);
+  console.log(`This is ${dog.name}, This is dog ${dog.age * 7} years`);
+  console.groupEnd(`${dog.name}`);
 });
 
 // counting
@@ -67,10 +67,10 @@ console.count('wes');
 // timing
 console.time('fetching data');
 fetch('https://api.github.com/users/wesbos')
-    .then((data) => data.json())
-    .then((data) => {
-        console.timeEnd('fetching data');
-        console.log(data);
-    });
+  .then((data) => data.json())
+  .then((data) => {
+    console.timeEnd('fetching data');
+    console.log(data);
+  });
 
 console.table(dogs);
