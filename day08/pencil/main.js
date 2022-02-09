@@ -1,5 +1,4 @@
 const drawArea = document.getElementById('draw');
-// console.log('drawArea: ', drawArea);
 
 // check for support
 if (drawArea.getContext === false) {
@@ -8,7 +7,6 @@ if (drawArea.getContext === false) {
 }
 
 const ctx = drawArea.getContext('2d');
-// console.log('ctx: ', ctx);
 
 /**
  * set canvas area
@@ -42,7 +40,6 @@ let direction = true;
  */
 function draw(e) {
   if (isDrawing === false) return;
-  // console.log(e);
   ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
   // start canvas line
   ctx.beginPath();
