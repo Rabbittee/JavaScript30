@@ -64,6 +64,8 @@ class Canvas {
     });
     window.addEventListener('keyup', (e: KeyboardEvent) => {});
 
+    this.canvas.addEventListener('touchmove', (e) => e.preventDefault());
+
     this.canvas.addEventListener('pointerdown', (e: MouseEvent) => {
       this.updatePoint(e);
       this.drawFlag = true;
