@@ -50,9 +50,6 @@ var Canvas = /** @class */ (function () {
       _this.updateSize(_this.penSize);
     });
     window.addEventListener('keyup', function (e) {});
-    this.canvas.addEventListener('touchmove', function (e) {
-      return e.preventDefault();
-    });
     this.canvas.addEventListener('pointerdown', function (e) {
       _this.updatePoint(e);
       _this.drawFlag = true;
