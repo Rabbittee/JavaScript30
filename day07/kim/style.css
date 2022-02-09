@@ -1,0 +1,28 @@
+body {
+  background: antiquewhite;
+  margin: 0;
+  padding: 3vmax;
+  display: flex;
+  justify-content: center;
+  color: #555;
+}
+
+.container {
+  max-width: 768px;
+  padding: 0 3vmin;
+}
+
+.container div {
+  background: rgba(255, 255, 255, 0.4);
+  padding: 0 3vmin;
+  margin-bottom: 5vmax;
+  max-height: 12.25rem;
+  overflow: scroll;
+  border-radius: 0.8vmin;
+  /* box-shadow: h-shadow v-shadow blur spread color inset; */
+  box-shadow: 0 0 5px 1px rgb(196, 171, 139) inset;
+}
+h2 {
+  color: burlywood;
+  font-size: 20px;
+}
