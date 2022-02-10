@@ -10,7 +10,6 @@ function holdShiftToCheckCheckboxes(selector = '#checklist') {
   function checkInRange(from = 0, to = 0) {
     const minOne = Math.min(from, to);
     const maxOne = Math.max(from, to);
-    console.log(minOne, maxOne);
     checkboxes.forEach((checkbox, i) => {
       if (i >= minOne && i <= maxOne) checkbox.checked = true;
     });
@@ -31,7 +30,6 @@ function holdShiftToCheckCheckboxes(selector = '#checklist') {
       checkInRange(currentCheckedIndex, prevCheckedIndex);
     }
     prevCheckedIndex = currentCheckedIndex;
-    console.log(prevCheckedIndex, isPressShift);
   });
 
   document.addEventListener('keydown', ({ key }) => {
