@@ -8,4 +8,5 @@
 - [凱文](https://rabbittee.github.io/JavaScript30/day09/kevin/)
 - [阿金](https://rabbittee.github.io/JavaScript30/day09/kim/)
 - [哈囉](https://rabbittee.github.io/JavaScript30/day09/kirby/)
+- [鉛筆](https://rabbittee.github.io/JavaScript30/day09/pencil/)
 - [奶捲](https://rabbittee.github.io/JavaScript30/day09/recoil/)
