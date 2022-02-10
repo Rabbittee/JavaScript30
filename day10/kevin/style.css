@@ -15,6 +15,11 @@ html {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #f1f1f1;
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: #efefef;
 }
 
 .item:last-child {
@@ -22,7 +27,6 @@ html {
 }
 
 input:checked + p {
-  background: #f9f9f9;
   text-decoration: line-through;
 }
 
@@ -39,4 +43,8 @@ p {
   font-size: 20px;
   font-weight: 200;
   border-left: 1px solid #d1e2ff;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
