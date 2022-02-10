@@ -1,4 +1,4 @@
-const checkboxs = document.querySelectorAll('.inbox input[type="checkbox"]')
+const checkboxs = document.querySelectorAll('.inbox input[type="checkbox"]');
 
 let lastChecked;
 
@@ -8,7 +8,7 @@ function handleCheckout(e) {
     // console.log(e)
     if (e.shiftKey && this.checked) {
         let inBetween = false;
-        checkboxs.forEach(checkbox => {
+        checkboxs.forEach((checkbox) => {
             if (checkbox === this || checkbox === lastChecked) {
                 inBetween = !inBetween;
             }
@@ -20,4 +20,4 @@ function handleCheckout(e) {
     lastChecked = checkBoxes[index];
 }
 
-checkboxs.forEach(checkbox => checkbox.addEventListener('click', handleCheckout))
+checkboxs.forEach((checkbox) => checkbox.addEventListener('click', handleCheckout));
