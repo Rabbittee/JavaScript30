@@ -31,11 +31,15 @@ And what I know
 > 使用 let 而不是 const 是因為之後值會變動
 > `lastChecked = checkBoxes[index];`
 > 然後為每個 checkbox 設定監聽事件，並把被點取的 checkbox 存入 lastChecked 變數
->
+
+---
+
 > By 1.  
-> `if ( ! lastChecked) lastChecked = this ;`  
+>  `if ( ! lastChecked) lastChecked = this ;`  
 >  //確定選中 or 取消選中
->
+
+---
+
 > By 2.  
 > 就會轉變 inBetween 變成 true
 
@@ -49,11 +53,27 @@ And what I know
     再次改動inBetween變成false
     之後的input都不會被checked
 
-> By 3.  
-> 並設置一個變數 let lastChecked;作為稍後勾選位置的紀錄使用。
->
-> By 4.  
-> 加入 isBetween 變數，用來記錄是否符合上述的條件
+---
+
+> By 3.
+
+#### Step1. 基本設定
+
+用 `querySelectorAll('.inbox input[type="checkbox"]`來把 HTML 中的 checkbox 選起來，
+並設置一個變數 let lastChecked;作為稍後勾選位置的紀錄使用。
+
+---
+
+> By 4.
+
+#### 步驟 3.
+
+在巡覽的過程中，加入判斷式，決定要變更 checkbox 選取狀態的變更。
+
+    加入 checkEle 變數紀錄 click 每次觸發後，上次的選取 DOM
+    判斷 目前觸發元素是否等於巡覽的元素，或是 checkEle 是否等於巡覽的元素，並且 checkEle 不能等於目前觸發元素
+    加入 isBetween 變數，用來記錄是否符合上述的條件
+    最後將巡覽的所有元素 checked 都設定為 true 的值 都設定為 true 的值
 
 ---
 
