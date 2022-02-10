@@ -11,13 +11,14 @@ function handleCheckout(e) {
     checkboxs.forEach((checkbox) => {
       if (checkbox === this || checkbox === lastChecked) {
         inBetween = !inBetween;
+        console.log('flag');
       }
       if (inBetween) {
         checkbox.checked = true;
       }
     });
   }
-  lastChecked = checkBoxes[index];
+  lastChecked = this;
 }
 
 checkboxs.forEach((checkbox) => checkbox.addEventListener('click', handleCheckout));
