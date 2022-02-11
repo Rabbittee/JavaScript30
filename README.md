@@ -15,12 +15,12 @@
 | [07](https://rabbittee.github.io/JavaScript30/day07/) | [Array Cardio Day 2](https://rabbittee.github.io/JavaScript30/day07/sample)                            | 轉圈圈 (elzuoc)     |
 | [08](https://rabbittee.github.io/JavaScript30/day08/) | [Fun with HTML5 Canvas](https://rabbittee.github.io/JavaScript30/day08/sample)                         | 吠吠 (haha861924)   |
 | [09](https://rabbittee.github.io/JavaScript30/day09/) | [Dev Tools Domination](https://rabbittee.github.io/JavaScript30/day09/sample)                          | 小白 (beareatapple) |
-| [10](https://rabbittee.github.io/JavaScript30/day10/) | [Hold Shift and Check Checkboxes](https://rabbittee.github.io/JavaScript30/day10/sample)               |
-| [11](https://rabbittee.github.io/JavaScript30/day11/) | [Custom Video Player](https://rabbittee.github.io/JavaScript30/day11/sample)                           |
-| [12](https://rabbittee.github.io/JavaScript30/day12/) | [Key Sequence Detection](https://rabbittee.github.io/JavaScript30/day12/sample)                        |
-| [13](https://rabbittee.github.io/JavaScript30/day13/) | [Slide in on Scroll](https://rabbittee.github.io/JavaScript30/day13/sample)                            |
-| [14](https://rabbittee.github.io/JavaScript30/day14/) | [JavaScript References VS Copying](https://rabbittee.github.io/JavaScript30/day14/sample)              |
-| [15](https://rabbittee.github.io/JavaScript30/day15/) | [LocalStorage](https://rabbittee.github.io/JavaScript30/day15/sample)                                  |
+| [10](https://rabbittee.github.io/JavaScript30/day10/) | [Hold Shift and Check Checkboxes](https://rabbittee.github.io/JavaScript30/day10/sample)               | +5 (ezcomenezgo)
+| [11](https://rabbittee.github.io/JavaScript30/day11/) | [Custom Video Player](https://rabbittee.github.io/JavaScript30/day11/sample)                           | 鉛筆 (zoeGuava) 
+| [12](https://rabbittee.github.io/JavaScript30/day12/) | [Key Sequence Detection](https://rabbittee.github.io/JavaScript30/day12/sample)                        | 小金 (KimberlyYen)
+| [13](https://rabbittee.github.io/JavaScript30/day13/) | [Slide in on Scroll](https://rabbittee.github.io/JavaScript30/day13/sample)                            | 小白 (beareatapple)
+| [14](https://rabbittee.github.io/JavaScript30/day14/) | [JavaScript References VS Copying](https://rabbittee.github.io/JavaScript30/day14/sample)              | +5 (ezcomenezgo)
+| [15](https://rabbittee.github.io/JavaScript30/day15/) | [LocalStorage](https://rabbittee.github.io/JavaScript30/day15/sample)                                  | 凱文 (kevinshu1995)
 | [16](https://rabbittee.github.io/JavaScript30/day16/) | [Mouse Move Shadow](https://rabbittee.github.io/JavaScript30/day16/sample)                             |
 | [17](https://rabbittee.github.io/JavaScript30/day17/) | [Sort Without Articles](https://rabbittee.github.io/JavaScript30/day17/sample)                         |
 | [18](https://rabbittee.github.io/JavaScript30/day18/) | [Adding Up Times with Reduce](https://rabbittee.github.io/JavaScript30/day18/sample)                   |
