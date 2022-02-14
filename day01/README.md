@@ -11,6 +11,7 @@
 
 - [哈奇](https://rabbittee.github.io/JavaScript30/day01/Husky/dist/)
 - [阿法](https://rabbittee.github.io/JavaScript30/day01/alpha/dist/)
+- [cxphoenix](https://rabbittee.github.io/JavaScript30/day01/cxphoenix/)
 - [轉圈圈](https://rabbittee.github.io/JavaScript30/day01/elzuoc/)
 - [鳥胃](https://rabbittee.github.io/JavaScript30/day01/erica/)
 - [吠吠](https://rabbittee.github.io/JavaScript30/day01/haha/)
