@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Video Player</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="introduction">
+        <h2>大雄兔 Big Buck Bunny</h2>
+        <i>2008 | 10min | Blender Foundation</i>
+        <p>
+            大雄兔雖然是隻體型壯碩的兔子,卻有著一顆善良纖細的心。
+            一個晴朗的日子裡,大雄兔被明媚的天氣吸引跑出洞來,
+            此時草原上卻出現了三個不懷好意的壞東西,
+            它們正計劃著如何破壞這可愛的一天……善良的大雄兔要如何阻止它們呢？
+        </p>
+        <p>
+            全片透過輕鬆活潑的畫面氛圍,
+            將欺負者與被欺負者間的殘暴轉化為喜劇式的呈現,
+            即使大雄兔決定強硬起來反守為攻,其報復方式仍不減俏皮的元素。
+            但此片並不因此減少了劇情張力,搞笑的敘事語調反而更凸顯出對欺負者的批判。
+        </p>
+    </div>
+   <div class="player__container">
+     <video class="player__video viewer">
+         <source src="../sample/652333414.mp4"/>
+     </video>
+     <span class="timer">
+         <span class="current_time"></span>/
+         <span class="total_time"></span>
+     </span>
+     <div class="player">
+        <div class="player__slider">
+          <input type="range" name="progress"  min="0" max="100" step="0.01" value="0">
+        </div>
+        <div class="player__controls">
+            <button class="player__button play toggle" title="Toggle Play">►</button>
+            <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
+            <button class="player__button toggle" name="speed__toggle" type="button">
+                <span class="speed__content">x1</span>»
+            </button>
+            <button class="player__button toggle" name="screen__toggle" type="button">
+                <img src="./assets/fullscreen-svgrepo-com.svg" alt="">
+            </button>
+        </div>
+     </div>
+   </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
