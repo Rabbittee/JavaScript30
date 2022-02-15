@@ -18,7 +18,7 @@
   opacity: 0.1;
   transition: opacity 0.4s;
 }
-.button-group{
+.button-group {
   display: flex;
   justify-content: space-around;
 }
@@ -41,7 +41,7 @@
   margin-bottom: 1rem;
 }
 
-.container .controls .seek-tooltip{
+.container .controls .seek-tooltip {
   padding: 5px;
   width: 8%;
   text-align: center;
@@ -51,7 +51,7 @@
   opacity: 0;
 }
 
-.container .controls .timeline .bar{
+.container .controls .timeline .bar {
   background: rgb(1, 1, 65);
   height: 8px;
   flex: 1;
@@ -59,7 +59,7 @@
 .container .controls .timeline .bar:hover {
   cursor: pointer;
 }
-.container .controls .timeline .bar .inner{
+.container .controls .timeline .bar .inner {
   background: #ccc;
   width: 0%;
   height: 100%;
@@ -68,7 +68,8 @@
   font-size: 20px !important;
 }
 
-.container .controls .button-group .time time, span{
+.container .controls .button-group .time time,
+span {
   left: 1rem;
   font-size: 20px;
   color: white;
