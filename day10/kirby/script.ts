@@ -1,7 +1,6 @@
 type Fn<T, R> = (arg: T) => R;
 
-const select = <T extends Element>(query: string) =>
-  document.querySelector<T>(query);
+const select = <T extends Element>(query: string) => document.querySelector<T>(query);
 
 const selectAll = <T extends Element>(query: string) =>
   Array.from(document.querySelectorAll<T>(query));
@@ -66,13 +65,13 @@ const inRange = (bound1: number, bound2: number) => (value: number) => {
 function keypress(key: string) {
   let holding = false;
 
-  window.addEventListener("keydown", (e) => {
+  window.addEventListener('keydown', (e) => {
     if (!isKeyboardEvent(e)) return;
 
     if (e.key === key) holding = true;
   });
 
-  window.addEventListener("keyup", (e) => {
+  window.addEventListener('keyup', (e) => {
     if (!isKeyboardEvent(e)) return;
 
     holding = false;
@@ -91,35 +90,31 @@ type State = {
   inputs: HTMLInputElement[];
 };
 
-type Action =
-  | { type: "change"; target: HTMLInputElement }
-  | { type: "update"; lastIndex: number };
+type Action = { type: 'change'; target: HTMLInputElement } | { type: 'update'; lastIndex: number };
 
 state<State, Action>({
   lastIndex: undefined,
-  key: keypress("Shift"),
-  inputs: selectAll<HTMLInputElement>(".inbox .item input"),
+  key: keypress('Shift'),
+  inputs: selectAll<HTMLInputElement>('.inbox .item input'),
 })
   .observe((dispatch) => {
-    select(".inbox").addEventListener(
-      "change",
-      ({ target }) =>
-        isInputElement(target) && dispatch({ type: "change", target })
+    select('.inbox').addEventListener(
+      'change',
+      ({ target }) => isInputElement(target) && dispatch({ type: 'change', target })
     );
   })
   .reduce((state, action) => {
-    if (action.type === "update")
-      return { ...state, lastIndex: action.lastIndex };
+    if (action.type === 'update') return { ...state, lastIndex: action.lastIndex };
 
     return state;
   })
   .then((state, action, dispatch) => {
-    if (action.type !== "change" || !action.target.checked) return;
+    if (action.type !== 'change' || !action.target.checked) return;
 
     const index = state.inputs.findIndex((item) => action.target === item);
     if (index < 0) return;
 
-    dispatch({ type: "update", lastIndex: index });
+    dispatch({ type: 'update', lastIndex: index });
 
     if (state.lastIndex === undefined || !state.key.holding) return;
 
