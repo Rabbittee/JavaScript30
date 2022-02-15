@@ -103,6 +103,14 @@ function videoSetup() {
     progress.addEventListener('pointerup', stopSliding);
   }
 
+  function initSetup() {
+    // 檢查播放鈕圖像
+    checkPlayIcon();
+    // 監聽時間條
+    onSlideProgress();
+    setCurrentProgress(0);
+  }
+
   controls.addEventListener('click', (e) => {
     e.preventDefault();
     // 按下播放鈕
@@ -129,10 +137,7 @@ function videoSetup() {
     checkPlayIcon();
   });
 
-  // 檢查播放鈕圖像
-  checkPlayIcon();
-  // 監聽時間條
-  onSlideProgress();
+  initSetup();
 }
 
 videoSetup();
