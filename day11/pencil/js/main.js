@@ -7,7 +7,7 @@ const ICON_LOW_VOL = "./icon/low_vol.svg";
 const ICON_MUTE = "./icon/mute.svg";
 
 const playingStatus = (pausing) => {
-  const playingBtnImg = $('button[title="playing"] img');
+  const playingBtnImg = $('[data-title="playing"]').getElementsByTagName('img')[0];
   if (pausing) {
     playingBtnImg.src = ICON_PAUSE;
     $("#mainVideo").play();
@@ -24,10 +24,10 @@ const replay = (pausing) => {
 
 $('#playArea').addEventListener(
   'click', (e) => {
-    const currentBtn = e.target.closest('button');
+    const currentTitle = e.target.closest('.btn').dataset.title;
     const isPaused = $("#mainVideo").paused;
-    currentBtn.title === "replay"
-      ? replay(isPaused)
+    currentTitle === "replay"
+      ? replay(false)
       : playingStatus(isPaused);
 });
 
@@ -41,7 +41,7 @@ const setPreviousVol = (vol) => {
 }
 
 const setVolIcon = (vol) => {
-  const volBtnImg = $('button[title="volume"] img');
+  const volBtnImg = $('[data-title="volume"]').getElementsByTagName('img')[0];
   volBtnImg.src = ICON_MUTE;
   if (vol > 0) {
     vol > 0.5 
@@ -61,8 +61,8 @@ $('input[name="volume"]').addEventListener(
     const vol = $('input[name="volume"]').value;
     updateVolState(vol);
 });
-  
-$('button[title="volume"]').addEventListener(
+
+$('[data-title="volume"]').addEventListener(
   'click', () => {
     const currentVol = $('#mainVideo').volume;
     console.log('click get vol: ', currentVol);
@@ -72,5 +72,28 @@ $('button[title="volume"]').addEventListener(
     } else {
       updateVolState(playerState["previousVol"]);
     }
+  }
+)
+
+$('.progress__area').addEventListener(
+  'click', (e) => {
+    const currentElement = e.target.closest('.btn span');
+    const skipValue = currentElement.dataset.skip;
+    $('#mainVideo').currentTime += parseFloat(skipValue);
+  }
+)
+
+$('input[name="playbackRate"]').addEventListener('input', () => {
+  const playRate = $('input[name="playbackRate"]').value;
+  $('#mainVideo').playbackRate = playRate;
+})
+
+$('#mainVideo').addEventListener(
+  'timeupdate',
+  () => {
+    const currentTime = $('#mainVideo').currentTime;
+    const duration = $('#mainVideo').duration;
+    const percent = (currentTime / duration) * 100;
+    $('.progress__filled').style.flexBasis = `${percent}%`;
   }
 )
