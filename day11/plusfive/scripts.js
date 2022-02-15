@@ -2,13 +2,12 @@
  * @Author:Claire Li
  * @Date:2022-02-14 12:01:56
  * @LastEditors:Claire Li
- * @LastEditTime:2022-02-15 12:31:47
+ * @LastEditTime:2022-02-15 22:44:46
  * @Description:
  */
 /* Get Our Elements */
 const player = document.querySelector('.player');
 let video;
-// const video = player.querySelector('.viewer');
 const progress = player.querySelector('.progress');
 const progressBar = player.querySelector('.progress__filled');
 const toggle = player.querySelector('.toggle');
@@ -64,7 +63,7 @@ function changeToVideo() {
 
   player.insertAdjacentHTML(
     'afterbegin',
-    '<video class="player__video viewer" src="./652333414.mp4"></video>'
+    '<video class="player__video viewer" src="../sample/652333414.mp4"></video>'
   );
   player.insertAdjacentHTML(
     'beforebegin',
