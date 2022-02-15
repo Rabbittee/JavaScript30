@@ -41,8 +41,7 @@ function state<State, Action>(value: State) {
   return { observe };
 }
 
-const select = <T extends Element>(query: string) =>
-  document.querySelector<T>(query);
+const select = <T extends Element>(query: string) => document.querySelector<T>(query);
 
 const selectAll = <T extends Element>(query: string) =>
   Array.from(document.querySelectorAll<T>(query));
@@ -54,6 +53,12 @@ function is<T extends Constructor>(type: T) {
   };
 }
 
+type PredFn<T> = (arg: T) => boolean;
+const anyPass =
+  <T>(preds: PredFn<T>[]) =>
+  (arg: T) =>
+    preds.some((pred) => pred(arg));
+
 const lerp = (x1: number, x2: number, t: number) => x1 * (1 - t) + x2 * t;
 const percentage = (x1: number, x2: number) => (x1 / x2) * 100;
 
@@ -64,118 +69,114 @@ type State = {
   progress: number;
   video: HTMLVideoElement;
   progressBar: HTMLDivElement;
+  toggler: HTMLButtonElement;
 };
 type Action =
-  | { type: "toggle" }
-  | { type: "volume"; value: number }
-  | { type: "playbackRate"; value: number }
-  | { type: "progress"; value: number }
-  | { type: "updateProgress"; value: number };
+  | { type: 'toggle' }
+  | { type: 'volume'; value: number }
+  | { type: 'playbackRate'; value: number }
+  | { type: 'progress'; value: number }
+  | { type: 'updateProgress'; value: number };
 
 state<State, Action>({
   playing: false,
   volume: 1,
   playbackRate: 1,
   progress: 0,
-  video: select(".player video"),
-  progressBar: select(".player .progress__filled"),
+  video: select('.player video'),
+  progressBar: select('.player .progress__filled'),
+  toggler: select('.player .toggle'),
 })
   .observe((dispatch) => {
-    selectAll(".player .viewer, .player .toggle")
+    selectAll('.player .viewer, .player .toggle')
       //
-      .forEach((el) =>
-        el.addEventListener("click", () => dispatch({ type: "toggle" }))
-      );
+      .forEach((el) => el.addEventListener('click', () => dispatch({ type: 'toggle' })));
 
-    selectAll(".player input[type=range]")
+    selectAll('.player input[type=range]')
       //
       .forEach((el) =>
-        el.addEventListener("input", ({ target }) => {
+        el.addEventListener('input', ({ target }) => {
           if (!is(HTMLInputElement)(target)) return;
 
-          if (target.name === "volume")
+          if (target.name === 'volume')
             return dispatch({
-              type: "volume",
+              type: 'volume',
               value: Number(target.value),
             });
 
-          if (target.name === "playbackRate")
+          if (target.name === 'playbackRate')
             return dispatch({
-              type: "playbackRate",
+              type: 'playbackRate',
               value: Number(target.value),
             });
         })
       );
 
-    select(".player .viewer")
+    select('.player .viewer')
       //
-      .addEventListener("timeupdate", ({ target }) => {
+      .addEventListener('timeupdate', ({ target }) => {
         if (!is(HTMLVideoElement)(target)) return;
 
         return dispatch({
-          type: "progress",
+          type: 'progress',
           value: Math.floor(percentage(target.currentTime, target.duration)),
         });
       });
 
-    select(".player .progress")
+    select('.player .progress')
       //
-      .addEventListener("click", (e) => {
-        if (!is(PointerEvent)(e)) return;
+      .addEventListener('click', (e) => {
+        const isPointerOrMouse = anyPass([is(PointerEvent), is(MouseEvent)])(e);
 
-        const target = e.currentTarget;
-        if (!is(HTMLDivElement)(target)) return;
+        if (isPointerOrMouse) {
+          const { currentTarget, offsetX } = e as PointerEvent | MouseEvent;
 
-        return dispatch({
-          type: "updateProgress",
-          value: Math.floor(percentage(e.offsetX, target.clientWidth)),
-        });
+          if (!is(HTMLDivElement)(currentTarget)) return;
+
+          return dispatch({
+            type: 'updateProgress',
+            value: Math.floor(percentage(offsetX, currentTarget.clientWidth)),
+          });
+        }
       });
 
-    selectAll(".player button")
+    selectAll('.player button')
       //
       .forEach((el) =>
-        el.addEventListener("click", ({ target }) => {
+        el.addEventListener('click', ({ target }) => {
           if (!is(HTMLButtonElement)(target)) return;
 
-          const { currentTime, duration } = select<HTMLVideoElement>(
-            ".player video"
-          );
+          const { currentTime, duration } = select<HTMLVideoElement>('.player video');
 
           const value = currentTime + Number(target.dataset.skip);
 
           return dispatch({
-            type: "updateProgress",
+            type: 'updateProgress',
             value: Math.floor(percentage(value, duration)),
           });
         })
       );
   })
   .reduce((state, action) => {
-    if (action.type === "toggle") return { ...state, playing: !state.playing };
+    if (action.type === 'toggle') return { ...state, playing: !state.playing };
 
-    if (action.type === "volume") return { ...state, volume: action.value };
+    if (action.type === 'volume') return { ...state, volume: action.value };
 
-    if (action.type === "playbackRate")
-      return { ...state, playbackRate: action.value };
+    if (action.type === 'playbackRate') return { ...state, playbackRate: action.value };
 
-    if (action.type === "progress") return { ...state, progress: action.value };
+    if (action.type === 'progress') return { ...state, progress: action.value };
 
     return state;
   })
-  .then(
-    (
-      { playing, progress, progressBar, video, volume, playbackRate },
-      action
-    ) => {
-      playing ? video.play() : video.pause();
+  .then(({ playing, progress, progressBar, video, volume, playbackRate, toggler }, action) => {
+    playing ? video.play() : video.pause();
+    toggler.innerHTML = !playing ? '►' : '❚ ❚';
 
-      video.playbackRate = playbackRate;
-      video.volume = volume;
+    video.playbackRate = playbackRate;
+    video.volume = volume;
 
-      progressBar.style.flexBasis = `${progress}%`;
+    progressBar.style.flexBasis = `${progress}%`;
 
-      if (action.type === "updateProgress")
-        video.currentTime = lerp(0, video.duration, action.value / 100);
-    }
-  );
+    if (action.type === 'updateProgress')
+      video.currentTime = lerp(0, video.duration, action.value / 100);
+  });
