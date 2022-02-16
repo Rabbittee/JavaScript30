@@ -24,6 +24,7 @@ const rewindBtn = selectDom('.rewind');
 const forwardBtn = selectDom('.forward');
 const fullScreenBtn = selectDom('.full-screen i');
 const togglePlayBtn = selectDom('.toggle-play i');
+const speedGroup = document.querySelectorAll('.tooltip-speed');
 
 video.addEventListener('click', handlePlay);
 togglePlayBtn.addEventListener('click', handlePlay);
@@ -35,6 +36,10 @@ rewindBtn.addEventListener('click', handleRewind);
 forwardBtn.addEventListener('click', handleForward);
 progressBar.addEventListener('click', handleCurrentTime);
 fullScreenBtn.addEventListener('click', handleFullScreen);
+
+speedGroup.forEach((el) => {
+  el.addEventListener('click', handleSpeed);
+});
 
 // video play or pause
 function handlePlay() {
@@ -110,6 +115,14 @@ function handleForward() {
   video.currentTime = video.currentTime + (video.duration / 100) * 5;
 }
 
+// video speed
+function handleSpeed(e) {
+  const speedText = selectDom('.speed-text');
+  const speed = e.target.className.substring(6);
+  video.playbackRate = speed;
+  speedText.innerText = `x${speed}`;
+}
+
 // set video duration
 function initializeVideo() {
   const time = roundUpTime(video.duration);
@@ -118,3 +131,5 @@ function initializeVideo() {
   setAttribute(progressBar, 'max', video.duration);
   setAttribute(video, 'volume', video.volume);
 }
+
+// TODO video preview
