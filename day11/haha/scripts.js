@@ -26,6 +26,7 @@ const fullScreenBtn = selectDom('.full-screen i');
 const togglePlayBtn = selectDom('.toggle-play i');
 
 video.addEventListener('click', handlePlay);
+togglePlayBtn.addEventListener('click', handlePlay);
 video.addEventListener('timeupdate', handleVideoUpdate);
 video.addEventListener('loadedmetadata', initializeVideo);
 soundsBar.addEventListener('change', handleVolumes);
