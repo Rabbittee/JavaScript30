@@ -1,8 +1,6 @@
-const inRange = (min: number, max: number) => (value: number) =>
-  max > value && value > min;
+const inRange = (min: number, max: number) => (value: number) => max > value && value > min;
 
-const select = <T extends Element>(query: string) =>
-  document.querySelector<T>(query);
+const select = <T extends Element>(query: string) => document.querySelector<T>(query);
 
 const append = (el: Element) => (child: Element) => el.append(child);
 
@@ -17,8 +15,7 @@ function frameUpdate(fn: Fn<void, void>) {
   requestAnimationFrame(update);
 }
 
-const play = <T extends HTMLMediaElement>(element: T) =>
-  element.play().then(() => element);
+const play = <T extends HTMLMediaElement>(element: T) => element.play().then(() => element);
 
 const media = (video: HTMLVideoElement) => (stream: MediaStream) => {
   video.srcObject = stream;
@@ -74,21 +71,15 @@ const Effects = {
       dist[i + 2] = src[i + 2];
       dist[i + 3] = src[i + 3];
 
-      if (
-        !isRedIn(src[i + 0]) &&
-        !isGreenIn(src[i + 1]) &&
-        !isBlueIn(src[i + 2])
-      ) {
+      if (!isRedIn(src[i + 0]) && !isGreenIn(src[i + 1]) && !isBlueIn(src[i + 2])) {
         dist[i + 3] = 0;
       }
     }
   },
 };
 
-const renderer = (canvas: HTMLCanvasElement, state: State) => (
-  source: HTMLVideoElement
-) => {
-  const ctx = canvas.getContext("2d");
+const renderer = (canvas: HTMLCanvasElement, state: State) => (source: HTMLVideoElement) => {
+  const ctx = canvas.getContext('2d');
 
   const { videoWidth: width, videoHeight: height } = source;
   Object.assign(canvas, { width, height });
@@ -112,7 +103,7 @@ const snapshot = (canvas: HTMLCanvasElement) => () =>
       const image = new Image();
       image.src = URL.createObjectURL(blob);
 
-      image.addEventListener("load", () => {
+      image.addEventListener('load', () => {
         URL.revokeObjectURL(image.src);
 
         resolve(image);
@@ -130,55 +121,55 @@ const state: State = {
   blue: { min: 0, max: 0 },
 };
 
-select(".rgb").addEventListener("input", ({ target }) => {
+select('.rgb').addEventListener('input', ({ target }) => {
   if (!(target instanceof HTMLInputElement)) return;
 
-  if (target.name === "rmin") {
+  if (target.name === 'rmin') {
     state.red.min = Number(target.value);
   }
-  if (target.name === "rmax") {
+  if (target.name === 'rmax') {
     state.red.max = Number(target.value);
   }
 
-  if (target.name === "gmin") {
+  if (target.name === 'gmin') {
     state.green.min = Number(target.value);
   }
-  if (target.name === "gmax") {
+  if (target.name === 'gmax') {
     state.green.max = Number(target.value);
   }
 
-  if (target.name === "bmin") {
+  if (target.name === 'bmin') {
     state.blue.min = Number(target.value);
   }
-  if (target.name === "bmax") {
+  if (target.name === 'bmax') {
     state.blue.max = Number(target.value);
   }
 });
 
-select("select").addEventListener("change", ({ target }) => {
+select('select').addEventListener('change', ({ target }) => {
   if (!(target instanceof HTMLSelectElement)) return;
 
-  if (target.value === "Grayscale") {
+  if (target.value === 'Grayscale') {
     state.effect = Effects.Grayscale;
   }
 
-  if (target.value === "RGBSplit") {
+  if (target.value === 'RGBSplit') {
     state.effect = Effects.RGBSplit;
   }
 
-  if (target.value === "GreenScreen") {
+  if (target.value === 'GreenScreen') {
     state.effect = Effects.GreenScreen;
   }
 });
 
 navigator.mediaDevices
   .getUserMedia({ video: true })
-  .then(media(select(".player")))
-  .then(renderer(select(".photo"), state));
+  .then(media(select('.player')))
+  .then(renderer(select('.photo'), state));
 
-const take = snapshot(select(".photo"));
-select("button").addEventListener("click", () =>
+const take = snapshot(select('.photo'));
+select('button').addEventListener('click', () =>
   take()
-    .then(append(select(".strip")))
-    .then(audio(select(".snap")))
+    .then(append(select('.strip')))
+    .then(audio(select('.snap')))
 );
