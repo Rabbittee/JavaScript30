@@ -27,9 +27,7 @@ function state<State, Action>(value: State) {
   function dispatch(action: Action) {
     if (reducer) value = reducer(value, action);
 
-    queueMicrotask(() =>
-      effects.forEach((effect) => effect(value, action, dispatch))
-    );
+    queueMicrotask(() => effects.forEach((effect) => effect(value, action, dispatch)));
   }
 
   function observe(source: SourceFn) {
@@ -41,8 +39,7 @@ function state<State, Action>(value: State) {
   return { observe };
 }
 
-const select = <T extends Element>(query: string) =>
-  document.querySelector<T>(query);
+const select = <T extends Element>(query: string) => document.querySelector<T>(query);
 
 interface Item {
   name: string;
@@ -55,34 +52,29 @@ type State = {
   items: Item[];
 };
 
-type Action =
-  | { type: "init" }
-  | { type: "add"; item: Item }
-  | { type: "update"; item: Item };
+type Action = { type: 'init' } | { type: 'add'; item: Item } | { type: 'update'; item: Item };
 
 function Plate({ name, done }: Item) {
   return /*html */ `
     <li>
-        <input type="checkbox" id="${name}" ${done ? "checked" : ""} />
+        <input type="checkbox" id="${name}" ${done ? 'checked' : ''} />
         <label for="${name}">${name}</label>
     </li>
     `;
 }
 
-const save = ({ storage, items }: State) =>
-  storage.setItem("items", JSON.stringify(items));
+const save = ({ storage, items }: State) => storage.setItem('items', JSON.stringify(items));
 
-const render = ({ renderer, items }: State) =>
-  (renderer.innerHTML = items.map(Plate).join(""));
+const render = ({ renderer, items }: State) => (renderer.innerHTML = items.map(Plate).join(''));
 
 state<State, Action>({
   storage: window.localStorage,
-  renderer: select(".plates"),
-  items: JSON.parse(window.localStorage.getItem("items")),
+  renderer: select('.plates'),
+  items: JSON.parse(window.localStorage.getItem('items')),
 })
   //
   .observe((dispatch) => {
-    select(".add-items").addEventListener("submit", (event) => {
+    select('.add-items').addEventListener('submit', (event) => {
       event.preventDefault();
 
       const element = event.currentTarget;
@@ -91,34 +83,31 @@ state<State, Action>({
       const form = new FormData(element);
 
       dispatch({
-        type: "add",
-        item: { name: String(form.get("item")), done: false },
+        type: 'add',
+        item: { name: String(form.get('item')), done: false },
       });
 
       element.reset();
     });
 
-    select(".plates").addEventListener("change", ({ target }) => {
+    select('.plates').addEventListener('change', ({ target }) => {
       if (!(target instanceof HTMLInputElement)) return;
 
       dispatch({
-        type: "update",
+        type: 'update',
         item: { name: target.id, done: target.checked },
       });
     });
 
-    dispatch({ type: "init" });
+    dispatch({ type: 'init' });
   })
   .reduce((state, action) => {
-    if (action.type === "add")
-      return { ...state, items: state.items.concat(action.item) };
+    if (action.type === 'add') return { ...state, items: state.items.concat(action.item) };
 
-    if (action.type === "update")
+    if (action.type === 'update')
       return {
         ...state,
-        items: state.items.map((item) =>
-          item.name === action.item.name ? action.item : item
-        ),
+        items: state.items.map((item) => (item.name === action.item.name ? action.item : item)),
       };
 
     return state;
