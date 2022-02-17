@@ -1,5 +1,4 @@
-const select = <T extends Element>(query: string) =>
-  document.querySelector<T>(query);
+const select = <T extends Element>(query: string) => document.querySelector<T>(query);
 
 type Fn<T, R> = (arg: T) => R;
 
@@ -35,13 +34,11 @@ interface TextShadow {
 const textShadow = ({ offsetX, offsetY, radius, color }: TextShadow) =>
   `${offsetX}px ${offsetY}px ${radius}px ${color}`;
 
-const center = monad(select<HTMLDivElement>(".hero"))
-  .map((el) =>
-    getCenter([el.offsetLeft, el.offsetTop, el.offsetWidth, el.offsetHeight])
-  )
+const center = monad(select<HTMLDivElement>('.hero'))
+  .map((el) => getCenter([el.offsetLeft, el.offsetTop, el.offsetWidth, el.offsetHeight]))
   .unwrap();
 
-const h1 = select<HTMLHeadingElement>(".hero h1");
+const h1 = select<HTMLHeadingElement>('.hero h1');
 
 const Color: Record<string, Vec4> = {
   Red: [256, 0, 256, 0.7],
@@ -50,7 +47,7 @@ const Color: Record<string, Vec4> = {
   DarkBlue: [0, 0, 256, 0.7],
 };
 
-window.addEventListener("mousemove", (event) => {
+window.addEventListener('mousemove', (event) => {
   if (!(event instanceof MouseEvent)) return;
 
   const [x, y] = monad(event)
@@ -59,7 +56,7 @@ window.addEventListener("mousemove", (event) => {
     .unwrap();
 
   h1.style.setProperty(
-    "--shadow",
+    '--shadow',
     [
       { offsetX: x, offsetY: y, color: Color.Red },
       { offsetX: -x, offsetY: y, color: Color.LightBlue },
