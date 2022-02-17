@@ -3,8 +3,8 @@ const selectAll = <T extends Element>(query: string) =>
 
 const add = (a: number, b: number) => a + b;
 
-const totalTime = selectAll<HTMLElement>(".videos [data-time]")
-  .map((item) => item.dataset.time.split(":").map(Number))
+const totalTime = selectAll<HTMLElement>('.videos [data-time]')
+  .map((item) => item.dataset.time.split(':').map(Number))
   .map(([min, second]) => min * 60 + second)
   .reduce(add, 0);
 
