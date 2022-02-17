@@ -6,15 +6,15 @@
   age = 200;
   console.log(age, age2);
 
-  let name = "Wes";
+  let name = 'Wes';
   let name2 = name;
   console.log(name, name2);
-  name = "wesley";
+  name = 'wesley';
   console.log(name, name2);
 }
 
 // Let's say we have an array
-const players = ["Wes", "Sarah", "Ryan", "Poppy"];
+const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 
 // and we want to make a copy of it.
 const team = players;
@@ -41,7 +41,7 @@ const team3 = [].concat(players);
 
 // or use the new ES6 Spread
 const team4 = [...players];
-team4[3] = "heeee hawww";
+team4[3] = 'heeee hawww';
 console.log(team4);
 
 const team5 = Array.from(players);
@@ -52,7 +52,7 @@ const team5 = Array.from(players);
 
 // with Objects
 const person = {
-  name: "Wes Bos",
+  name: 'Wes Bos',
   age: 80,
 };
 
@@ -70,11 +70,11 @@ console.log(cap2);
 // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
 
 const wes = {
-  name: "Wes",
+  name: 'Wes',
   age: 100,
   social: {
-    twitter: "@wesbos",
-    facebook: "wesbos.developer",
+    twitter: '@wesbos',
+    facebook: 'wesbos.developer',
   },
 };
 

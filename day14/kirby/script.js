@@ -1,27 +1,30 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+var __spreadArray =
+  (this && this.__spreadArray) ||
+  function (to, from, pack) {
+    if (pack || arguments.length === 2)
+      for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
+          if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+          ar[i] = from[i];
         }
-    }
+      }
     return to.concat(ar || Array.prototype.slice.call(from));
-};
+  };
 // start with strings, numbers and booleans
 {
-    var age = 100;
-    var age2 = age;
-    console.log(age, age2);
-    age = 200;
-    console.log(age, age2);
-    var name_1 = "Wes";
-    var name2 = name_1;
-    console.log(name_1, name2);
-    name_1 = "wesley";
-    console.log(name_1, name2);
+  var age = 100;
+  var age2 = age;
+  console.log(age, age2);
+  age = 200;
+  console.log(age, age2);
+  var name_1 = 'Wes';
+  var name2 = name_1;
+  console.log(name_1, name2);
+  name_1 = 'wesley';
+  console.log(name_1, name2);
 }
 // Let's say we have an array
-var players = ["Wes", "Sarah", "Ryan", "Poppy"];
+var players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 // and we want to make a copy of it.
 var team = players;
 console.log(players, team);
@@ -38,15 +41,15 @@ var team2 = players.slice();
 var team3 = [].concat(players);
 // or use the new ES6 Spread
 var team4 = __spreadArray([], players, true);
-team4[3] = "heeee hawww";
+team4[3] = 'heeee hawww';
 console.log(team4);
 var team5 = Array.from(players);
 // now when we update it, the original one isn't changed
 // The same thing goes for objects, let's say we have a person object
 // with Objects
 var person = {
-    name: "Wes Bos",
-    age: 80
+  name: 'Wes Bos',
+  age: 80,
 };
 // and think we make a copy:
 // const captain = person;
@@ -58,12 +61,12 @@ console.log(cap2);
 // const cap3 = {...person};
 // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
 var wes = {
-    name: "Wes",
-    age: 100,
-    social: {
-        twitter: "@wesbos",
-        facebook: "wesbos.developer"
-    }
+  name: 'Wes',
+  age: 100,
+  social: {
+    twitter: '@wesbos',
+    facebook: 'wesbos.developer',
+  },
 };
 console.log(wes);
 var dev = Object.assign({}, wes);
