@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Erica Day11 - HTML Video Player</title>
+  <link rel="stylesheet" href="./src/style.css">
+  <script src="./src/scripts.js" defer></script>
+</head>
+
+<body>
+
+  <div class="player cover">
+    <video class="player__video" src="./src/Akuma_no_Ko.mp4"></video>
+
+    <div class="player__controls">
+      <div class="player__progress">
+        <div class="progress__filled"></div>
+      </div>
+
+      <button class="player__button" title="Toggle Play">►</button>
+
+
+        <div class="player__btn">
+          <label for="volume">Volume</label>
+          <div class="controller" name="volume">
+            <span>5</span>
+            <button type="button" data-type="decs">-</button>
+            <button type="button" data-type="incs">+</button>
+          </div>
+        </div>
+  
+        <div class="player__btn">
+          <label for="playbackRate">Rate</label>
+          <div class="controller" name="playbackRate">
+            <span>10</span>
+            <button type="button" data-type="decs">-</button>
+            <button type="button" data-type="incs">+</button>
+          </div>
+        </div>
+  
+        <button data-skip="-10" class="">« 10s</button>
+        <button data-skip="25" class="">25s »</button>
+      </div>
+
+      <p class="copyright">
+        <a href="https://www.youtube.com/watch?v=WPl10ZrhCtk" target="_blank">影片來源</a>
+        &nbsp;©&nbsp;諫山創・講談社／「進撃の巨人」The Final Season製作委員会
+      </p>
+
+  </div>
+</body>
+
+</html>
