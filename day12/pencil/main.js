@@ -1,11 +1,14 @@
 const array = [];
+const SECRET_KEY = 'pencil';
 const handleKeyDown = (e) => {
-  const pushKey = e.key;
-  array.push(pushKey);
-  if (array.length > 6) {
-    array.shift();
+  const pressKey = e.key;
+  array.push(pressKey);
+  array.splice(-SECRET_KEY.length - 1, array.length - SECRET_KEY.length);
+  if (array.join('').includes(SECRET_KEY)) {
+    console.log('DING DING!');
+    cornify_add();
   }
-  console.log(pushKey);
+  console.log(pressKey);
   console.log(array);
 };
 
