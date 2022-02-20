@@ -10,7 +10,9 @@ body {
   margin: 0;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -38,7 +40,7 @@ h1 {
 
 .slide-in {
   opacity: 0;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .align-left.slide-in {
