@@ -1,7 +1,7 @@
 const select = (selector) => document.querySelector(selector);
 const create = (tag) => document.createElement(tag);
 
-function handleLocalStorage(key = 'todo') {
+function handleLocalStorage(key = 'kevin_todo') {
   return {
     get: () => JSON.parse(localStorage.getItem(key)),
     set: (value) => localStorage.setItem(key, JSON.stringify(value)),
@@ -42,7 +42,7 @@ function Todo() {
     };
 
     const init = () => {
-      todoItems = localTodo.get();
+      todoItems = localTodo.get() || [];
       updateAfterControl(todoItems);
     };
 
