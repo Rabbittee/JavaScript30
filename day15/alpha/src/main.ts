@@ -57,7 +57,9 @@ function toggleDone(e: Event) {
   populateList(items, itemsList);
 }
 
-addItems!.addEventListener('submit', addItem);
-itemsList!.addEventListener('click', toggleDone);
+if (!addItems || !itemsList) throw new Error('element is null');
+
+addItems.addEventListener('submit', addItem);
+itemsList.addEventListener('click', toggleDone);
 
 populateList(items, itemsList);
