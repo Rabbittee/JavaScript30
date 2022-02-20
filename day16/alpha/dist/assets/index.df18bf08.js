@@ -1,0 +1,6 @@
+const d=function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const o of t.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&n(o)}).observe(document,{childList:!0,subtree:!0});function c(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerpolicy&&(t.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?t.credentials="include":e.crossorigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function n(e){if(e.ep)return;e.ep=!0;const t=c(e);fetch(e.href,t)}};d();const a=r=>document.querySelector(r),i=a(".hero");if(!i)throw new Error("element is null");const u=i.querySelector("h1"),f=500;function h(r){if(!i||!r)throw new Error("element is null");const{offsetWidth:s,offsetHeight:c}=i;let{offsetX:n,offsetY:e}=r;const t=r.target;n=n+t.offsetLeft,e=e+t.offsetLeft;const o=Math.round(n/s*f-f/2),l=Math.round(e/c*f-f/2);if(!u)throw new Error("element is null");u.style.textShadow=`
+  ${o}px ${l}px 0 rgba(0, 255, 255, 0.7),
+  ${o*-1}px ${l}px 0 rgba(255, 0, 255, 0.7), 
+  ${l}px ${o*-1}px 0 rgba(255, 255, 0, 0.7), 
+  ${l*-1}px ${o}px 0 rgba(0, 0, 255, 0.7)
+  `}i.addEventListener("mousemove",h);
