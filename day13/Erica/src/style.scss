@@ -1,0 +1,89 @@
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin stickBackground {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  @include stickBackground;
+  width: 100%;
+  height: 100vh;
+  color: white;
+  overflow: hidden;
+}
+
+.wrapper {
+  background-color: rgba(black, 0.5);
+  width: calc(100% - 2vmin * 2);
+  height: calc(100% - 2vmin * 2);
+  padding: 2vmin;
+
+  main {
+    width: 100%;
+    height: 100%;
+    @include flexCenter;
+    flex-direction: column;
+  }
+
+  h2 {
+    @include stickBackground;
+    padding: 0;
+    margin: 0;
+    font-size: 8vmax;
+    text-transform: capitalize;
+    letter-spacing: 0.5vmin;
+    font-weight: bolder;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    max-width: 50vmax;
+    padding: 2vmin;
+    font-size: 110%;
+    text-align: center;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.15vmin;
+  }
+}
+
+.fos {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+
+  &-up {
+    transform: translate(0, 25%);
+  }
+
+  &-bottom {
+    transform: translate(0, -25%);
+  }
+
+  &-left {
+    transform: translate(25%, 0);
+  }
+
+  &-right {
+    transform: translate(-25%, 0);
+  }
+
+  &-in {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: all 0.75s ease-in-out;
+  }
+}
