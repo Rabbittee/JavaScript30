@@ -4,7 +4,7 @@ const select = <T extends HTMLElement>(query: string) => document.querySelector<
 
 const addItems = select<HTMLInputElement>('.add-items');
 const itemsList = select<HTMLUListElement>('.plates');
-const items: Plate[] = JSON.parse(localStorage.getItem('items') || '[]');
+const items: Plate[] = JSON.parse(localStorage.getItem('alpha_items') || '[]');
 
 function addItem(e: Event) {
   e.preventDefault();
@@ -25,7 +25,7 @@ function addItem(e: Event) {
   items.push(item);
 
   populateList(items, itemsList);
-  localStorage.setItem('items', JSON.stringify(items));
+  localStorage.setItem('alpha_items', JSON.stringify(items));
   target.reset();
 }
 
@@ -53,7 +53,7 @@ function toggleDone(e: Event) {
   const target = <HTMLInputElement>e.target;
   const index = Number(target.dataset.index);
   items[index].done = !items[index].done;
-  localStorage.setItem('items', JSON.stringify(items));
+  localStorage.setItem('alpha_items', JSON.stringify(items));
   populateList(items, itemsList);
 }
 
