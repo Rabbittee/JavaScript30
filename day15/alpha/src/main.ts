@@ -2,18 +2,18 @@ import './style.css';
 
 const select = <T extends HTMLElement>(query: string) => document.querySelector<T>(query);
 
-const addItems = select('.add-items') as HTMLInputElement;
-const itemsList = select('.plates') as HTMLElement;
+const addItems = select<HTMLInputElement>('.add-items');
+const itemsList = select<HTMLUListElement>('.plates');
 const items: Plate[] = JSON.parse(localStorage.getItem('items') || '[]');
 
 function addItem(e: Event) {
   e.preventDefault();
-  const target = e.target as HTMLFormElement;
-  if (!target) return;
 
-  const childNode = target.querySelector('[name=item]') as HTMLInputElement;
+  const target = <HTMLFormElement>e.target;
 
-  const text = childNode.value;
+  const childNode = target!.querySelector<HTMLInputElement>('[name=item]');
+
+  const text = childNode!.value;
 
   const item = {
     text,
@@ -21,6 +21,7 @@ function addItem(e: Event) {
   };
 
   items.push(item);
+
   populateList(items, itemsList);
   localStorage.setItem('items', JSON.stringify(items));
   target.reset();
@@ -31,8 +32,8 @@ type Plate = {
   done: boolean;
 };
 
-function populateList(plates: Plate[], plateList: HTMLElement) {
-  plateList.innerHTML = plates
+function populateList(plates: Plate[], plateList: HTMLElement | null) {
+  plateList!.innerHTML = plates
     .map((plate, i) => {
       return `
     <li>
@@ -53,7 +54,7 @@ function toggleDone(e: Event) {
   populateList(items, itemsList);
 }
 
-addItems.addEventListener('submit', addItem);
-itemsList.addEventListener('click', toggleDone);
+addItems!.addEventListener('submit', addItem);
+itemsList!.addEventListener('click', toggleDone);
 
 populateList(items, itemsList);
