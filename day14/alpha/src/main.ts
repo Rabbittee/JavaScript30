@@ -36,7 +36,6 @@ team4[3] = 'pencil sit!';
 console.log('es6 copied', team4);
 
 const team5 = Array.from(players);
-console.log(team2, team3, team5);
 
 console.log('original is not changed', players);
 
@@ -75,7 +74,5 @@ console.clear();
 console.log('wes', wes);
 
 const dev = Object.assign({}, wes);
-console.log(dev);
 
 const dev2 = JSON.parse(JSON.stringify(wes));
-console.log(dev2);
