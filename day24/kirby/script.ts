@@ -1,8 +1,9 @@
 type Fn<T, R> = (arg: T) => R;
-const tap = <T>(fn: Fn<T, any>) => (arg: T) => (fn(arg), arg);
+const tap =
+  <T>(fn: Fn<T, any>) =>
+  (arg: T) => (fn(arg), arg);
 
-const select = <T extends Element>(query: string) =>
-  document.querySelector<T>(query);
+const select = <T extends Element>(query: string) => document.querySelector<T>(query);
 
 const selectAll = <T extends Element>(query: string) =>
   Array.from(document.querySelectorAll<T>(query));
@@ -19,33 +20,28 @@ type StickChangeEvent = CustomEvent<{
   isIntersecting: boolean;
 }>;
 interface ElementEventMap {
-  "stick-change": StickChangeEvent;
+  'stick-change': StickChangeEvent;
 }
 
 // Sticky Change Observation
 const observer = new IntersectionObserver(
   (entries) =>
     entries.forEach(({ target, isIntersecting }) =>
-      target.dispatchEvent(
-        new CustomEvent("stick-change", { detail: { isIntersecting } })
-      )
+      target.dispatchEvent(new CustomEvent('stick-change', { detail: { isIntersecting } }))
     ),
   { threshold: 1 }
 );
 
-selectAll("nav.sticky")
+selectAll('nav.sticky')
   .map(tap((el) => observer.observe(el)))
   .map(
     tap((el) =>
-      el.addEventListener("stick-change", ({ target, detail }) => {
-        invariant(
-          target instanceof HTMLElement,
-          "target should be HTMLElement"
-        );
+      el.addEventListener('stick-change', ({ target, detail }) => {
+        invariant(target instanceof HTMLElement, 'target should be HTMLElement');
 
         // see style detail in style.css
         document.body.classList //
-          .toggle("active", !detail.isIntersecting);
+          .toggle('active', !detail.isIntersecting);
       })
     )
   );
