@@ -11,9 +11,11 @@ function addItem(e: Event) {
 
   const target = <HTMLFormElement>e.target;
 
-  const childNode = target!.querySelector<HTMLInputElement>('[name=item]');
+  const childNode = target.querySelector<HTMLInputElement>('[name=item]');
 
-  const text = childNode!.value;
+  if (!childNode) throw new Error('element is null');
+
+  const text = childNode.value;
 
   const item = {
     text,
@@ -33,7 +35,8 @@ type Plate = {
 };
 
 function populateList(plates: Plate[], plateList: HTMLElement | null) {
-  plateList!.innerHTML = plates
+  if (!plateList) throw new Error('element is null');
+  plateList.innerHTML = plates
     .map((plate, i) => {
       return `
     <li>
@@ -46,8 +49,8 @@ function populateList(plates: Plate[], plateList: HTMLElement | null) {
 }
 
 function toggleDone(e: Event) {
-  if (!(e.target instanceof HTMLInputElement)) return;
-  const target = e.target as HTMLInputElement;
+  if (!e.target) throw new Error('element is null');
+  const target = <HTMLInputElement>e.target;
   const index = Number(target.dataset.index);
   items[index].done = !items[index].done;
   localStorage.setItem('items', JSON.stringify(items));
