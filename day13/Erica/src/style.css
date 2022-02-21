@@ -72,5 +72,5 @@ section {
 .fos-in {
   opacity: 1;
   transform: translate(0, 0);
-  transition: all 0.75s ease-in-out;
+  transition: all 1s ease-in-out;
 }
