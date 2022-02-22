@@ -1,0 +1,76 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  color: white;
+  overflow: hidden;
+}
+
+.wrapper {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: calc(100% - 4vmin);
+  height: calc(100% - 4vmin);
+  padding: 2vmin;
+}
+.wrapper main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.wrapper h2 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 0;
+  margin: 0;
+  font-size: 8vmax;
+  text-transform: capitalize;
+  letter-spacing: 0.5vmin;
+  font-weight: bolder;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.wrapper p {
+  max-width: 50vmax;
+  padding: 2vmin;
+  font-size: 110%;
+  text-align: center;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 0.15vmin;
+}
+
+.fos {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.fos-up {
+  transform: translate(0, 25%);
+}
+.fos-bottom {
+  transform: translate(0, -25%);
+}
+.fos-left {
+  transform: translate(25%, 0);
+}
+.fos-right {
+  transform: translate(-25%, 0);
+}
+.fos-in {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: all 1s ease-in-out;
+}
