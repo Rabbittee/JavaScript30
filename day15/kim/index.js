@@ -1,45 +1,67 @@
 // 因為 getElementById 常用的，拉成共用
-const select = (selector) => document.getElementById(selector);
+const select = (selector) => document.querySelector(selector);
 
-// get：取得 input 框，裡面輸入的值
-const item = select('item');
+// TodoList 需要有一個輸入框
+// 輸入框的 用途是 用來 建立 代辦事項
+const inputValue = select('input#item');
 
-// get：當有點擊事件時，塞值進去
-select('add').addEventListener('click', PushIntoStorage);
+// 當使用者按下 Add 按鈕後，就會建立新的代辦事項
+function createNewTodoList() {
+  // TODO...
+  let getInputValue = inputValue.value;
 
-// Deal：1. 塞進陣列 ; 2. 塞進LocalStorage
-const items = [];
-function PushIntoStorage(e) {
-  // 1. 塞進陣列
-  const itemLocalstage = item.value;
-  items.push({ key: itemLocalstage, done: false });
+  // save
+  localStorage.setItem(getInputValue, getInputValue);
 
-  // 2. 塞進LocalStorage
-  localStorage.setItem('kimitems', JSON.stringify(items));
-  e.preventDefault();
+  // render
+  renderTodoList();
 }
 
-// 點擊時：也同步 Render 刷新畫面
-select('add').addEventListener('click', RenderItems);
-
-// Render：取值從 LocalStorage 渲染畫面
-function RenderItems() {
-  const getLocalstorage = JSON.parse(localStorage.getItem('kimitems'));
+// 代辦事項會以 checkbox 的形式 呈現在畫面的 清單上
+function renderTodoList() {
+  // TODO...
+  const localStorage = window.localStorage;
+  const renderHere = select('.plates');
 
   let innerHTML = '';
+  for (var i = 0; i < localStorage.length; i++) {
+    let renderKey = localStorage.key(i);
+    let renderChecked = localStorage.getItem(renderKey);
 
-  getLocalstorage.forEach((item, i) => {
-    let kimKey = item.key;
+    let items = { renderKey, renderChecked };
+
+    if (items.renderChecked === 'true') {
+      items.renderChecked = 'checked';
+    } else if (items.renderChecked === 'false') {
+    }
 
     innerHTML += `
-    <li>
-      <input type="checkbox" id="${i}"></input>
-      <label for="${i}">${kimKey}</label>
-    </li>
+      <li>
+        <input type="checkbox" id="${items.renderKey}" ${items.renderChecked}></input>
+        <label for="${items.renderKey}">${items.renderKey}</label>
+      </li>
     `;
-  });
-  select('plates').innerHTML = innerHTML;
+  }
+  renderHere.innerHTML = innerHTML;
 }
 
-// Render：進入畫面，就執行 Render，把當前 LocalStorage 有的值渲染在畫面上
-RenderItems();
+// 即便 網頁關閉後，重新回到該網頁，代辦事項也必須留存
+window.onload = renderTodoList;
+
+select('input#add').addEventListener('click', createNewTodoList);
+
+function updateTodoList(e) {
+  // 當 代辦事項的 checkbox 被打勾 也就表示 該事項已完成，
+  const updateKey = e.target.id;
+  const updateChecked = e.target.checked;
+  localStorage.setItem(updateKey, updateChecked);
+  let itemsUpdate = { updateKey, updateChecked };
+
+  // 所以下次回到該網頁時，就不用呈現該事項
+  if (itemsUpdate.updateChecked == true) {
+    // remove
+    localStorage.removeItem(`${itemsUpdate.updateKey}`);
+  }
+}
+
+select('.plates').addEventListener('change', updateTodoList);
