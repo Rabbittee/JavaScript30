@@ -18,7 +18,6 @@ function shadow(e) {
     ${newY}px ${newX * 0.5}px 0 rgba(190,0,255,0.5),
     ${newY * 0.5}px ${newX}px 0 rgba(255,152,0,0.3)
   `;
-
 }
 
 window.addEventListener('mousemove', shadow);
