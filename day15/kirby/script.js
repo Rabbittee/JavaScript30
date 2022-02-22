@@ -37,7 +37,7 @@ function state(value) {
   }
   function observe(source) {
     queueMicrotask(function () {
-      return source(dispatch);
+      return source(value, dispatch);
     });
     return combiner;
   }
@@ -45,6 +45,16 @@ function state(value) {
 }
 var select = function (query) {
   return document.querySelector(query);
+};
+var storage = function (storage, key) {
+  return {
+    get: function () {
+      return JSON.parse(storage.getItem(key));
+    },
+    set: function (data) {
+      return storage.setItem(key, JSON.stringify(data));
+    },
+  };
 };
 function Plate(_a) {
   var name = _a.name,
@@ -58,7 +68,7 @@ function Plate(_a) {
 var save = function (_a) {
   var storage = _a.storage,
     items = _a.items;
-  return storage.setItem('items', JSON.stringify(items));
+  return storage.set(items);
 };
 var render = function (_a) {
   var renderer = _a.renderer,
@@ -66,12 +76,13 @@ var render = function (_a) {
   return (renderer.innerHTML = items.map(Plate).join(''));
 };
 state({
-  storage: window.localStorage,
+  storage: storage(window.localStorage, 'kirby'),
   renderer: select('.plates'),
-  items: JSON.parse(window.localStorage.getItem('items')),
+  items: JSON.parse(window.localStorage.getItem('items')) || [],
 })
   //
-  .observe(function (dispatch) {
+  .observe(function (_a, dispatch) {
+    var storage = _a.storage;
     select('.add-items').addEventListener('submit', function (event) {
       event.preventDefault();
       var element = event.currentTarget;
@@ -91,9 +102,12 @@ state({
         item: { name: target.id, done: target.checked },
       });
     });
-    dispatch({ type: 'init' });
+    storage.get() && dispatch({ type: 'init', items: storage.get() });
   })
   .reduce(function (state, action) {
+    if (action.type === 'init') {
+      return __assign(__assign({}, state), { items: action.items });
+    }
     if (action.type === 'add')
       return __assign(__assign({}, state), { items: state.items.concat(action.item) });
     if (action.type === 'update')

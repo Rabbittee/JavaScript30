@@ -1,6 +1,6 @@
 function state<State, Action>(value: State) {
   type DispatchFn = (action: Action) => void;
-  type SourceFn = (dispatch: DispatchFn) => void;
+  type SourceFn = (state: State, dispatch: DispatchFn) => void;
   type ReducerFn = (state: State, action: Action) => State;
   type EffectFn = (state: State, action: Action, dispatch: DispatchFn) => void;
 
@@ -31,7 +31,7 @@ function state<State, Action>(value: State) {
   }
 
   function observe(source: SourceFn) {
-    queueMicrotask(() => source(dispatch));
+    queueMicrotask(() => source(value, dispatch));
 
     return combiner;
   }
@@ -41,18 +41,29 @@ function state<State, Action>(value: State) {
 
 const select = <T extends Element>(query: string) => document.querySelector<T>(query);
 
+const storage = <T = {}>(storage: Storage, key: string) => ({
+  get: () => JSON.parse(storage.getItem(key)) as T,
+  set: (data?: T) => storage.setItem(key, JSON.stringify(data)),
+});
+
 interface Item {
   name: string;
   done: boolean;
 }
 
 type State = {
-  storage: Storage;
+  storage: {
+    get: () => Item[];
+    set: (data?: Item[]) => void;
+  };
   renderer: HTMLUListElement;
   items: Item[];
 };
 
-type Action = { type: 'init' } | { type: 'add'; item: Item } | { type: 'update'; item: Item };
+type Action =
+  | { type: 'init'; items: Item[] }
+  | { type: 'add'; item: Item }
+  | { type: 'update'; item: Item };
 
 function Plate({ name, done }: Item) {
   return /*html */ `
@@ -63,17 +74,17 @@ function Plate({ name, done }: Item) {
     `;
 }
 
-const save = ({ storage, items }: State) => storage.setItem('items', JSON.stringify(items));
+const save = ({ storage, items }: State) => storage.set(items);
 
 const render = ({ renderer, items }: State) => (renderer.innerHTML = items.map(Plate).join(''));
 
 state<State, Action>({
-  storage: window.localStorage,
+  storage: storage(window.localStorage, 'kirby'),
   renderer: select('.plates'),
-  items: JSON.parse(window.localStorage.getItem('items')),
+  items: JSON.parse(window.localStorage.getItem('items')) || [],
 })
   //
-  .observe((dispatch) => {
+  .observe(({ storage }, dispatch) => {
     select('.add-items').addEventListener('submit', (event) => {
       event.preventDefault();
 
@@ -99,9 +110,13 @@ state<State, Action>({
       });
     });
 
-    dispatch({ type: 'init' });
+    storage.get() && dispatch({ type: 'init', items: storage.get() });
   })
   .reduce((state, action) => {
+    if (action.type === 'init') {
+      return { ...state, items: action.items };
+    }
+
     if (action.type === 'add') return { ...state, items: state.items.concat(action.item) };
 
     if (action.type === 'update')
