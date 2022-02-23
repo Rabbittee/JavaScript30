@@ -1,0 +1,16 @@
+.dropdown {
+  display: block;
+  transition: all;
+  transition-delay: 0s;
+}
+.dropdown.open {
+  opacity: 1;
+  transition-delay: 150ms;
+}
+
+.dropdownBackground {
+  width: var(--width, 0);
+  height: var(--height, 0);
+  transform: translate(var(--x, 0), var(--y, 0));
+  opacity: var(--opacity, 0);
+}
