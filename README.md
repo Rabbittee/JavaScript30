@@ -21,12 +21,12 @@
 | [13](https://rabbittee.github.io/JavaScript30/day13/) | [Slide in on Scroll](https://rabbittee.github.io/JavaScript30/day13/sample)                            | 小白 (beareatapple)
 | [14](https://rabbittee.github.io/JavaScript30/day14/) | [JavaScript References VS Copying](https://rabbittee.github.io/JavaScript30/day14/sample)              | +5 (ezcomenezgo)
 | [15](https://rabbittee.github.io/JavaScript30/day15/) | [LocalStorage](https://rabbittee.github.io/JavaScript30/day15/sample)                                  | 凱文 (kevinshu1995)
-| [16](https://rabbittee.github.io/JavaScript30/day16/) | [Mouse Move Shadow](https://rabbittee.github.io/JavaScript30/day16/sample)                             | 奶捲 (lee926427)
-| [17](https://rabbittee.github.io/JavaScript30/day17/) | [Sort Without Articles](https://rabbittee.github.io/JavaScript30/day17/sample)                         | 奶捲 (lee926427)
-| [18](https://rabbittee.github.io/JavaScript30/day18/) | [Adding Up Times with Reduce](https://rabbittee.github.io/JavaScript30/day18/sample)                   | 吠吠 (haha861924)   
-| [19](https://rabbittee.github.io/JavaScript30/day19/) | [Webcam Fun](https://rabbittee.github.io/JavaScript30/day19/sample)                                    | 吠吠 (haha861924)   
-| [20](https://rabbittee.github.io/JavaScript30/day20/) | [Speech Detection](https://rabbittee.github.io/JavaScript30/day20/sample)                              | +5 (ezcomenezgo)
-| [21](https://rabbittee.github.io/JavaScript30/day21/) | [Geolocation](https://rabbittee.github.io/JavaScript30/day21/sample)                                   | 哈奇(huskyHsu)
+| [16](https://rabbittee.github.io/JavaScript30/day16/) | [Mouse Move Shadow](https://rabbittee.github.io/JavaScript30/day16/sample)                             |
+| [17](https://rabbittee.github.io/JavaScript30/day17/) | [Sort Without Articles](https://rabbittee.github.io/JavaScript30/day17/sample)                         |
+| [18](https://rabbittee.github.io/JavaScript30/day18/) | [Adding Up Times with Reduce](https://rabbittee.github.io/JavaScript30/day18/sample)                   |
+| [19](https://rabbittee.github.io/JavaScript30/day19/) | [Webcam Fun](https://rabbittee.github.io/JavaScript30/day19/sample)                                    |
+| [20](https://rabbittee.github.io/JavaScript30/day20/) | [Speech Detection](https://rabbittee.github.io/JavaScript30/day20/sample)                              |
+| [21](https://rabbittee.github.io/JavaScript30/day21/) | [Geolocation](https://rabbittee.github.io/JavaScript30/day21/sample)                                   |
 | [22](https://rabbittee.github.io/JavaScript30/day22/) | [Follow Along Link Highlighter](https://rabbittee.github.io/JavaScript30/day22/sample)                 |
 | [23](https://rabbittee.github.io/JavaScript30/day23/) | [Speech Synthesis](https://rabbittee.github.io/JavaScript30/day23/sample)                              |
 | [24](https://rabbittee.github.io/JavaScript30/day24/) | [Sticky Nav](https://rabbittee.github.io/JavaScript30/day24/sample)                                    |
