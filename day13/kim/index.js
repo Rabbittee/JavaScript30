@@ -2,22 +2,21 @@ const imgs = document.querySelectorAll('.slide-in');
 
 function activeImage() {
   // 底部位置 = 視窗內高度+滑鼠移動Y軸
-  const windownBottom = window.scrollY + window.innerHeight;
+  const windowBottom = window.scrollY + window.innerHeight;
 
-  imgs.forEach((height) => {
+  imgs.forEach((index) => {
     // offsetTop: 元素的顶部内边距的距离
-    const distanceWithTop = height.offsetTop;
+    const distanceWithTop = index.offsetTop;
     //
-    if (windownBottom >= distanceWithTop) {
-      height.classList.add('active');
-    } else if (windownBottom < distanceWithTop) {
-      height.classList.remove('active');
+    if (windowBottom >= distanceWithTop) {
+      index.classList.add('active');
+    } else if (windowBottom < distanceWithTop) {
+      index.classList.remove('active');
     }
   });
 }
 
 window.addEventListener('scroll', activeImage);
-window.addEventListener('scroll', debounce(activeImage));
 
 function debounce(func, wait = 20, immediate = true) {
   var timeout;
