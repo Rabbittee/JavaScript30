@@ -42,8 +42,8 @@ try {
   useSpeech()
     .lang(navigator.language)
     .watch((recognition) => {
-      recognition.addEventListener('result', function () {
-        const transcript = Array.from(e.results)
+      recognition.addEventListener('result', function ({ results }) {
+        const transcript = Array.from(results)
           .map((result) => result[0])
           .map((result) => result.transcript)
           .join('');
@@ -51,7 +51,7 @@ try {
         const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
         p.textContent = poopScript;
 
-        if (e.results[0].isFinal) {
+        if (results[0].isFinal) {
           p = document.createElement('p');
           words.appendChild(p);
         }
