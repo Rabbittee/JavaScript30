@@ -9,16 +9,11 @@ function useSpeech() {
   const chains = {
     lang,
     watch,
-    then,
     run,
   };
 
   function run() {
     recognition.start();
-  }
-
-  function then(func) {
-    return chains.then(func(recognition));
   }
 
   function lang(language) {
@@ -30,7 +25,6 @@ function useSpeech() {
     func(recognition);
     return {
       lang,
-      then,
       run,
     };
   }
