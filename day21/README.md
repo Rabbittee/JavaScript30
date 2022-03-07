@@ -11,14 +11,16 @@ https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts
 
 [MDN Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
 
-雖然在localhost的開發上可以避免，但如果相關的功能需要透過手機進行測試，則就無法正常運作
+雖然在localhost的開發上可以避免，但如果相關的功能需要透過手機進行測試，則就無法正常運作，<br>
 會觸發`GeolocationPositionError`錯誤，[錯誤代碼為1, PERMISSION_DENIED](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError#properties)
 
-所以我們必須在針對local開發上也具有HTTPS
+所以我們必須在針對local開發上也能具有HTTPS
 
-使用mkcert進行，相關流程請參考<br>
+使用mkcert進行https簽證，相關流程請參考<br>
 https://web.dev/i18n/en/how-to-use-local-https/
 
+
+## 使用範例
 
 #### serve
 ```zsh
@@ -40,9 +42,3 @@ serve --ssl-cert "[YOUR_PATH]/example.com+5.pem" --ssl-key "[YOUR_PATH]/example.
 #### 相關連結
 - https://github.com/vercel/serve
 - https://github.com/FiloSottile/mkcert
-
-## Links
-
-- [凱文](https://rabbittee.github.io/JavaScript30/day21/kevin/)
-- [哈囉](https://rabbittee.github.io/JavaScript30/day21/kirby/)
-- [奶捲](https://rabbittee.github.io/JavaScript30/day21/recoil/)
