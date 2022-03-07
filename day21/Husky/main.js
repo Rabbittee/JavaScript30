@@ -2,7 +2,7 @@ const updateData = (id, value) => {
   if (id === 'timestamp') {
     value = value.toLocaleString();
   } else if (typeof value === 'boolean') {
-    value = value === null ? 'disable' : 'enabled';
+    value = value ? 'enabled' : 'disable';
   } else {
     value = value === null ? '' : value.toFixed(4);
   }
