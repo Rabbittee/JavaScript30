@@ -10,7 +10,7 @@ const monad = <T>(value: T) => ({
 });
 
 const renderSpeed = (data: GeolocationPosition) =>
-  (select('.speed-value').textContent = String(data.coords.speed));
+  (select('.speed-value').textContent = String(data.coords.speed || 0));
 
 const updateArrow = (data: GeolocationPosition) =>
   (select<SVGAElement>('.arrow').style.transform = `rotate(${data.coords.heading}deg)`);

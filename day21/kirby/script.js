@@ -17,7 +17,7 @@ var monad = function (value) {
   };
 };
 var renderSpeed = function (data) {
-  return (select('.speed-value').textContent = String(data.coords.speed));
+  return (select('.speed-value').textContent = String(data.coords.speed || 0));
 };
 var updateArrow = function (data) {
   return (select('.arrow').style.transform = 'rotate('.concat(data.coords.heading, 'deg)'));
