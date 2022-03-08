@@ -5,15 +5,15 @@
  * @LastEditTime:2022-03-07 21:07:31
  * @Description:
  */
-const select = query => document.querySelector(query)
+const select = (query) => document.querySelector(query);
 
 function success(data) {
-  select('.speed-value').textContent = data.coords.speed
-  select('.arrow').style.transform = `rotate(${data.coords.heading}deg)`
+  select('.speed-value').textContent = data.coords.speed;
+  select('.arrow').style.transform = `rotate(${data.coords.heading}deg)`;
 }
 
 function error(err) {
-  console.log(err)
+  console.log(err);
 }
 
-navigator.geolocation.watchPosition(success, error)
+navigator.geolocation.watchPosition(success, error);
