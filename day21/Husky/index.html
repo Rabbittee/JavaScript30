@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Geolocation 📱</title>
-</head>
-<body>
-  <h6>Geo Location</h6>
-  Timestamp:
-  <span id="timestamp"></span><br>
-  Latitude(緯度):
-  <span id="latitude"></span><br>
-  Longitude(經度):
-  <span id="longitude"></span><br>
-  Altitude(高程):
-  <span id="altitude"></span><br>
-  accuracy(水平經度 m):
-  <span id="accuracy"></span><br>
-  altitudeAccuracy(高程精度 m):
-  <span id="altitudeAccuracy"></span><br>
-  heading(方向):
-  <span id="heading"></span><br>
-  speed(速度 m/s):
-  <span id="speed"></span>
-  <hr>
-  <h6>Device Orientation</h6>
-  absolute:
-  <span id="absolute"></span><br>
-  alpha:
-  <span id="alpha"></span><br>
-  alpha(absolute):
-  <span id="alphaAbsolute"></span><br>
-  beta:
-  <span id="beta"></span><br>
-  gamma:
-  <span id="gamma"></span><br>
-  webkitCompassHeading:
-  <span id="webkitCompassHeading"></span><br>
-  webkitCompassHeading(absolute):
-  <span id="webkitCompassHeadingAbsolute"></span><br>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Geolocation 📱</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <script
+    src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""
+  ></script>
+  <body>
+    <div id="map"></div>
+    <div id="info">
+      <h6>Geo Location</h6>
+      Timestamp:
+      <span id="timestamp"></span><br />
+      Latitude(緯度):
+      <span id="latitude"></span><br />
+      Longitude(經度):
+      <span id="longitude"></span><br />
+      Altitude(高程):
+      <span id="altitude"></span><br />
+      accuracy(水平經度 m):
+      <span id="accuracy"></span><br />
+      altitudeAccuracy(高程精度 m):
+      <span id="altitudeAccuracy"></span><br />
+      heading(方向):
+      <span id="heading"></span><br />
+      speed(速度 m/s):
+      <span id="speed"></span>
+      <h6>Device Orientation</h6>
+      absolute:
+      <span id="absolute"></span><br />
+      alpha:
+      <span id="alpha"></span><br />
+      alpha(absolute):
+      <span id="alphaAbsolute"></span><br />
+      beta:
+      <span id="beta"></span><br />
+      gamma:
+      <span id="gamma"></span><br />
+      <!-- webkitCompassHeading:
+      <span id="webkitCompassHeading"></span><br />
+      webkitCompassHeading(absolute):
+      <span id="webkitCompassHeadingAbsolute"></span><br /> -->
+    </div>
 
-  <script src="main.js"></script>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>

@@ -1,0 +1,29 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  height: 100vh;
+}
+
+#info {
+  background-color: rgba(255, 255, 255, 0.7);
+
+  position: absolute;
+  bottom: 0;
+  z-index: 999;
+}
+
+.leaflet-tile-container.leaflet-zoom-animated {
+  filter: opacity(0.8) grayscale(0.3);
+}
+
+img[src='images/direction.png'] {
+  transform-origin: center;
+}
+
+h6 {
+  margin: 10px 5px;
+}
