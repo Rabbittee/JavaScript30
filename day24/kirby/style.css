@@ -1,0 +1,12 @@
+.sticky {
+  position: sticky;
+  top: -1px;
+}
+
+.active .site-wrap {
+  transform: scale(1);
+}
+
+.active .logo {
+  max-width: 100vw;
+}
