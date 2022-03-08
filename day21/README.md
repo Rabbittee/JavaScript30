@@ -1,6 +1,13 @@
-# day 21
+# Day 21
 
-### 開發上的前提
+## Additional Information on Day21
+
+1. [navigator.geolocation.watchPosition options](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition#parameters)
+2. [simulate device sensors](https://developer.chrome.com/docs/devtools/device-mode/geolocation/)
+4. [Detecting device orientation](https://developer.mozilla.org/en-US/docs/Web/Events/Detecting_device_orientation)
+
+
+## 手持設備上的注意事項
 
 https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only
 
@@ -44,12 +51,11 @@ serve --ssl-cert "[YOUR_PATH]/example.com+5.pem" --ssl-key "[YOUR_PATH]/example.
 - https://github.com/FiloSottile/mkcert
 
 
+
 ## Links
 
-- [哈奇](https://rabbittee.github.io/JavaScript30/day21/Husky/)
-- [吠吠](https://rabbittee.github.io/JavaScript30/day21/haha/)
 - [凱文](https://rabbittee.github.io/JavaScript30/day21/kevin/)
-- [哈囉](https://rabbittee.github.io/JavaScript30/day21/kirby/)
 - [鉛筆](https://rabbittee.github.io/JavaScript30/day21/pencil/)
 - [+5](https://rabbittee.github.io/JavaScript30/day21/plusfive/)
 - [奶捲](https://rabbittee.github.io/JavaScript30/day21/recoil/)
+
