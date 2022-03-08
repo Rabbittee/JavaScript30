@@ -1,4 +1,4 @@
-# day 21
+# Day 21
 
 ## Additional Information on Day21
 

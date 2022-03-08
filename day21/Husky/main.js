@@ -9,7 +9,7 @@ const updateData = (id, value) => {
   document.getElementById(id).innerText = value;
 };
 
-function success(pos) {
+function successPosition(pos) {
   const { timestamp } = pos;
   updateData('timestamp', new Date(timestamp));
   for (let key in pos.coords) {
@@ -17,14 +17,20 @@ function success(pos) {
   }
 }
 
-function error(err) {
+function errorPosition(err) {
   alert('ERROR(' + err.code + '): ' + err.message);
 }
 
-navigator.geolocation.watchPosition(success, error);
+navigator.geolocation.watchPosition(successPosition, errorPosition);
 
-window.ondeviceorientation = (event) => {
+function deviceOrientation(event) {
+  if (event.absolute) {
+    return updateData('alphaAbsolute', event.alpha);
+  }
   ['absolute', 'alpha', 'beta', 'gamma', 'webkitCompassHeading'].forEach((key) => {
     updateData(key, event[key]);
   });
-};
+}
+
+window.ondeviceorientation = deviceOrientation;
+'ondeviceorientationabsolute' in window && (window.ondeviceorientationabsolute = deviceOrientation);
