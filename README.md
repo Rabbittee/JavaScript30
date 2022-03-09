@@ -27,10 +27,10 @@
 | [19](https://rabbittee.github.io/JavaScript30/day19/) | [Webcam Fun](https://rabbittee.github.io/JavaScript30/day19/sample)                                    | 吠吠 (haha861924)   
 | [20](https://rabbittee.github.io/JavaScript30/day20/) | [Speech Detection](https://rabbittee.github.io/JavaScript30/day20/sample)                              | +5 (ezcomenezgo)
 | [21](https://rabbittee.github.io/JavaScript30/day21/) | [Geolocation](https://rabbittee.github.io/JavaScript30/day21/sample)                                   | 哈奇(huskyHsu)
-| [22](https://rabbittee.github.io/JavaScript30/day22/) | [Follow Along Link Highlighter](https://rabbittee.github.io/JavaScript30/day22/sample)                 | 鉛筆(zoeGuava)
-| [23](https://rabbittee.github.io/JavaScript30/day23/) | [Speech Synthesis](https://rabbittee.github.io/JavaScript30/day23/sample)                              | 凱文(kevinshu1995)
-| [24](https://rabbittee.github.io/JavaScript30/day24/) | [Sticky Nav](https://rabbittee.github.io/JavaScript30/day24/sample)                                    | 鉛筆(zoeGuava)
-| [25](https://rabbittee.github.io/JavaScript30/day25/) | [Event Capture, Propagation, Bubbling and Once](https://rabbittee.github.io/JavaScript30/day25/sample) | 小白(beareatapple)
+| [22](https://rabbittee.github.io/JavaScript30/day22/) | [Follow Along Link Highlighter](https://rabbittee.github.io/JavaScript30/day22/sample)                 |
+| [23](https://rabbittee.github.io/JavaScript30/day23/) | [Speech Synthesis](https://rabbittee.github.io/JavaScript30/day23/sample)                              |
+| [24](https://rabbittee.github.io/JavaScript30/day24/) | [Sticky Nav](https://rabbittee.github.io/JavaScript30/day24/sample)                                    |
+| [25](https://rabbittee.github.io/JavaScript30/day25/) | [Event Capture, Propagation, Bubbling and Once](https://rabbittee.github.io/JavaScript30/day25/sample) |
 | [26](https://rabbittee.github.io/JavaScript30/day26/) | [Stripe Follow Along Nav](https://rabbittee.github.io/JavaScript30/day26/sample)                       |
 | [27](https://rabbittee.github.io/JavaScript30/day27/) | [Click and Drag](https://rabbittee.github.io/JavaScript30/day27/sample)                                |
 | [28](https://rabbittee.github.io/JavaScript30/day28/) | [Video Speed Controller](https://rabbittee.github.io/JavaScript30/day28/sample)                        |
