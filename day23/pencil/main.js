@@ -15,14 +15,14 @@ function populateVoices() {
   voices = this.getVoices();
   console.log(voices);
   voicesDropdown.innerHTML = voices
-    .filter(voice => voice.lang.includes('en'))
-    .map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
+    .filter((voice) => voice.lang.includes('en'))
+    .map((voice) => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
     .join('');
 }
 
 function setVoice() {
   console.log('setVoice function is here');
-  msg.voice = voices.find(voice => voice.name === this.value);
+  msg.voice = voices.find((voice) => voice.name === this.value);
   console.log(msg);
   toggle();
 }
@@ -49,7 +49,7 @@ speechSynthesis.addEventListener('voiceschanged', populateVoices);
 voicesDropdown.addEventListener('change', setVoice);
 
 // 變更速度、語調設定後觸發
-options.forEach(option => option.addEventListener('change', setOption));
+options.forEach((option) => option.addEventListener('change', setOption));
 
 // Stop and Speak button event
 speakButton.addEventListener('click', toggle);
