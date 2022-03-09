@@ -1,0 +1,52 @@
+<!--
+ * @Author:Claire Li
+ * @Date:2022-03-09 10:35:23
+ * @LastEditors:Claire Li
+ * @LastEditTime:2022-03-09 15:50:23
+ * @Description:
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Speech Synthesis</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.6.3/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-800">
+
+  <main class="h-screen w-screen flex justify-center items-center">
+    <div class="flex flex-col justify-around items-center h-1/2 border-style p-5">
+      <h1 class="font-style my-3">The Voiceinator 5000</h1>
+  
+      <select name="voice" id="voices" class="p-1.5 font-style border-style bg-transparent focus:outline-none">
+        <option value="">Select A Voice</option>
+      </select>
+  
+      <label for="rate" class="self-start">Rate:</label>
+      <input name="rate" type="range" min="0" max="3" value="1" step="0.1" class="range range-xs">
+  
+      <label for="pitch" class="self-start">Pitch:</label>
+      <input name="pitch" type="range" min="0" max="2" step="0.1" class="range range-xs">
+
+      <textarea name="text" class="textarea textarea-ghost border-style w-full" placeholder="type something">Hello! I love JavaScript 👍</textarea>
+      <div class="flex space-x-5 mt-2">
+        <button id="stop" class="w-20 p-1 font-style border-style hover:text-rose-800">Stop!</button>
+        <button id="speak" class="w-20 p-1 font-style border-style hover:text-sky-700">Speak</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="main.js"></script>
+  <style type="text/tailwindcss">
+    .font-style {
+      @apply font-serif text-white tracking-widest
+    }
+    
+    .border-style {
+      @apply border border-slate-200 rounded-sm
+    }
+  </style>
+
+</body>
+</html>
