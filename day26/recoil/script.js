@@ -4,18 +4,18 @@ const selectAll = (target) => document.querySelectorAll(target);
 const nav = select('.top');
 const background = select('.dropdownBackground');
 
-function delay(timer, func) {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(func()), timer);
-  });
-}
-
 function onMouseenter({ target }) {
   target.classList.add('trigger-enter');
-  delay(150, () => {
-    target.classList.contains('trigger-enter') && target.classList.add('trigger-enter-active');
-  })
+  Promise.resolve()
     .then(() => background.classList.add('open'))
+    .then(() => {
+      setTimeout(
+        () =>
+          target.classList.contains('trigger-enter') &&
+          target.classList.add('trigger-enter-active'),
+        150
+      );
+    })
     .then(() => {
       const dropdown = target.querySelector('.dropdown');
       const boundingRect = dropdown.getBoundingClientRect();
