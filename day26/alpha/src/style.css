@@ -1,17 +1,18 @@
 html {
   box-sizing: border-box;
-  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%),
+  background: linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%),
     linear-gradient(135deg, hsla(225, 95%, 50%, 1) 10%, hsla(225, 95%, 50%, 0) 80%),
     linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
     linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
@@ -19,7 +20,7 @@ body {
 
 h2 {
   margin-top: 0;
-  padding-top: .8em;
+  padding-top: 0.8em;
 }
 
 nav {
@@ -31,7 +32,7 @@ nav {
   color: yellow;
   text-decoration: none;
   font-size: 20px;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
   padding: 10px 20px;
   display: inline-block;
   margin: 20px;
@@ -79,12 +80,13 @@ nav ul {
   position: absolute;
   background: #fff;
   border-radius: 4px;
-  box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);
+  box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1), 0 15px 35px rgba(50, 50, 93, 0.15),
+    0 5px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s, opacity 0.1s, transform 0.2s;
   transform-origin: 50% 0;
   display: flex;
   justify-content: center;
-  opacity:0;
+  opacity: 0;
 }
 
 .dropdownBackground.open {
@@ -120,7 +122,7 @@ nav ul {
 .courses li {
   padding: 10px 0;
   display: block;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .dropdown a {
@@ -137,6 +139,12 @@ a.button {
 }
 
 /* Matches Twitter, TWITTER, twitter, tWitter, TWiTTeR... */
-.button[href*=twitter] { background: #019FE9; }
-.button[href*=facebook] { background: #3B5998; }
-.button[href*=courses] { background: #ffc600; }
+.button[href*='twitter'] {
+  background: #019fe9;
+}
+.button[href*='facebook'] {
+  background: #3b5998;
+}
+.button[href*='courses'] {
+  background: #ffc600;
+}
