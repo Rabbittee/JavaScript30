@@ -7,9 +7,23 @@ const timerInput = select('input[name="minutes"]');
 const timeLeft = select('.display__time-left');
 const endTimeDom = select('.display__end-time');
 
-const renderTimeLeft = (timeObj) => {
-  const { minutes, seconds } = timeObj;
-  timeLeft.textContent = `${minutes} : ${seconds}`;
+const handleZero = (num) => {
+  return num < 10 ? '0' + String(num) : String(num);
+};
+
+const renderDom = (timeObj) => {
+  return {
+    timeLeft: () => {
+      const { minutes, seconds } = timeObj;
+      timeLeft.textContent = `${handleZero(minutes)}:${handleZero(seconds)}`;
+    },
+    endTime: () => {
+      const { hours, minutes, seconds } = timeObj;
+      endTimeDom.textContent = `
+        Be back at  ${handleZero(hours)}:${handleZero(minutes)}:${handleZero(seconds)}
+      `;
+    },
+  };
 };
 
 const getTimer = (countSec) => {
@@ -30,7 +44,8 @@ const countDown = (endTime) => {
     minutes: getTimer(distance).min(),
     seconds: getTimer(distance).sec(),
   };
-  renderTimeLeft(timeObj);
+  // renderTimeLeft(timeObj);
+  renderDom(timeObj).timeLeft();
 };
 
 let interval;
@@ -47,17 +62,19 @@ const handleTimer = (e) => {
   // if set 1000, that will be late one second
   interval = window.setInterval(`countDown(${endTime})`, 900);
 
-  const startMin = getTimer(countSec).min();
-  const startSec = getTimer(countSec).sec();
+  const timeLeftContent = {
+    minutes: getTimer(countSec).min(),
+    seconds: getTimer(countSec).sec(),
+  };
+  renderDom(timeLeftContent).timeLeft();
 
   // render started time setting
-  timeLeft.textContent = `${startMin} : ${startSec}`;
-  endTimeDom.textContent = `
-    Be back at
-    ${new Date(endTime).getHours()} :
-    ${new Date(endTime).getMinutes()} :
-    ${new Date(endTime).getSeconds()}
-  `;
+  const endTimeContent = {
+    hours: new Date(endTime).getHours(),
+    minutes: new Date(endTime).getMinutes(),
+    seconds: new Date(endTime).getMinutes(),
+  };
+  renderDom(endTimeContent).endTime();
 };
 
 timerButtons.forEach((button) => button.addEventListener('click', handleTimer));
