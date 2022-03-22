@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown Timer</title>
+  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="../sample/style.css">
+</head>
+<body>
+  <div class="timer">
+    <div class="timer__controls">
+      <button data-time="3" class="timer__button">3 Secs</button>
+      <button data-time="20" class="timer__button">20 Secs</button>
+      <button data-time="300" class="timer__button">Work 5</button>
+      <button data-time="900" class="timer__button">Quick 15</button>
+      <button data-time="1200" class="timer__button">Snack 20</button>
+      <button data-time="3600" class="timer__button">Lunch Break</button>
+      <form name="customForm" id="custom">
+        <!-- 這邊輸入數字後就會開始計時 -->
+        <input type="number" name="minutes" placeholder="Enter Minutes">
+      </form>
+    </div>
+    <div class="display">
+      <!-- 倒數計時 -->
+      <h1 class="display__time-left">mm:ss</h1>
+      <!-- 會在幾點幾分回來，用現在時間去算 -->
+      <p class="display__end-time">Be back at mm:ss</p>
+    </div>
+  </div>
+
+  <script src="./scripts.js"></script>
+</body>
+</html>
