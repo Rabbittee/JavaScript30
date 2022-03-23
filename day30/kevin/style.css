@@ -1,0 +1,43 @@
+.navi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.navi button {
+  width: 100px;
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.navi p {
+  font-weight: bold;
+  font-size: 32px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#leftTime {
+  font-size: 40px;
+}
+
+.mole {
+  cursor: pointer;
+}
+
+.fade {
+  animation: fade 0.3s ease-out both;
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+}
