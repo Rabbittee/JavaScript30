@@ -44,6 +44,14 @@
   width: 100%;
 }
 
+.flex {
+  display: flex;
+}
+
+.text-white {
+  color: #fff;
+}
+
 .player__icon {
   width: 48px;
 }
