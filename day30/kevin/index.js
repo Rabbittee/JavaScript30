@@ -1,10 +1,14 @@
 const select = (selector) => document.querySelector(selector);
 const selectAll = (selector) => document.querySelectorAll(selector);
 
-class Score {
-  constructor() {
+class GameState {
+  constructor(secondsOfRound) {
     this.score = 0;
+    this.secondsOfRound = secondsOfRound;
+    this.leftTime = secondsOfRound;
   }
+
+  countdownIntervalId = null;
 
   resetScore() {
     this.score = 0;
@@ -13,38 +17,22 @@ class Score {
   addScore(step) {
     this.score = Math.max(this.score + step, 0);
   }
-}
 
-class GamePlay extends Score {
-  constructor(secondsOfRound) {
-    super();
-    this.secondsOfRound = secondsOfRound;
-    this.leftTime = secondsOfRound;
-  }
-
-  intervalId = null;
-
-  gameStart() {
-    this.gameReset();
-    this.countDown();
-  }
-
-  gameReset() {
-    super.resetScore();
+  resetTime() {
     this.leftTime = this.secondsOfRound;
-    if (this.intervalId !== null) {
+    if (this.countdownIntervalId !== null) {
       this.handleClearInterval();
     }
   }
 
   handleClearInterval() {
-    clearInterval(this.intervalId);
-    this.intervalId = null;
+    clearInterval(this.countdownIntervalId);
+    this.countdownIntervalId = null;
   }
 
-  countDown() {
+  countDown(fn) {
     const dealTime = () => {
-      this.displayTime();
+      fn();
       if (this.leftTime <= 0) {
         this.handleClearInterval();
       }
@@ -52,7 +40,23 @@ class GamePlay extends Score {
     };
 
     dealTime();
-    this.intervalId = setInterval(dealTime, 1000);
+    this.countdownIntervalId = setInterval(dealTime, 1000);
+  }
+}
+
+class GamePlay extends GameState {
+  constructor(secondsOfRound) {
+    super(secondsOfRound);
+  }
+
+  gameStart() {
+    this.gameReset();
+    this.countDown(this.displayTime.bind(this));
+  }
+
+  gameReset() {
+    super.resetScore();
+    super.resetTime();
   }
 
   handleScore(step) {
