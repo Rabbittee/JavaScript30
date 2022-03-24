@@ -1,0 +1,57 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 48px;
+  background-color: blue;
+}
+
+.progress {
+  position: relative;
+  display: flex;
+  flex-basis: 100%;
+  height: 5px;
+  width: 100%;
+  transition: height 0.3s;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.progress__filled {
+  height: 25px;
+  width: 50%;
+  background: #ffc600;
+  flex: 0;
+  flex-basis: 50%;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.player__video {
+  max-width: 768px;
+  width: 85%;
+}
+
+.player__controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.player__icon {
+  width: 48px;
+}
